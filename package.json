@@ -1,0 +1,12 @@
+{
+  "name": "spacex-ipo-playbook",
+  "version": "1.0.0",
+  "description": "Interactive bilingual (EN/ES) phase-based hold/sell playbook for the SpaceX IPO index-inclusion window.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "npx serve ."
+  },
+  "license": "MIT",
+  "private": true
+}
