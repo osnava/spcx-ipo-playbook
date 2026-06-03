@@ -97,28 +97,42 @@ export const PHASES = [
     date: "~JUN 12 → ~JUL 7",
     headline: t("Hold, but watch. Forced buying still supports the market.", "Mantén, pero vigila. La compra forzada aún sostiene al mercado."),
     concept: t(
-      "Index funds do buy SPCX, but the classic 'index pop' has largely faded (addition returns ~0–1% in 2010–2020) — active investors supply the shares. The real edge is the short-seasoning setup: forced buyers pay up near inclusion and prices can unwind after. Reversal risk concentrates once this buying exhausts.",
-      "Los fondos indexados sí compran SPCX, pero el clásico 'salto por inclusión' casi desapareció (retornos de adición ~0–1% en 2010–2020) — los activos aportan las acciones. La verdadera ventaja es la maduración corta: los compradores forzados pagan caro cerca de la inclusión y el precio puede deshacerse después. El riesgo de reversión se concentra cuando esa compra se agota."
+      "The Nasdaq rule change is a <b>symptom of the new regime</b>: a private megacap can scale to ~$1.75T and skip the years of public seasoning the old manual demanded. Index funds buy SPCX, but the classic 'index pop' has faded (addition returns ~0–1% in 2010–2020) — the real edge is the short-seasoning setup: forced buyers pay up near inclusion and prices can unwind once that demand exhausts.",
+      "El cambio de regla de Nasdaq es un <b>síntoma del nuevo régimen</b>: una megacap privada puede escalar a ~$1.75B y saltarse los años de maduración pública que exigía el viejo manual. Los fondos indexados compran SPCX, pero el clásico 'salto por inclusión' se desvaneció (retornos de adición ~0–1% en 2010–2020) — la verdadera ventaja es la maduración corta: los compradores forzados pagan caro cerca de la inclusión y el precio puede deshacerse cuando esa demanda se agota."
     ),
     drivers: [
       {
-        label: t("Fast-entry rule · adopted", "Regla de entrada rápida · adoptada"),
+        label: t("Nasdaq-100 Fast Entry · live May 1, 2026", "Nasdaq-100 Entrada Rápida · vigente 1 may 2026"),
         text: t(
-          "<b>Live since May 1, 2026:</b> a top-40-by-size newcomer joins the Nasdaq-100 ~15 trading days after debut (5 days' notice, 3× float cap). Names outside the top-40 still wait the 3-month seasoning. SPCX would clearly qualify by size.",
-          "<b>Vigente desde el 1 may 2026:</b> un recién llegado del top-40 por tamaño entra al Nasdaq-100 ~15 días hábiles tras el debut (aviso de 5 días, tope de 3× float). Los de fuera del top-40 siguen esperando la maduración de 3 meses. SPCX calificaría con holgura por tamaño."
+          "A newcomer in the <b>NDX top-40 by size (~$100B+)</b> is evaluated from its 7th trading day and joins ~<b>15 business days</b> after debut — <b>no seasoning, no 10% minimum-float requirement</b>. SPCX qualifies by size with room to spare.",
+          "Un recién llegado en el <b>top-40 por tamaño del NDX (~$100B+)</b> se evalúa desde su 7º día de cotización y entra ~<b>15 días hábiles</b> tras el debut — <b>sin maduración, sin mínimo de float del 10%</b>. SPCX califica por tamaño con holgura."
         ),
       },
       {
-        label: t("Low-float amplifier", "Amplificador de bajo float"),
+        label: t("Timeline math", "Cuentas del calendario"),
         text: t(
-          "A low float + weighting multiplier concentrates forced demand on SPCX itself. The spillover that supports your broad book (QQQ/tech) is real but <b>modest</b> — don't bank on a large index-driven lift.",
-          "Un float bajo + multiplicador de ponderación concentra la demanda forzada en el propio SPCX. El derrame que sostiene tu cartera amplia (QQQ/tech) es real pero <b>modesto</b> — no cuentes con un gran empujón por inclusión."
+          "Debut ~Jun 12 + 15 business days ≈ <b>Jul 3–7</b>. That date is the hinge: it sets when forced demand stops and Phase 03 price discovery begins.",
+          "Debut ~12 jun + 15 días hábiles ≈ <b>3–7 jul</b>. Esa fecha es la bisagra: marca cuándo se detiene la demanda forzada y empieza el descubrimiento de precio de la Fase 03."
+        ),
+      },
+      {
+        label: t("Not immediate elsewhere", "No es inmediato en otros índices"),
+        text: t(
+          "Only the Nasdaq-100 is fast. <b>S&P 500</b> is ~Q4 2026 / 2027 (needs the ~6-month seasoning waiver + the profitability rule — SpaceX lost ~$4.9B in 2025). <b>Russell 1000</b> waits for the Sep or Dec 2026 reconstitution.",
+          "Solo el Nasdaq-100 es rápido. <b>S&P 500</b> es ~Q4 2026 / 2027 (requiere el waiver de maduración ~6 meses + la regla de rentabilidad — SpaceX perdió ~$4.9B en 2025). <b>Russell 1000</b> espera a la reconstitución de sep o dic 2026."
+        ),
+      },
+      {
+        label: t("Sizing the mechanical flow", "Dimensionando el flujo mecánico"),
+        text: t(
+          "Forced buying from QQQ/SPY/Russell trackers is roughly <b>$15–30B conservative</b>, with aggressive scenarios <b>>$200B</b>. Real, but the spillover to your broad book is modest — don't bank on a large index-driven lift.",
+          "La compra forzada de los trackers de QQQ/SPY/Russell ronda <b>$15–30B conservador</b>, con escenarios agresivos <b>>$200B</b>. Real, pero el derrame a tu cartera amplia es modesto — no cuentes con un gran empujón por inclusión."
         ),
       },
     ],
     action: t(
-      "Get the real hedge live: SMH puts (cover SMH + EWY at once) and a VIX call spread for the sentiment tail. Decide exact sell levels now.",
-      "Activa la cobertura real: puts de SMH (cubren SMH + EWY de una vez) y un call spread de VIX para la cola de sentimiento. Define los niveles exactos de venta ahora."
+      "Get the real hedge ready, but mind the instrument: a <b>3× leveraged ETF (SOXS) bleeds to daily-reset decay</b> if you carry it 5+ weeks from June. Prefer a <b>SMH put spread (Jul/Aug)</b> — fixed cost, no decay, and one position covers SMH + EWY. Keep SOXS as a Phase-03 execution tool, not passive insurance. Decide exact sell levels now.",
+      "Prepara la cobertura real, pero cuida el instrumento: un <b>ETF apalancado 3× (SOXS) sangra por decay de reseteo diario</b> si lo cargas 5+ semanas desde junio. Prefiere un <b>put spread de SMH (jul/ago)</b> — costo fijo, sin decay, y una posición cubre SMH + EWY. Deja SOXS como herramienta de ejecución en Fase 03, no como seguro pasivo. Define los niveles exactos de venta ahora."
     ),
     watch: t(
       "Do not short the pop or panic-sell here. Mark ~Jul 7 — the day forced buying exhausts.",
@@ -132,32 +146,32 @@ export const PHASES = [
     date: t("~JUL 7 ONWARD", "~7 JUL EN ADELANTE"),
     headline: t("The trigger. If it rolls over, trim in priority order.", "El disparador. Si se da la vuelta, recorta en orden de prioridad."),
     concept: t(
-      "Forced demand is spent and real price discovery takes over. This is where the VinFast collapse template lives.",
-      "La demanda forzada se agotó y toma el control el descubrimiento de precio real. Aquí vive el patrón de colapso de VinFast."
+      "Forced demand is spent and real price discovery takes over. The transferable principle from every prior mania: <b>forced demand always exhausts, and then real price discovery rules</b> — no single precedent required.",
+      "La demanda forzada se agotó y toma el control el descubrimiento de precio real. El principio transferible de toda manía previa: <b>toda demanda forzada se agota y entonces manda el descubrimiento de precio real</b> — no hace falta un precedente concreto."
     ),
     drivers: [
       {
-        label: t("The VinFast precedent", "El precedente VinFast"),
+        label: t("Correction vs thesis break", "Corrección vs ruptura de tesis"),
         text: t(
-          "An ultra-low-float name pumped by inclusion buying ran ~700% to ~$200B, then collapsed from ~$17 to ~$3.",
-          "Un nombre de float ultra-bajo inflado por compra de inclusión subió ~700% hasta ~$200B, luego colapsó de ~$17 a ~$3."
+          "Distinguish a <b>technical correction inside the secular trend</b> (buy the dip) from a <b>thesis break</b> (adoption/revenue no longer validates the multiple → exit). Technical triggers only measure the first; the second needs reading fundamentals.",
+          "Distingue una <b>corrección técnica dentro de la tendencia secular</b> (compra la caída) de una <b>ruptura de tesis</b> (la adopción/revenue ya no valida el múltiplo → sal). Los disparadores técnicos solo miden lo primero; lo segundo requiere leer fundamentos."
         ),
       },
       {
-        label: t("Two paths", "Dos rutas"),
+        label: t("SMH ↔ SPCX · mechanical + sentiment", "SMH ↔ SPCX · mecánico + sentimiento"),
         text: t(
-          "Still rising → do nothing, let the hedge ride as insurance. Confirmed reversal → execute the sell sequence below.",
-          "Sigue subiendo → no hagas nada, deja que la cobertura corra como seguro. Reversión confirmada → ejecuta la secuencia de venta de abajo."
+          "<b>Mechanical:</b> Fast Entry with no removal forces NDX funds to buy SPCX, trimming every constituent proportionally — NVDA/AVGO/AMD sit in NDX <i>and</i> atop SMH → proportional selling hits SMH. <b>Sentiment:</b> same AI narrative (SMH = compute layer, SPCX/Starlink = app/connectivity).",
+          "<b>Mecánico:</b> la Entrada Rápida sin remoción obliga a fondos NDX a comprar SPCX, recortando proporcionalmente a cada constituyente — NVDA/AVGO/AMD están en NDX <i>y</i> al tope de SMH → la venta proporcional golpea SMH. <b>Sentimiento:</b> misma narrativa IA (SMH = capa cómputo, SPCX/Starlink = capa app/conectividad)."
         ),
       },
     ],
     action: t(
-      "Sell order: BTC → EWY → SMH → ARKQ/ROBO → URA. Keep ISAC (hedged) and rotate proceeds into gold (XAUUSD) as the haven. Trim in tranches, not all at once.",
-      "Orden de venta: BTC → EWY → SMH → ARKQ/ROBO → URA. Conserva ISAC (cubierto) y rota el efectivo a oro (XAUUSD) como refugio. Recorta en tramos, no todo de golpe."
+      "Confirmed reversal → sell in order: <b>BTC → ARKQ → EWY</b> (noise/liquidity, cut for real) → <b>SMH → ROBO → URA</b> (structural signal, trim only). Keep ISAC (hedged). Stagger into gold — <b>gold is panic liquidity, not conviction</b>: it gets sold for margin calls on day 1 and recovers after, so don't rotate all at once. Still rising → do nothing, let the hedge ride.",
+      "Reversión confirmada → vende en orden: <b>BTC → ARKQ → EWY</b> (ruido/liquidez, recorta de verdad) → <b>SMH → ROBO → URA</b> (señal estructural, solo trim). Conserva ISAC (cubierto). Escalona hacia el oro — <b>el oro es liquidez de pánico, no convicción</b>: se vende por margin calls el día 1 y recupera después, así que no rotes todo de golpe. Sigue subiendo → no hagas nada, deja correr la cobertura."
     ),
     watch: t(
-      "The link to your book is sentiment-driven, not mechanical. Confirm the move before acting rather than front-running it.",
-      "El vínculo con tu cartera es por sentimiento, no mecánico. Confirma el movimiento antes de actuar en vez de adelantarte."
+      "You're hedging the <b>timing risk of the narrative</b> (temporary reversal), not the structural thesis — tactical, temporary insurance, not a short on the secular trend. Confirm the move before acting rather than front-running it.",
+      "Estás cubriendo el <b>riesgo de timing de la narrativa</b> (reversión temporal), no la tesis estructural — seguro táctico y temporal, no un corto contra la tendencia secular. Confirma el movimiento antes de actuar en vez de adelantarte."
     ),
   },
 ];
@@ -167,6 +181,10 @@ export const TRIGGERS = [
     "SPCX rompe por debajo de su precio de debut / semana de inclusión con <b>volumen creciente</b>"),
   t("VIX pushes above <b>~20–22</b> (from ~17 now)",
     "El VIX sube por encima de <b>~20–22</b> (desde ~17 ahora)"),
-  t("Your own names (SMH, BTC) making <b>lower lows</b> while SPCX falls",
-    "Tus propios nombres (SMH, BTC) marcando <b>mínimos más bajos</b> mientras SPCX cae"),
+  t("<b>Cleaner cross-confirmation:</b> BTC leading down + VIX &gt;20–22 + URA/EWY breaking — clearer than waiting for SMH to make lower lows alone",
+    "<b>Confirmación cruzada más limpia:</b> BTC liderando a la baja + VIX &gt;20–22 + URA/EWY rompiendo — más nítido que esperar a que SMH haga mínimos más bajos sola"),
+  t("These triggers are <b>lagging</b> — the hedge covers the initial gap, so the <b>instrument and size of the cover matter more</b> than the exact trigger level",
+    "Estos disparadores son <b>rezagados</b> — la cobertura cubre el gap inicial, así que <b>el instrumento y el tamaño de la cobertura importan más</b> que el nivel exacto del disparador"),
+  t("Context: the <b>Jun 16–17 FOMC</b> is the vol catalyst between debut and inclusion",
+    "Contexto: el <b>FOMC del 16–17 jun</b> es el catalizador de volatilidad entre el debut y la inclusión"),
 ];

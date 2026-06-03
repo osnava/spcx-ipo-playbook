@@ -8,7 +8,6 @@ export const UI = {
   ),
   langToggle: t("Español", "English"),
   catalysts: [
-    { label: t("S&P RULE", "REGLA S&P"), date: "JUN 8" },
     { label: t("DEBUT", "DEBUT"), date: "~JUN 12" },
     { label: t("FOMC", "FOMC"), date: "JUN 16–17" },
     { label: t("FAST-ENTRY", "ENTRADA RÁPIDA"), date: "~JUL 3–7" },
@@ -17,7 +16,9 @@ export const UI = {
   sectionDrivers: t("What's happening", "Qué está pasando"),
   sectionAction: t("Do this", "Haz esto"),
   sectionWatch: t("Watch for", "Vigila"),
-  holdingsLabel: t("Holdings · sell priority order", "Posiciones · orden de prioridad de venta"),
+  frameworkLabel: t("Narrative discrimination framework", "Marco de discriminación de narrativas"),
+  holdingsLabel: t("My real book · sell priority order", "Mi cartera real · orden de prioridad de venta"),
+  closingLabel: t("How to read this", "Cómo leer esto"),
   triggerTitle: t(
     'Reversal confirmation — define "rolls over" before July',
     'Confirmación de reversión — define "darse la vuelta" antes de julio'

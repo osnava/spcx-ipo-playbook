@@ -17,3 +17,6 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# Working notes / task specs (not part of the published site)
+spcx-playbook-tasks.md

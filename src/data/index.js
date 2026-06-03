@@ -3,3 +3,4 @@
 export { UI } from "./ui.js";
 export { PHASES, TRIGGERS } from "./phases.js";
 export { HOLDINGS } from "./holdings.js";
+export { FRAMEWORK, CLASSIFICATION, CLOSING } from "./narrative.js";

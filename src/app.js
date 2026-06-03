@@ -1,6 +1,6 @@
 /* app.js — renders the playbook from the data layer and wires interactions.
    State: current phase (ph0..ph3) + current language (en|es). */
-import { UI, PHASES, TRIGGERS, HOLDINGS } from "./data/index.js";
+import { UI, PHASES, TRIGGERS, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING } from "./data/index.js";
 
 let lang = "en";
 let activePhase = "ph1";
@@ -90,6 +90,43 @@ function renderTrigger() {
     </ul>`;
 }
 
+function renderFramework() {
+  $("#frameworkLabel").innerHTML = tr(UI.frameworkLabel);
+  const cards = FRAMEWORK.cards
+    .map(
+      (c) => `
+      <div class="fw-card">
+        <div class="fw-cl">${tr(c.label)}</div>
+        <div class="fw-ct">${tr(c.text)}</div>
+      </div>`
+    )
+    .join("");
+  $("#framework").innerHTML = `
+    <div class="fw-lead">${tr(FRAMEWORK.lead)}</div>
+    <div class="fw-cards">${cards}</div>`;
+}
+
+function renderClassification() {
+  const groups = CLASSIFICATION.groups
+    .map(
+      (g) => `
+      <div class="cls-card ${STATE_CLASS[g.tone]}">
+        <div class="cls-label">${tr(g.label)}</div>
+        <div class="cls-names mono">${g.names}</div>
+        <div class="cls-note">${tr(g.note)}</div>
+      </div>`
+    )
+    .join("");
+  $("#classification").innerHTML = `
+    <div class="cls-grid">${groups}</div>
+    <div class="cls-conc">${tr(CLASSIFICATION.concentration)}</div>`;
+}
+
+function renderClosing() {
+  $("#closingLabel").innerHTML = tr(UI.closingLabel);
+  $("#closing").innerHTML = CLOSING.map((p) => `<p>${tr(p)}</p>`).join("");
+}
+
 function renderHoldings() {
   $("#holdingsLabel").innerHTML = tr(UI.holdingsLabel);
   const host = $("#holdings");
@@ -136,7 +173,10 @@ function renderAll() {
   renderPhaseCards();
   renderDirective();
   renderTrigger();
+  renderFramework();
   renderHoldings();
+  renderClassification();
+  renderClosing();
   renderFooter();
 }
 

@@ -118,6 +118,46 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .hold-detail-inner{padding:0 18px 16px 64px;font-size:13.5px;line-height:1.6;color:#aebbd9}
 .hold-detail-inner b{color:var(--txt)}
 
+/* --- Narrative discrimination framework (TASK 3) --- */
+.framework{border:1px solid var(--accent);border-radius:12px;background:
+  linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,transparent),transparent),var(--panel);
+  padding:22px;margin-bottom:26px}
+.fw-lead{font-size:16px;line-height:1.55;color:var(--txt);margin-bottom:18px;
+  border-left:3px solid var(--accent);padding-left:14px}
+.fw-lead b{color:#fff}
+.fw-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:680px){.fw-cards{grid-template-columns:1fr}}
+.fw-card{border:1px solid var(--line);border-radius:8px;background:var(--panel2);padding:14px 16px}
+.fw-cl{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.5px;
+  text-transform:uppercase;color:var(--accent);margin-bottom:8px;line-height:1.3}
+.fw-ct{font-size:13.5px;line-height:1.6;color:#aebbd9}
+.fw-ct b{color:var(--txt)}
+
+/* --- Signal vs noise classification (TASK 6) --- */
+.classification{margin:14px 0 26px}
+.cls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+@media(max-width:680px){.cls-grid{grid-template-columns:1fr}}
+.cls-card{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:13px 15px;
+  border-left-width:3px}
+.cls-card.st-sell{border-left-color:var(--hot)}
+.cls-card.st-watch{border-left-color:var(--warn)}
+.cls-card.st-keep{border-left-color:var(--ice)}
+.cls-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:7px}
+.cls-card.st-sell .cls-label{color:var(--hot)}
+.cls-card.st-watch .cls-label{color:var(--warn)}
+.cls-card.st-keep .cls-label{color:var(--ice)}
+.cls-names{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.cls-note{font-size:12.5px;line-height:1.5;color:var(--dim)}
+.cls-conc{font-size:13px;line-height:1.6;color:#aebbd9;border:1px dashed var(--line);
+  border-radius:8px;padding:13px 15px;background:var(--panel)}
+.cls-conc b{color:var(--txt)}
+
+/* --- Closing "how to read this" (TASK 8) --- */
+.closing{margin-bottom:10px}
+.closing p{font-size:14px;line-height:1.65;color:#aebbd9;margin-bottom:12px}
+.closing p:last-child{margin-bottom:0}
+.closing b{color:var(--txt)}
+
 footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
   font-size:11.5px;color:var(--dim);line-height:1.6}
 footer b{color:#9fb0d4}
