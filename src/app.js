@@ -29,6 +29,12 @@ const chgSpan = (chg, invert) => {
   return `<span class="tchg ${up ? "up" : "down"}">${chg >= 0 ? "▲" : "▼"} ${fmtPct(chg)}</span>`;
 };
 
+let lastCellsHTML = ""; // guards against needless track repaints
+
+/* Build the tape once (tag + track), then on every later call only patch the
+   tag and the track's children. Replacing host.innerHTML would recreate the
+   .tape-track element and restart its scroll animation — that was the ~1/min
+   flicker. Keeping the same track element lets the animation run uninterrupted. */
 function renderTape() {
   const host = $("#tape");
   if (!host) return;
@@ -59,13 +65,20 @@ function renderTape() {
       `<span class="tchip ${STATE_CLASS[s.tone]}">${tr(s.label)}</span></span>`;
   }).join("");
 
-  const tag = live > 0
+  if (!host.querySelector(".tape-track")) {
+    host.innerHTML = `<div class="tape-tag"></div><div class="tape-track"></div>`;
+    lastCellsHTML = "";
+  }
+
+  host.querySelector(".tape-tag").innerHTML = live > 0
     ? `<span class="tlive"></span>${tr(TAPE_LIVE)} ${live}/${total} · ${new Date().toLocaleTimeString("en-GB")}`
     : tr(TAPE_SNAPSHOT);
+
   const cells = market + book;
-  host.innerHTML =
-    `<div class="tape-tag">${tag}</div>` +
-    `<div class="tape-track">${cells}${cells}</div>`;
+  if (cells !== lastCellsHTML) {           // only touch the track when content actually changed
+    host.querySelector(".tape-track").innerHTML = cells + cells;
+    lastCellsHTML = cells;
+  }
 }
 
 function renderHeader() {
