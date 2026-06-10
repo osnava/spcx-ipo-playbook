@@ -121,6 +121,14 @@ This is the **most solid** leg of the playbook.
 - This is a **distinct index from the S&P 500** — it does *not* hinge on the
   profitability waiver. (The earlier confusion between the two was the right instinct
   to untangle: S&P = *eligibility/profitability*; Nasdaq-100 = *timing/seasoning*.)
+- **Mechanics of the actual buy (refinement):** debut Jun 12 + ~15 trading days →
+  effective **~Jul 7** (holidays Jun 19 / Jul 3 push it to the back of the Jul 2–7
+  range). Index funds buy in **one closing auction the session *before* the effective
+  date** (the index only holds SPCX from the effective open), not spread across the
+  day — so the forced bid is a **single, float-capped print**, not a multi-day tailwind.
+  Nasdaq's official notice (**≥5 trading days ahead, ~Jun 29–30**) names the exact
+  effective date; the buy is then "effective − 1 session," and Phase 03 begins the next
+  session.
 
 ---
 

@@ -109,10 +109,10 @@ export const PHASES = [
         ),
       },
       {
-        label: t("Timeline math", "Cuentas del calendario"),
+        label: t("Timeline math · the buy is ONE auction", "Cuentas · la compra es UNA subasta"),
         text: t(
-          "Debut ~Jun 12 + 15 business days ≈ <b>Jul 3–7</b>. That date is the hinge: it sets when forced demand stops and Phase 03 price discovery begins.",
-          "Debut ~12 jun + 15 días hábiles ≈ <b>3–7 jul</b>. Esa fecha es la bisagra: marca cuándo se detiene la demanda forzada y empieza el descubrimiento de precio de la Fase 03."
+          "Debut Jun 12 + ~15 trading days → effective <b>~Jul 7</b> (holidays Jun 19 & Jul 3 push it to the back of the Jul 2–7 range). Funds don't buy on the effective day — they buy in a <b>single closing auction the session before</b> (the index only holds SPCX from the effective open). So the forced bid is <b>one print, not a multi-day tailwind</b>: effective Mon → buy the Fri before; effective Tue Jul 7 → buy Mon Jul 6 close.",
+          "Debut 12 jun + ~15 días de cotización → efectivo <b>~7 jul</b> (los feriados 19 jun y 3 jul lo empujan al final del rango 2–7 jul). Los fondos no compran el día efectivo — compran en <b>una sola subasta de cierre la sesión anterior</b> (el índice solo tiene SPCX desde la apertura efectiva). Así que el bid forzado es <b>un único print, no un viento de cola de varios días</b>: efectivo lun → compra el vie previo; efectivo mar 7 jul → compra en el cierre del lun 6 jul."
         ),
       },
       {
@@ -123,10 +123,10 @@ export const PHASES = [
         ),
       },
       {
-        label: t("Sizing the mechanical flow", "Dimensionando el flujo mecánico"),
+        label: t("Sizing the flow · float-capped", "Dimensionando el flujo · topado por float"),
         text: t(
-          "Forced buying from QQQ/SPY/Russell trackers is roughly <b>$15–30B conservative</b>, with aggressive scenarios <b>>$200B</b>. Real, but the spillover to your broad book is modest — don't bank on a large index-driven lift.",
-          "La compra forzada de los trackers de QQQ/SPY/Russell ronda <b>$15–30B conservador</b>, con escenarios agresivos <b>>$200B</b>. Real, pero el derrame a tu cartera amplia es modesto — no cuentes con un gran empujón por inclusión."
+          "Forced buying is <b>QQQ-trackers only</b> now (the S&P leg was rejected) — roughly <b>$15–30B conservative</b>. And SPCX floats only ~7%, so the <b>3× float cap limits its index weight</b> → the auction bid is size-capped. Real, but a single capped print: don't bank on a large index-driven lift.",
+          "La compra forzada es ahora <b>solo de trackers de QQQ</b> (la pata S&P fue rechazada) — ~<b>$15–30B conservador</b>. Y SPCX flota solo ~7%, así que el <b>tope de float 3× limita su peso en el índice</b> → el bid de la subasta queda topado. Real, pero un único print acotado: no cuentes con un gran empujón por inclusión."
         ),
       },
     ],
@@ -135,8 +135,8 @@ export const PHASES = [
       "Prepara la cobertura real, pero cuida el instrumento: un <b>ETF apalancado 3× (SOXS) sangra por decay de reseteo diario</b> si lo cargas 5+ semanas desde junio. Prefiere un <b>put spread de SMH (jul/ago)</b> — costo fijo, sin decay, y una posición cubre SMH + EWY. Deja SOXS como herramienta de ejecución en Fase 03, no como seguro pasivo. Define los niveles exactos de venta ahora."
     ),
     watch: t(
-      "Do not short the pop or panic-sell here. Mark ~Jul 7 — the day forced buying exhausts.",
-      "No te pongas corto en el pico ni vendas por pánico aquí. Marca el ~7 Jul — el día en que la compra forzada se agota."
+      "Don't short the pop or panic-sell here. The trigger is Nasdaq's official inclusion notice — it lands <b>~Jun 29–30 (≥5 trading days ahead)</b> and names the exact effective date. Forced demand peaks in the <b>auction the session before</b> it and exhausts at that close; Phase 03 opens the very next session.",
+      "No te pongas corto en el pico ni vendas por pánico aquí. El disparador es el aviso oficial de inclusión de Nasdaq — llega <b>~29–30 jun (≥5 días de cotización antes)</b> y nombra la fecha efectiva exacta. La demanda forzada hace pico en la <b>subasta de la sesión anterior</b> y se agota en ese cierre; la Fase 03 abre la sesión siguiente."
     ),
   },
   {

@@ -10,7 +10,7 @@ export const UI = {
   catalysts: [
     { label: t("DEBUT", "DEBUT"), date: "JUN 12" },
     { label: t("FOMC", "FOMC"), date: "JUN 16–17" },
-    { label: t("FAST-ENTRY", "ENTRADA RÁPIDA"), date: "~JUL 3–7" },
+    { label: t("NDX INCLUSION", "INCLUSIÓN NDX"), date: "~JUL 7" },
   ],
   sectionConcept: t("The idea", "La idea"),
   sectionDrivers: t("What's happening", "Qué está pasando"),
