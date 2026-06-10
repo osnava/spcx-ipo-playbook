@@ -8,7 +8,7 @@ export const UI = {
   ),
   langToggle: t("Español", "English"),
   catalysts: [
-    { label: t("DEBUT", "DEBUT"), date: "~JUN 12" },
+    { label: t("DEBUT", "DEBUT"), date: "JUN 12" },
     { label: t("FOMC", "FOMC"), date: "JUN 16–17" },
     { label: t("FAST-ENTRY", "ENTRADA RÁPIDA"), date: "~JUL 3–7" },
   ],

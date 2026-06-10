@@ -4,3 +4,5 @@ export { UI } from "./ui.js";
 export { PHASES, TRIGGERS } from "./phases.js";
 export { HOLDINGS } from "./holdings.js";
 export { FRAMEWORK, CLASSIFICATION, CLOSING } from "./narrative.js";
+export { MARKET, TAPE_LIVE, TAPE_SNAPSHOT } from "./market.js";
+export { startTape } from "./quotes.js";

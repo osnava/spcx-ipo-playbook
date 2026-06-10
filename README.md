@@ -30,12 +30,21 @@ spacex-ipo-playbook/
         ├── index.js        # barrel — single import surface
         ├── i18n.js         # t(en, es) helper
         ├── ui.js           # chrome strings, catalysts, footer
+        ├── market.js       # top "tape" config — symbols + snapshot fallbacks
+        ├── quotes.js       # live-quote fetch layer (Yahoo + Coinbase, cached/polled)
         ├── phases.js       # the 4 phases + reversal checklist
         └── holdings.js     # the 8 positions + per-phase state
 ```
 
 **Separation of concerns:** markup (`index.html`) · behavior (`src/app.js`) ·
 presentation (`src/styles`) · content (`src/data`). `app.js` never hard-codes text.
+
+**Live tape:** the scrolling ticker pulls real quotes from keyless, CORS-enabled
+endpoints — Yahoo Finance's chart API for stocks/indices, Coinbase for BTC — polled
+once a minute with a localStorage cache, throttled concurrency, and tab-visibility
+pausing. No API key (so nothing leaks in a public repo). Any symbol that can't be
+fetched (CORS blocked, pre-IPO SPCX, off-hours) falls back to the snapshot baked into
+`market.js`, and the tag shows how many cells are live (`LIVE 7/14`).
 
 ## Editing
 
@@ -56,12 +65,16 @@ presentation (`src/styles`) · content (`src/data`). `app.js` never hard-codes t
 | 02 · Inclusion Window | ~Jun 12 → ~Jul 7 | Hold + watch; modest index-buying support, short-seasoning froth risk |
 | 03 · Post-Inclusion | ~Jul 7 onward | The trigger; trim in priority order if it rolls over |
 
-Dates/mechanics reflect reporting as of late May 2026. The S&P 500 MegaCap
-profitability-waiver (consultation MR4292) was **proposed, not confirmed** (watch
-June 8). The Nasdaq-100 fast-entry rule (top-40, ~15 trading days) **is adopted**
-(effective May 1, 2026). The classic broad "index effect" has largely faded, so
-index-buying support is **modest**, not a guaranteed pop; the "strong-hands flush"
-thesis is discretionary analysis with no supporting evidence found.
+Dates/mechanics updated as of **June 10, 2026**. The S&P 500 MegaCap
+profitability-waiver (consultation MR4292) was **rejected on June 4** — the S&P 500
+inclusion leg is off the table until SpaceX is GAAP-profitable. SPCX **priced at $135
+(~$1.77T, full $75B raise)** with a **Nasdaq debut June 12**. The Nasdaq-100 fast-entry
+rule (top-40, ~15 trading days) **is adopted** (effective May 1, 2026) and is the only
+surviving forced-buying leg. A **semiconductor-led shakeout was already underway** into
+the IPO (Nasdaq −4.2% Jun 5; S&P below the 7,500 trigger, VIX ~21 by Jun 9). The classic
+broad "index effect" has largely faded, so index-buying support is **modest**, not a
+guaranteed pop. See the dated UPDATE block in
+[`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md).
 
 See [`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md) for the fact-checked, cited
 breakdown of every claim (✅ fact · 🟡 overstated · ⚠️ contingent · ❌ wrong).

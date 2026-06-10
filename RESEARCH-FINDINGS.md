@@ -10,6 +10,46 @@ fact-checking (24 sources fetched, 76 claims extracted, 25 verified, 2 refuted).
 
 ---
 
+## UPDATE — 2026-06-10 (resolves the open questions)
+
+Three of the four open questions below are now **settled**, and the picture shifted:
+
+1. **S&P MegaCap waiver → ❌ REJECTED (Jun 4 2026).** S&P DJI closed consultation
+   MR4292 with **no changes** to the financial-viability, seasoning, or float rules —
+   "exceptions… should not be granted solely based on market capitalization." **The
+   S&P 500 leg of the forced-buying thesis is dead** until SpaceX is GAAP-profitable
+   (−$4.9B in 2025 → realistically 2027+). The Nasdaq-100 fast-entry rule is a
+   *separate, already-adopted* rule and is **unaffected** — so inclusion support is now
+   **QQQ-trackers only**, smaller than the two-index case.
+   ([S&P DJI release](https://press.spglobal.com/2026-06-04-S-P-Dow-Jones-Indices-Consultation-on-Treatment-of-MegaCap-Companies-Results))
+2. **SPCX priced → ✅ STRONG.** $135/share, **555.6M shares, full $75B raise, ~$1.77T**
+   valuation; **Nasdaq debut Jun 12**, ticker SPCX; ~7% float (violent two-way risk).
+   At target → institutions did *not* balk on the deal.
+   ([CNBC](https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html))
+3. **The "shakeout" → ✅ ALREADY UNDERWAY, and it's semiconductor-led** (worst case for
+   this book). Jun 5: Nasdaq **−4.2%** (worst since Apr '25) on Broadcom's weak AI-chip
+   outlook + a hot jobs print (172k vs 80k) flipping the Fed to **hike-risk**; Iran
+   tension added a leg Jun 8–9. **Jun 9 close: S&P 7,387 · Nasdaq 25,679 · VIX 20.9.**
+   Vs the playbook's own triggers: S&P is **already below the 7,500** Phase-00 line and
+   VIX is **in the 20–22** zone. Vs Cava's flush map (S&P ~7,000 / Nasdaq ~27,000):
+   **Nasdaq has overshot below 27k while S&P holds above 7k** — a real divergence; treat
+   levels as a dashboard, not a script. This is a **macro/semi flush layered on the IPO
+   calendar**, *not* the post-inclusion forced-demand unwind — do **not** fire the
+   Phase-03 sell sequence on it.
+   ([CNBC Jun 5](https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html) ·
+   [TheStreet Jun 9](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026))
+4. **FOMC Jun 16–17 (Warsh's first) → bias turned hawkish.** ~97% odds of a hold, but
+   the hot jobs data shifted risk to the **dot-plot / tone** and talk of moving from
+   easing-bias to neutral — a *more* dangerous vol catalyst than first assumed, not less.
+   ([Chase](https://www.chase.com/personal/investments/learning-and-insights/article/kevin-warsh-first-federal-reserve-meeting-as-chair-june-2026))
+
+**Net deployment read:** you're in **Phase 00 right now**, not the easy Phase-01 build-up
+— the flush arrived "first, not after," exactly as Phase 00 warned. The Phase-01
+**add-back gate is NOT met** (brake ON). Phase-00 action stands: hold the book, lean on
+put cover (now pricier at VIX ~21), add no new risk into these dates.
+
+---
+
 ## TL;DR
 
 The SpaceX IPO is a **genuine, in-progress event** — not a rumor. The playbook's

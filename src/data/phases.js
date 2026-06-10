@@ -18,10 +18,10 @@ export const PHASES = [
     ),
     drivers: [
       {
-        label: t("Jun 8 — S&P decision", "8 Jun — decisión S&P"),
+        label: t("S&P decision — REJECTED (Jun 4)", "Decisión S&P — RECHAZADA (4 jun)"),
         text: t(
-          "S&P's <b>MegaCap waiver is a proposal</b> (consultation MR4292; comments closed May 28) that <b>may</b> take effect before the Jun 8 open if adopted — it never names SpaceX. If it's rejected or delayed, the forced-buying thesis weakens and froth can unwind.",
-          "La <b>exención MegaCap es una propuesta</b> (consulta MR4292; comentarios cerrados el 28 may) que <b>podría</b> entrar en vigor antes de la apertura del 8 jun si se aprueba — no menciona a SpaceX. Si se rechaza o retrasa, la tesis de compra forzada se debilita y la espuma puede deshacerse."
+          "<b>Resolved: S&P DJI rejected the MegaCap waiver</b> (MR4292) on Jun 4 — no change to the profitability, seasoning, or float rules, \"not granted solely based on market cap.\" So <b>the S&P 500 leg of the forced-buying thesis is dead</b> until SpaceX is GAAP-profitable (it lost ~$4.9B in 2025). Only the Nasdaq-100 fast-entry (a separate, adopted rule) survives.",
+          "<b>Resuelto: S&P DJI rechazó la exención MegaCap</b> (MR4292) el 4 jun — sin cambios a las reglas de rentabilidad, maduración o float, \"no se concede solo por capitalización\". Así que <b>la pata S&P 500 de la tesis de compra forzada está muerta</b> hasta que SpaceX sea rentable GAAP (perdió ~$4.9B en 2025). Solo sobrevive la entrada rápida del Nasdaq-100 (una regla aparte, ya adoptada)."
         ),
       },
       {
@@ -32,10 +32,10 @@ export const PHASES = [
         ),
       },
       {
-        label: t("Cava's flush thesis · unverified", "Tesis de purga de Cava · no verificada"),
+        label: t("Flush already underway · Jun '26", "Purga ya en curso · jun '26"),
         text: t(
-          "Argues 'strong hands' flush to the start of the last up-leg: S&P ~7,000–7,050 (−8%), Nasdaq ~27,000 (−10%), then rip higher. <b>Deep research found no supporting evidence</b> — treat as one analyst's scenario, not a forecast.",
-          "Sostiene que las 'manos fuertes' purgan hasta el inicio de la última onda alcista: S&P ~7,000–7,050 (−8%), Nasdaq ~27,000 (−10%), y luego suben. <b>La investigación no halló evidencia que lo respalde</b> — tómalo como el escenario de un analista, no un pronóstico."
+          "A semi-led selloff hit Jun 5 (Nasdaq −4.2%, worst since Apr '25) on Broadcom's weak AI-chip outlook + a hot jobs print flipping the Fed to hike-risk; Iran tension piled on. By Jun 9: <b>S&P 7,387, Nasdaq 25,679, VIX 20.9</b> — S&P already <b>below the 7,500 trigger</b>. Note vs Cava's map (S&P ~7,000 / Nasdaq ~27,000): <b>Nasdaq has overshot below 27k while S&P holds above 7k</b>. This is a macro/semi flush, not the post-inclusion unwind — don't fire the Phase-03 sell sequence on it.",
+          "Un selloff liderado por semis golpeó el 5 jun (Nasdaq −4.2%, peor desde abr '25) por el flojo pronóstico de chips IA de Broadcom + un dato de empleo fuerte que pasó a la Fed a riesgo de subida; la tensión con Irán sumó. Al 9 jun: <b>S&P 7.387, Nasdaq 25.679, VIX 20,9</b> — S&P ya <b>bajo el disparador de 7.500</b>. Ojo vs el mapa de Cava (S&P ~7.000 / Nasdaq ~27.000): <b>el Nasdaq ya sobrepasó por debajo de 27k mientras el S&P aguanta sobre 7k</b>. Es una purga macro/semis, no el desarme post-inclusión — no dispares la secuencia de venta de la Fase 03 con esto."
         ),
       },
     ],
@@ -60,10 +60,10 @@ export const PHASES = [
     ),
     drivers: [
       {
-        label: t("The calendar", "El calendario"),
+        label: t("The calendar · priced", "El calendario · fijado"),
         text: t(
-          "Roadshow ~Jun 4 → pricing ~Jun 11 → Nasdaq debut ~Jun 12 (ticker SPCX).",
-          "Roadshow ~4 Jun → fijación de precio ~11 Jun → debut en Nasdaq ~12 Jun (ticker SPCX)."
+          "<b>Priced $135/sh, full $75B raise, ~$1.77T</b> (555.6M shares) — at the target, institutions did <b>not</b> balk on the deal. Nasdaq debut <b>Jun 12</b>, ticker SPCX. ~7% float = expect violent two-way moves.",
+          "<b>Fijado $135/acc, recauda los $75B completos, ~$1,77B</b> (555,6M acciones) — en el objetivo, los institucionales <b>no</b> dudaron del deal. Debut en Nasdaq <b>12 jun</b>, ticker SPCX. Float ~7% = espera movimientos violentos en ambos sentidos."
         ),
       },
       {
@@ -74,10 +74,10 @@ export const PHASES = [
         ),
       },
       {
-        label: t("If no shakeout → add back", "Si no hay sacudida → vuelve a sumar"),
+        label: t("Add-back gate: NOT met yet", "Puerta para sumar: AÚN no cumplida"),
         text: t(
-          "If Jun 8 and the Jun 16–17 FOMC pass with no flush and price breaks out cleanly, the Phase-00 brake is off — you can add. But add to <b>quality (SMH/ISAC), not froth (ARKQ/ROBO)</b>, in tranches, and stay light into the ~Jul 7 reversal zone. Don't fund it by selling your gold ballast, and don't buy expecting a mechanical index pop (~0–1%) — add because the trend confirmed.",
-          "Si el 8 jun y el FOMC del 16–17 pasan sin purga y el precio rompe al alza con claridad, el freno de la Fase 00 se suelta — puedes sumar. Pero suma a <b>calidad (SMH/ISAC), no a la espuma (ARKQ/ROBO)</b>, en tramos, y mantente ligero al acercarte a la zona de reversión del ~7 jul. No lo financies vendiendo tu lastre de oro, ni compres esperando un salto mecánico por inclusión (~0–1%) — suma porque la tendencia se confirmó."
+          "<b>Status (Jun 10): the brake is ON.</b> Jun 8 did not pass clean (semi-led flush already running) and the Jun 16–17 FOMC is still ahead — so <b>do not add yet</b>. The gate opens only if the flush settles, the FOMC passes without a new leg down, and price breaks out cleanly. Then add to <b>quality (SMH/ISAC), not froth (ARKQ/ROBO)</b>, in tranches, light into the ~Jul 7 reversal zone — not funded by selling gold, not expecting a mechanical index pop (~0–1%).",
+          "<b>Estado (10 jun): el freno está PUESTO.</b> El 8 jun no pasó limpio (ya corre una purga liderada por semis) y el FOMC del 16–17 sigue por delante — así que <b>no sumes aún</b>. La puerta abre solo si la purga se calma, el FOMC pasa sin una nueva pata bajista, y el precio rompe al alza con claridad. Entonces suma a <b>calidad (SMH/ISAC), no a la espuma (ARKQ/ROBO)</b>, en tramos, ligero hacia la zona de reversión del ~7 jul — sin financiarlo vendiendo oro, sin esperar un salto mecánico por inclusión (~0–1%)."
         ),
       },
     ],
@@ -116,10 +116,10 @@ export const PHASES = [
         ),
       },
       {
-        label: t("Not immediate elsewhere", "No es inmediato en otros índices"),
+        label: t("Nasdaq-100 only · S&P leg dead", "Solo Nasdaq-100 · pata S&P muerta"),
         text: t(
-          "Only the Nasdaq-100 is fast. <b>S&P 500</b> is ~Q4 2026 / 2027 (needs the ~6-month seasoning waiver + the profitability rule — SpaceX lost ~$4.9B in 2025). <b>Russell 1000</b> waits for the Sep or Dec 2026 reconstitution.",
-          "Solo el Nasdaq-100 es rápido. <b>S&P 500</b> es ~Q4 2026 / 2027 (requiere el waiver de maduración ~6 meses + la regla de rentabilidad — SpaceX perdió ~$4.9B en 2025). <b>Russell 1000</b> espera a la reconstitución de sep o dic 2026."
+          "Only the Nasdaq-100 is fast. <b>S&P 500 is now off the table</b>: the MegaCap waiver was rejected (Jun 4), so SpaceX can't enter until it posts GAAP profits (lost ~$4.9B in 2025) — likely 2027+. <b>Russell 1000</b> waits for the Sep or Dec 2026 reconstitution. So the forced flow is QQQ-trackers only — smaller than if S&P had joined.",
+          "Solo el Nasdaq-100 es rápido. <b>El S&P 500 queda fuera</b>: la exención MegaCap fue rechazada (4 jun), así que SpaceX no puede entrar hasta dar utilidades GAAP (perdió ~$4.9B en 2025) — probablemente 2027+. <b>Russell 1000</b> espera a la reconstitución de sep o dic 2026. Así que el flujo forzado es solo de trackers de QQQ — menor que si el S&P hubiera entrado."
         ),
       },
       {
@@ -179,8 +179,8 @@ export const PHASES = [
 export const TRIGGERS = [
   t("SPCX breaks below its debut / inclusion-week price on <b>rising volume</b>",
     "SPCX rompe por debajo de su precio de debut / semana de inclusión con <b>volumen creciente</b>"),
-  t("VIX pushes above <b>~20–22</b> (from ~17 now)",
-    "El VIX sube por encima de <b>~20–22</b> (desde ~17 ahora)"),
+  t("VIX pushes above <b>~20–22</b> (already ~21 on Jun 9 — at the lower edge)",
+    "El VIX sube por encima de <b>~20–22</b> (ya ~21 el 9 jun — en el borde inferior)"),
   t("<b>Cleaner cross-confirmation:</b> BTC leading down + VIX &gt;20–22 + URA/EWY breaking — clearer than waiting for SMH to make lower lows alone",
     "<b>Confirmación cruzada más limpia:</b> BTC liderando a la baja + VIX &gt;20–22 + URA/EWY rompiendo — más nítido que esperar a que SMH haga mínimos más bajos sola"),
   t("These triggers are <b>lagging</b> — the hedge covers the initial gap, so the <b>instrument and size of the cover matter more</b> than the exact trigger level",

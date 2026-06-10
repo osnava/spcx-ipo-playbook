@@ -1,9 +1,11 @@
 /* app.js — renders the playbook from the data layer and wires interactions.
    State: current phase (ph0..ph3) + current language (en|es). */
-import { UI, PHASES, TRIGGERS, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING } from "./data/index.js";
+import { UI, PHASES, TRIGGERS, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING,
+         MARKET, TAPE_LIVE, TAPE_SNAPSHOT, startTape } from "./data/index.js";
 
 let lang = "en";
 let activePhase = "ph1";
+let QUOTES = {}; // sym → { price:Number, chg:Number, live:true }, filled by startTape
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const el = (tag, cls, html) => {
@@ -15,6 +17,56 @@ const el = (tag, cls, html) => {
 const tr = (field) => (field && field[lang] != null ? field[lang] : field?.en ?? "");
 
 const STATE_CLASS = { hold: "st-hold", watch: "st-watch", sell: "st-sell", keep: "st-keep" };
+
+const fmtPct = (n) => `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
+const fmtNum = (v) =>
+  typeof v === "number"
+    ? v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    : v; // snapshot strings pass through unchanged
+const chgSpan = (chg, invert) => {
+  if (chg == null) return "";
+  const up = invert ? chg < 0 : chg >= 0;
+  return `<span class="tchg ${up ? "up" : "down"}">${chg >= 0 ? "▲" : "▼"} ${fmtPct(chg)}</span>`;
+};
+
+function renderTape() {
+  const host = $("#tape");
+  if (!host) return;
+  let live = 0;
+  const total = MARKET.length + HOLDINGS.length;
+
+  const market = MARKET.map((m) => {
+    const q = QUOTES[m.sym];
+    if (q) live++;
+    const priceVal = q?.price ?? m.price;
+    const chgVal = q ? q.chg : m.chg;
+    const price = priceVal != null ? `<span class="tprice">${fmtNum(priceVal)}</span>` : "";
+    const chg = chgVal != null
+      ? chgSpan(chgVal, m.invert)
+      : (m.tag ? `<span class="tchg new">${tr(m.tag)}</span>` : "");
+    return `<span class="tcell"><span class="tsym">${m.sym}</span>${price}${chg}</span>`;
+  }).join("");
+
+  const book = HOLDINGS.map((h) => {
+    const s = h.states[activePhase];
+    const q = QUOTES[h.ticker];
+    let px = "";
+    if (q?.price != null) {
+      live++;
+      px = `<span class="tprice">${fmtNum(q.price)}</span>${chgSpan(q.chg)}`;
+    }
+    return `<span class="tcell"><span class="tsym">${h.ticker}</span>${px}` +
+      `<span class="tchip ${STATE_CLASS[s.tone]}">${tr(s.label)}</span></span>`;
+  }).join("");
+
+  const tag = live > 0
+    ? `<span class="tlive"></span>${tr(TAPE_LIVE)} ${live}/${total} · ${new Date().toLocaleTimeString("en-GB")}`
+    : tr(TAPE_SNAPSHOT);
+  const cells = market + book;
+  host.innerHTML =
+    `<div class="tape-tag">${tag}</div>` +
+    `<div class="tape-track">${cells}${cells}</div>`;
+}
 
 function renderHeader() {
   $("#sub").innerHTML = tr(UI.subtitle);
@@ -160,6 +212,7 @@ function setPhase(id) {
   renderDirective();
   renderTrigger();
   renderHoldings();
+  renderTape();
 }
 
 function toggleLang() {
@@ -169,6 +222,7 @@ function toggleLang() {
 }
 
 function renderAll() {
+  renderTape();
   renderHeader();
   renderPhaseCards();
   renderDirective();
@@ -183,4 +237,5 @@ function renderAll() {
 document.addEventListener("DOMContentLoaded", () => {
   $("#langBtn").addEventListener("click", toggleLang);
   renderAll();
+  startTape((quotes) => { QUOTES = quotes; renderTape(); });
 });

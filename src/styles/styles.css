@@ -20,6 +20,38 @@ body{
 .wrap{max-width:1080px;margin:0 auto}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 
+/* --- Wall-Street tape (top scrolling ticker) ----------------------------- */
+.tape{position:sticky;top:0;z-index:60;display:flex;align-items:stretch;
+  height:38px;overflow:hidden;margin:-28px -20px 26px;
+  background:linear-gradient(180deg,#0b1222,#0a0e1a);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.tape-tag{flex:none;display:flex;align-items:center;gap:6px;padding:0 13px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;color:var(--dim);
+  background:var(--panel);border-right:1px solid var(--line);
+  position:relative;z-index:2;white-space:nowrap}
+.tlive{width:7px;height:7px;border-radius:50%;background:var(--go);
+  box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 70%,transparent);
+  animation:tlive-pulse 1.8s ease-out infinite}
+@keyframes tlive-pulse{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 60%,transparent)}
+  70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.tape-track{display:flex;align-items:center;white-space:nowrap;flex:none;
+  animation:tape-scroll 70s linear infinite;will-change:transform}
+.tape:hover .tape-track{animation-play-state:paused}
+@keyframes tape-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tape-track{animation:none}}
+.tcell{display:inline-flex;align-items:center;gap:7px;padding:0 17px;
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;
+  border-right:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
+.tsym{font-weight:700;color:var(--txt);letter-spacing:.5px}
+.tprice{color:var(--dim)}
+.tchg{font-weight:700}
+.tchg.up{color:var(--go)} .tchg.down{color:var(--hot)} .tchg.new{color:var(--accent)}
+.tchip{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;
+  letter-spacing:.3px}
+
 .tone-ice{--c:var(--ice)} .tone-go{--c:var(--go)}
 .tone-warn{--c:var(--warn)} .tone-hot{--c:var(--hot)}
 
