@@ -7,6 +7,7 @@
   --bg:#080b14; --panel:#0e1424; --panel2:#131b30; --line:#1f2c47;
   --txt:#dce6ff; --dim:#6b7da6; --accent:#3da9ff;
   --hot:#ff5d4a; --warn:#ffb43d; --go:#34d99a; --ice:#7fd4ff;
+  --padx:20px; --padt:28px;   /* page gutters — tape margins track these */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -15,14 +16,17 @@ body{
     radial-gradient(1200px 500px at 80% -10%,rgba(61,169,255,.12),transparent),
     radial-gradient(900px 600px at 10% 110%,rgba(255,93,74,.08),transparent),
     var(--bg);
-  background-attachment:fixed; min-height:100vh; padding:28px 20px 60px;
+  background-attachment:fixed; min-height:100vh;
+  padding:var(--padt) var(--padx) 60px;
+  -webkit-text-size-adjust:100%;
 }
 .wrap{max-width:1080px;margin:0 auto}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 
 /* --- Wall-Street tape (top scrolling ticker) ----------------------------- */
 .tape{position:sticky;top:0;z-index:60;display:flex;align-items:stretch;
-  height:38px;overflow:hidden;margin:-28px -20px 26px;
+  height:38px;overflow:hidden;
+  margin:calc(-1 * var(--padt)) calc(-1 * var(--padx)) 26px;
   background:linear-gradient(180deg,#0b1222,#0a0e1a);
   border-bottom:1px solid var(--line);
   box-shadow:0 6px 18px rgba(0,0,0,.35)}
@@ -196,3 +200,46 @@ footer b{color:#9fb0d4}
 .pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--go);
   margin-right:7px;animation:pl 1.6s infinite}
 @keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* =========================================================================
+   Responsive — tablet ≤720px, phone ≤480px
+   (grid collapses for .phases/.drivers/.fw-cards/.cls-grid live inline above)
+   ========================================================================= */
+@media(max-width:720px){
+  :root{--padx:16px;--padt:22px}
+  .title{font-size:25px}
+  .dir-headline{font-size:18px}
+  .directive{padding:20px;gap:16px}
+  .framework,.trigger{padding:18px}
+  .catalysts{width:100%}
+  header{gap:14px}
+}
+
+@media(max-width:480px){
+  :root{--padx:12px;--padt:16px}
+  .title{font-size:21px}
+  .sub{font-size:12.5px}
+  .head-top{gap:10px}
+  .langbtn{padding:6px 11px;font-size:11px}
+
+  /* directive: stack the icon above the body */
+  .directive{flex-direction:column;padding:16px;gap:14px}
+  .dir-icon{width:44px;height:44px;font-size:20px}
+  .dir-headline{font-size:16.5px;margin-bottom:14px}
+  .block-text,.callout .block-text{font-size:13.5px}
+
+  /* holdings: let the row wrap so it never overflows a narrow screen */
+  .hold-head{flex-wrap:wrap;gap:9px 11px;padding:13px 14px}
+  .htick{width:auto;font-size:15px}
+  .hstate{margin-left:auto}
+  .hrole{flex-basis:100%;min-width:0;order:5;font-size:12.5px}
+  .hold-detail-inner{padding:0 14px 14px;font-size:13px}
+  .hold.open .hold-detail{max-height:520px}
+
+  /* tape: tighter cells on phones */
+  .tcell{padding:0 12px;font-size:11.5px;gap:6px}
+  .tape-tag{padding:0 10px;font-size:9px}
+
+  .cls-conc,.fw-card,.driver{padding:12px 13px}
+  .trig-list li{font-size:13.5px}
+}
