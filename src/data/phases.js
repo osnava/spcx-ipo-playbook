@@ -96,6 +96,26 @@ export const PHASES = [
     name: t("Inclusion Window", "Ventana de Inclusión"),
     date: "~JUN 12 → ~JUL 7",
     headline: t("Hold, but watch. Forced buying still supports the market.", "Mantén, pero vigila. La compra forzada aún sostiene al mercado."),
+    /* Live countdown to the NDX forced-buy auction. ESTIMATE only:
+       debut Jun 12 + ~15 trading days → effective ~Jul 7, so the buy auction is
+       the session before (~Jul 6 close, ET). Nasdaq's official notice (~Jun 29–30)
+       will name the exact effective date — when it lands, update `target` below. */
+    countdown: {
+      target: "2026-07-06T16:00:00-04:00", // ~Jul 6, 16:00 ET (EDT, -04:00)
+      title: t("NDX inclusion — est. countdown", "Inclusión NDX — cuenta atrás est."),
+      label: t(
+        "to the forced-buy closing auction (≈Jul 6, 16:00 ET). Effective ~Jul 7; Phase 03 opens the next session.",
+        "hasta la subasta de cierre de compra forzada (≈6 jul, 16:00 ET). Efectivo ~7 jul; la Fase 03 abre la sesión siguiente."
+      ),
+      note: t(
+        "Estimate: debut Jun 12 + ~15 trading days. Nasdaq's official notice (~Jun 29–30) fixes the exact date — update <code>target</code> in <code>phases.js</code> then.",
+        "Estimación: debut 12 jun + ~15 días de cotización. El aviso oficial de Nasdaq (~29–30 jun) fija la fecha exacta — actualiza <code>target</code> en <code>phases.js</code> entonces."
+      ),
+      done: t(
+        "Auction window reached — forced demand is exhausting. Phase 03 is live.",
+        "Ventana de subasta alcanzada — la demanda forzada se agota. La Fase 03 está activa."
+      ),
+    },
     concept: t(
       "The Nasdaq rule change is a <b>symptom of the new regime</b>: a private megacap can scale to ~$1.75T and skip the years of public seasoning the old manual demanded. Index funds buy SPCX, but the classic 'index pop' has faded (addition returns ~0–1% in 2010–2020) — the real edge is the short-seasoning setup: forced buyers pay up near inclusion and prices can unwind once that demand exhausts.",
       "El cambio de regla de Nasdaq es un <b>síntoma del nuevo régimen</b>: una megacap privada puede escalar a ~$1.75B y saltarse los años de maduración pública que exigía el viejo manual. Los fondos indexados compran SPCX, pero el clásico 'salto por inclusión' se desvaneció (retornos de adición ~0–1% en 2010–2020) — la verdadera ventaja es la maduración corta: los compradores forzados pagan caro cerca de la inclusión y el precio puede deshacerse cuando esa demanda se agota."

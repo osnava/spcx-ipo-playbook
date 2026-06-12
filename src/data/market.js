@@ -18,15 +18,17 @@ export const CACHE_TTL_MS = 55_000; // serve cached quotes within this window (a
 export const FETCH_POOL   = 4;      // max concurrent requests (don't burst the endpoint)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
-export const TAPE_SNAPSHOT = t("SNAPSHOT · 9 JUN '26", "INSTANTÁNEA · 9 JUN '26");
+export const TAPE_SNAPSHOT = t("SNAPSHOT · 12 JUN '26", "INSTANTÁNEA · 12 JUN '26");
 
+/* Snapshot = Jun 12 2026 close (SPCX debut day). SPCX now resolves live on
+   Yahoo; its fallback chg is the debut move vs the $135 IPO price (+19.2%). */
 export const MARKET = [
-  { sym: "SPCX",    q: "SPCX",  price: "135.00", tag: t("IPO JUN 12", "OPV 12 JUN") },
-  { sym: "SPY",     q: "SPY",   chg: -0.26 },
-  { sym: "QQQ",     q: "QQQ",   chg: -0.97 },
-  { sym: "VIX",     q: "^VIX",  price: "20.88", chg: 5.08, invert: true },
-  { sym: "S&P 500", q: "^GSPC", price: "7,386.65", chg: -0.26 },
-  { sym: "NASDAQ",  q: "^IXIC", price: "25,678.82", chg: -0.97 },
+  { sym: "SPCX",    q: "SPCX",  price: "160.95", chg: 19.22, tag: t("DEBUT · JUN 12", "DEBUT · 12 JUN") },
+  { sym: "SPY",     q: "SPY",   chg: 0.50 },
+  { sym: "QQQ",     q: "QQQ",   chg: 0.31 },
+  { sym: "VIX",     q: "^VIX",  price: "17.99", chg: -7.46, invert: true },
+  { sym: "S&P 500", q: "^GSPC", price: "7,431.46", chg: 0.50 },
+  { sym: "NASDAQ",  q: "^IXIC", price: "25,888.84", chg: 0.31 },
 ];
 
 /* book tickers → quote symbol, so each holding cell can show a live price

@@ -130,6 +130,24 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .trig-list li::before{content:"\25C8";color:var(--hot);font-size:10px}
 .trig-list b{color:var(--txt)}
 
+/* Phase-02 inclusion countdown — tone-driven (inherits --c from .tone-warn) */
+.countdown{display:none;border:1px solid var(--c);border-radius:12px;
+  background:color-mix(in srgb,var(--c) 8%,transparent);padding:18px 22px;margin-bottom:26px}
+.cd-title{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--c);margin-bottom:14px}
+.cd-title::before{content:"\23F1";font-size:14px}
+.cd-clock{display:flex;gap:10px;margin-bottom:12px}
+.cd-unit{display:flex;flex-direction:column;align-items:center;min-width:60px;
+  background:var(--panel2);border:1px solid color-mix(in srgb,var(--c) 32%,transparent);
+  border-radius:8px;padding:9px 4px}
+.cd-unit b{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;
+  color:var(--txt);line-height:1;font-variant-numeric:tabular-nums}
+.cd-unit i{font-style:normal;font-size:10px;letter-spacing:1px;color:var(--dim);margin-top:5px}
+.cd-label{font-size:14px;color:var(--txt);margin-bottom:6px;line-height:1.4}
+.cd-note{font-size:12px;color:var(--dim);line-height:1.5}
+.cd-note code{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c)}
+.cd-done{font-size:15px;font-weight:600;color:var(--c)}
+
 .sec-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
   margin:0 0 14px;display:flex;align-items:center;gap:12px}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -210,7 +228,10 @@ footer b{color:#9fb0d4}
   .title{font-size:25px}
   .dir-headline{font-size:18px}
   .directive{padding:20px;gap:16px}
-  .framework,.trigger{padding:18px}
+  .framework,.trigger,.countdown{padding:18px}
+  .cd-clock{gap:8px}
+  .cd-unit{min-width:0;flex:1;padding:9px 2px}
+  .cd-unit b{font-size:23px}
   .catalysts{width:100%}
   header{gap:14px}
 }

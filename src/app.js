@@ -4,8 +4,9 @@ import { UI, PHASES, TRIGGERS, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING,
          MARKET, TAPE_LIVE, TAPE_SNAPSHOT, startTape } from "./data/index.js";
 
 let lang = "en";
-let activePhase = "ph1";
+let activePhase = "ph2"; // Build-Up closed on the Jun 12 debut; Inclusion Window is now live
 let QUOTES = {}; // sym → { price:Number, chg:Number, live:true }, filled by startTape
+let countdownTimer = null; // ticking handle for the Phase-02 inclusion countdown
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const el = (tag, cls, html) => {
@@ -155,6 +156,48 @@ function renderTrigger() {
     </ul>`;
 }
 
+/* Live countdown to the NDX forced-buy auction. Only the active phase that
+   carries a `countdown` field (Phase 02) shows it; a single setInterval is kept
+   alive and recreated on every phase/lang switch so we never stack timers. */
+function renderCountdown() {
+  const host = $("#countdown");
+  if (!host) return;
+  if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+
+  const p = PHASES.find((x) => x.id === activePhase);
+  const cd = p?.countdown;
+  if (!cd) { host.style.display = "none"; host.innerHTML = ""; return; }
+
+  host.style.display = "block";
+  host.className = `countdown tone-${p.tone}`;
+
+  const cell = (v, l) =>
+    `<span class="cd-unit"><b>${String(v).padStart(2, "0")}</b><i>${l}</i></span>`;
+
+  const paint = () => {
+    const ms = new Date(cd.target).getTime() - Date.now();
+    if (ms <= 0) {
+      host.innerHTML =
+        `<div class="cd-title">${tr(cd.title)}</div><div class="cd-done">${tr(cd.done)}</div>`;
+      if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+      return;
+    }
+    const s = Math.floor(ms / 1000);
+    const clock = cell(Math.floor(s / 86400), tr(UI.cdDays)) +
+      cell(Math.floor((s % 86400) / 3600), tr(UI.cdHours)) +
+      cell(Math.floor((s % 3600) / 60), tr(UI.cdMins)) +
+      cell(s % 60, tr(UI.cdSecs));
+    host.innerHTML =
+      `<div class="cd-title">${tr(cd.title)}</div>` +
+      `<div class="cd-clock mono">${clock}</div>` +
+      `<div class="cd-label">${tr(cd.label)}</div>` +
+      `<div class="cd-note">${tr(cd.note)}</div>`;
+  };
+
+  paint();
+  countdownTimer = setInterval(paint, 1000);
+}
+
 function renderFramework() {
   $("#frameworkLabel").innerHTML = tr(UI.frameworkLabel);
   const cards = FRAMEWORK.cards
@@ -224,6 +267,7 @@ function setPhase(id) {
   );
   renderDirective();
   renderTrigger();
+  renderCountdown();
   renderHoldings();
   renderTape();
 }
@@ -240,6 +284,7 @@ function renderAll() {
   renderPhaseCards();
   renderDirective();
   renderTrigger();
+  renderCountdown();
   renderFramework();
   renderHoldings();
   renderClassification();
