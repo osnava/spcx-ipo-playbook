@@ -52,7 +52,7 @@ export const PHASES = [
     id: "ph1", tone: "go", icon: "↑",
     num: "PHASE 01",
     name: t("Build-Up", "Acumulación"),
-    date: t("NOW → ~JUN 12", "AHORA → ~12 JUN"),
+    date: t("PRE-IPO → JUN 12", "PRE-OPV → 12 JUN"),
     headline: t("Hold everything. Don't sell into strength.", "Mantén todo. No vendas en la fuerza."),
     concept: t(
       "Anticipation lifts the whole space/tech/AI theme — exactly what your book is long. This is the easy leg; ride it.",
@@ -151,8 +151,8 @@ export const PHASES = [
       },
     ],
     action: t(
-      "Get the real hedge ready, but mind the instrument: a <b>3× leveraged ETF (SOXS) bleeds to daily-reset decay</b> if you carry it 5+ weeks from June. Prefer a <b>SMH put spread (Jul/Aug)</b> — fixed cost, no decay, and one position covers SMH + EWY. Keep SOXS as a Phase-03 execution tool, not passive insurance. Decide exact sell levels now.",
-      "Prepara la cobertura real, pero cuida el instrumento: un <b>ETF apalancado 3× (SOXS) sangra por decay de reseteo diario</b> si lo cargas 5+ semanas desde junio. Prefiere un <b>put spread de SMH (jul/ago)</b> — costo fijo, sin decay, y una posición cubre SMH + EWY. Deja SOXS como herramienta de ejecución en Fase 03, no como seguro pasivo. Define los niveles exactos de venta ahora."
+      "Protect the book with puts. Use a <b>SMH put spread (Jul/Aug)</b> — a defined, fixed-cost floor under your semis, and one position covers SMH + EWY. Your <b>Sep SPY/QQQ puts</b> already sit underneath as broad cover. Size them to cover the gap down to your trigger, not the whole book; pick strikes and sell levels now.",
+      "Protege la cartera con puts. Usa un <b>put spread de SMH (jul/ago)</b> — un piso de costo fijo y definido bajo tus semis, y una sola posición cubre SMH + EWY. Tus <b>puts SPY/QQQ a septiembre</b> ya están debajo como cobertura amplia. Dimensiónalos para cubrir el gap hasta tu disparador, no toda la cartera; elige strikes y niveles de venta ahora."
     ),
     watch: t(
       "Don't short the pop or panic-sell here. The trigger is Nasdaq's official inclusion notice — it lands <b>~Jun 29–30 (≥5 trading days ahead)</b> and names the exact effective date. Forced demand peaks in the <b>auction the session before</b> it and exhausts at that close; Phase 03 opens the very next session.",

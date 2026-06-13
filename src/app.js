@@ -15,7 +15,9 @@ const el = (tag, cls, html) => {
   if (html != null) n.innerHTML = html;
   return n;
 };
-const tr = (field) => (field && field[lang] != null ? field[lang] : field?.en ?? "");
+/* plain strings (e.g. monolingual dates) pass through unchanged; t() objects resolve by lang */
+const tr = (field) =>
+  typeof field === "string" ? field : field && field[lang] != null ? field[lang] : field?.en ?? "";
 
 const STATE_CLASS = { hold: "st-hold", watch: "st-watch", sell: "st-sell", keep: "st-keep" };
 
@@ -85,9 +87,6 @@ function renderTape() {
 function renderHeader() {
   $("#sub").innerHTML = tr(UI.subtitle);
   $("#langLabel").textContent = tr(UI.langToggle);
-  $("#catalysts").innerHTML = UI.catalysts
-    .map((c) => `${tr(c.label)} <b>${c.date}</b>`)
-    .join('<span class="sep">·</span>');
 }
 
 function renderPhaseCards() {
@@ -124,7 +123,7 @@ function renderDirective() {
   host.innerHTML = `
     <div class="dir-icon">${p.icon}</div>
     <div class="dir-body">
-      <div class="dir-eyebrow">${p.num} · ${tr(p.name)}</div>
+      <div class="dir-eyebrow">${p.num} · ${tr(p.name)} <span class="dir-date mono">${tr(p.date)}</span></div>
       <div class="dir-headline">${tr(p.headline)}</div>
 
       <div class="block">
@@ -156,15 +155,16 @@ function renderTrigger() {
     </ul>`;
 }
 
-/* Live countdown to the NDX forced-buy auction. Only the active phase that
-   carries a `countdown` field (Phase 02) shows it; a single setInterval is kept
-   alive and recreated on every phase/lang switch so we never stack timers. */
+/* Live countdown to the NDX forced-buy auction. Pinned to the top of the page,
+   always visible regardless of the selected phase — it reads off whichever phase
+   owns a `countdown` field (Phase 02). A single setInterval is recreated on every
+   render (phase/lang switch) so we never stack timers. */
 function renderCountdown() {
   const host = $("#countdown");
   if (!host) return;
   if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
 
-  const p = PHASES.find((x) => x.id === activePhase);
+  const p = PHASES.find((x) => x.countdown);
   const cd = p?.countdown;
   if (!cd) { host.style.display = "none"; host.innerHTML = ""; return; }
 
@@ -267,7 +267,6 @@ function setPhase(id) {
   );
   renderDirective();
   renderTrigger();
-  renderCountdown();
   renderHoldings();
   renderTape();
 }

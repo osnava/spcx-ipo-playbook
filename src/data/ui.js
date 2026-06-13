@@ -7,11 +7,6 @@ export const UI = {
     "Reglas de mantener / vender por fases · alineadas al calendario de inclusión en índices"
   ),
   langToggle: t("Español", "English"),
-  catalysts: [
-    { label: t("DEBUT", "DEBUT"), date: "JUN 12" },
-    { label: t("FOMC", "FOMC"), date: "JUN 16–17" },
-    { label: t("NDX INCLUSION", "INCLUSIÓN NDX"), date: "~JUL 7" },
-  ],
   cdDays: t("DAYS", "DÍAS"),
   cdHours: t("HRS", "HRS"),
   cdMins: t("MIN", "MIN"),

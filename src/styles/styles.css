@@ -72,17 +72,14 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   align-items:center;gap:6px;transition:.15s}
 .langbtn:hover{background:var(--accent);color:var(--bg)}
 
-.catalysts{font-family:'JetBrains Mono',monospace;font-size:12px;border:1px solid var(--line);
-  padding:8px 12px;border-radius:6px;background:var(--panel);color:var(--ice)}
-.catalysts b{color:var(--txt)}
-.catalysts .sep{color:var(--dim);margin:0 6px}
-
 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
 @media(max-width:720px){.phases{grid-template-columns:1fr}}
 .phase{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:16px;
   background:var(--panel);transition:.18s;position:relative;overflow:hidden;text-align:left;
   font-family:inherit;color:var(--txt)}
 .phase:hover{transform:translateY(-2px)}
+.phase:not(.active){opacity:.55}                 /* mute the inactive phases so the active one leads */
+.phase:not(.active):hover{opacity:.85}
 .phase .pnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:1px}
 .phase .pname{font-size:16px;font-weight:600;margin:6px 0 4px}
 .phase .pdate{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c)}
@@ -91,14 +88,21 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   box-shadow:0 0 0 1px var(--c),0 8px 30px color-mix(in srgb,var(--c) 18%,transparent)}
 
 .directive{border:1px solid var(--c);border-radius:12px;background:var(--panel);
-  padding:24px;margin-bottom:26px;display:flex;gap:22px;align-items:flex-start}
+  padding:24px;margin-bottom:30px;display:flex;gap:22px;align-items:flex-start}
 .dir-icon{width:54px;height:54px;flex:none;border-radius:50%;display:grid;place-items:center;
   font-size:24px;font-weight:700;font-family:'JetBrains Mono',monospace;
   background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--c);border:1px solid var(--c)}
 .dir-body{flex:1;min-width:0}
 .dir-eyebrow{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
   font-weight:500;margin-bottom:6px}
-.dir-headline{font-size:20px;font-weight:600;line-height:1.35;margin-bottom:18px}
+.dir-date{font-size:11.5px;letter-spacing:1px;color:var(--c);font-weight:700;
+  border:1px solid color-mix(in srgb,var(--c) 35%,transparent);border-radius:5px;padding:2px 7px;margin-left:6px}
+.dir-headline{font-size:20px;font-weight:600;line-height:1.35;margin-bottom:18px;max-width:60ch}
+
+/* keep long passages to a comfortable measure, and dial body-bold back from
+   loud 700 to a calmer 600 so emphasis reads as emphasis, not noise */
+.block-text,.fw-lead,.fw-ct,.cls-conc,.closing p,.cd-label{max-width:68ch}
+.block-text b,.driver .dt b,.fw-ct b,.cls-conc b,.closing b{font-weight:600}
 
 .block{margin-bottom:16px}
 .block:last-child{margin-bottom:0}
@@ -110,7 +114,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 
 .drivers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:680px){.drivers{grid-template-columns:1fr}}
-.driver{border:1px solid var(--line);border-radius:8px;background:var(--panel2);padding:13px 15px}
+.driver{border-radius:8px;background:var(--panel2);padding:14px 16px}
 .driver .dl{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;
   color:var(--c);margin-bottom:6px;line-height:1.3}
 .driver .dt{font-size:13px;line-height:1.55;color:#aebbd9}
@@ -123,7 +127,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   font-size:13px;flex:none;margin-top:1px;letter-spacing:.5px}
 
 .trigger{border:1px dashed var(--hot);border-radius:12px;background:rgba(255,93,74,.05);
-  padding:18px 22px;margin-bottom:26px}
+  padding:18px 22px;margin-bottom:30px}
 .trigger h4{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--hot);margin-bottom:12px}
 .trig-list li{list-style:none;font-size:14px;margin-bottom:8px;display:flex;gap:10px;align-items:baseline;color:var(--txt)}
 .trig-list li:last-child{margin-bottom:0}
@@ -132,7 +136,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 
 /* Phase-02 inclusion countdown — tone-driven (inherits --c from .tone-warn) */
 .countdown{display:none;border:1px solid var(--c);border-radius:12px;
-  background:color-mix(in srgb,var(--c) 8%,transparent);padding:18px 22px;margin-bottom:26px}
+  background:color-mix(in srgb,var(--c) 8%,transparent);padding:18px 22px;margin-bottom:30px}
 .cd-title{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.5px;
   text-transform:uppercase;color:var(--c);margin-bottom:14px}
 .cd-title::before{content:"\23F1";font-size:14px}
@@ -149,7 +153,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .cd-done{font-size:15px;font-weight:600;color:var(--c)}
 
 .sec-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
-  margin:0 0 14px;display:flex;align-items:center;gap:12px}
+  margin:6px 0 16px;display:flex;align-items:center;gap:12px}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .holdings{display:grid;gap:10px}
 .hold{border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden;transition:.15s}
@@ -175,24 +179,24 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 /* --- Narrative discrimination framework (TASK 3) --- */
 .framework{border:1px solid var(--accent);border-radius:12px;background:
   linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,transparent),transparent),var(--panel);
-  padding:22px;margin-bottom:26px}
+  padding:22px;margin-bottom:30px}
 .fw-lead{font-size:16px;line-height:1.55;color:var(--txt);margin-bottom:18px;
   border-left:3px solid var(--accent);padding-left:14px}
 .fw-lead b{color:#fff}
 .fw-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:680px){.fw-cards{grid-template-columns:1fr}}
-.fw-card{border:1px solid var(--line);border-radius:8px;background:var(--panel2);padding:14px 16px}
+.fw-card{border-radius:8px;background:var(--panel2);padding:14px 16px}
 .fw-cl{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.5px;
   text-transform:uppercase;color:var(--accent);margin-bottom:8px;line-height:1.3}
 .fw-ct{font-size:13.5px;line-height:1.6;color:#aebbd9}
 .fw-ct b{color:var(--txt)}
 
 /* --- Signal vs noise classification (TASK 6) --- */
-.classification{margin:14px 0 26px}
+.classification{margin:14px 0 30px}
 .cls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 @media(max-width:680px){.cls-grid{grid-template-columns:1fr}}
-.cls-card{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:13px 15px;
-  border-left-width:3px}
+.cls-card{border-radius:10px;background:var(--panel2);padding:13px 16px;
+  border-left:3px solid var(--line)}
 .cls-card.st-sell{border-left-color:var(--hot)}
 .cls-card.st-watch{border-left-color:var(--warn)}
 .cls-card.st-keep{border-left-color:var(--ice)}
@@ -232,7 +236,6 @@ footer b{color:#9fb0d4}
   .cd-clock{gap:8px}
   .cd-unit{min-width:0;flex:1;padding:9px 2px}
   .cd-unit b{font-size:23px}
-  .catalysts{width:100%}
   header{gap:14px}
 }
 
