@@ -32,14 +32,14 @@ export const CLASSIFICATION = {
     {
       tone: "sell",
       label: t("Noise / liquidity", "Ruido / liquidez"),
-      names: "BTC · ARKQ · EWY",
+      names: "ARKQ · EWY",
       note: t("Sell for real if the thesis breaks.", "Vender de verdad si rompe la tesis."),
     },
     {
       tone: "watch",
-      label: t("Structural signal", "Señal estructural"),
-      names: "SMH · ROBO · URA",
-      note: t("Trim only; rebuy if it's a technical correction.", "Solo trim; recompra si es corrección técnica."),
+      label: t("Structural / technical signal", "Señal estructural / técnica"),
+      names: "SMH · ROBO · URA · BTC",
+      note: t("Trim only; rebuy on a technical correction. BTC: hold the 200W, sell only on a confirmed break.", "Solo trim; recompra en corrección técnica. BTC: mantén la 200s, vende solo con ruptura confirmada."),
     },
     {
       tone: "keep",

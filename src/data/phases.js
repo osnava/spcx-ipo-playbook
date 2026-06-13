@@ -186,8 +186,8 @@ export const PHASES = [
       },
     ],
     action: t(
-      "Confirmed reversal → sell in order: <b>BTC → ARKQ → EWY</b> (noise/liquidity, cut for real) → <b>SMH → ROBO → URA</b> (structural signal, trim only). Keep ISAC (hedged). Stagger into gold — <b>gold is panic liquidity, not conviction</b>: it gets sold for margin calls on day 1 and recovers after, so don't rotate all at once. Still rising → do nothing, let the hedge ride.",
-      "Reversión confirmada → vende en orden: <b>BTC → ARKQ → EWY</b> (ruido/liquidez, recorta de verdad) → <b>SMH → ROBO → URA</b> (señal estructural, solo trim). Conserva ISAC (cubierto). Escalona hacia el oro — <b>el oro es liquidez de pánico, no convicción</b>: se vende por margin calls el día 1 y recupera después, así que no rotes todo de golpe. Sigue subiendo → no hagas nada, deja correr la cobertura."
+      "Confirmed reversal → sell in order: <b>ARKQ → EWY</b> (noise/liquidity, cut for real) → <b>SMH → ROBO → URA</b> (structural signal, trim only). <b>Hold BTC</b> — capitulated at its 200W; sell only on a <b>weekly close below the 200W (~$59–61k) on rising volume</b>. Keep ISAC (hedged). Stagger into gold — <b>gold is panic liquidity, not conviction</b>: it gets sold for margin calls on day 1 and recovers after, so don't rotate all at once. Still rising → do nothing, let the hedge ride.",
+      "Reversión confirmada → vende en orden: <b>ARKQ → EWY</b> (ruido/liquidez, recorta de verdad) → <b>SMH → ROBO → URA</b> (señal estructural, solo trim). <b>Mantén BTC</b> — capitulado en su 200s; vende solo con un <b>cierre semanal bajo la 200s (~$59–61k) con volumen creciente</b>. Conserva ISAC (cubierto). Escalona hacia el oro — <b>el oro es liquidez de pánico, no convicción</b>: se vende por margin calls el día 1 y recupera después, así que no rotes todo de golpe. Sigue subiendo → no hagas nada, deja correr la cobertura."
     ),
     watch: t(
       "You're hedging the <b>timing risk of the narrative</b> (temporary reversal), not the structural thesis — tactical, temporary insurance, not a short on the secular trend. Confirm the move before acting rather than front-running it.",
@@ -201,8 +201,8 @@ export const TRIGGERS = [
     "SPCX rompe por debajo de su precio de debut / semana de inclusión con <b>volumen creciente</b>"),
   t("VIX pushes above <b>~20–22</b> (already ~21 on Jun 9 — at the lower edge)",
     "El VIX sube por encima de <b>~20–22</b> (ya ~21 el 9 jun — en el borde inferior)"),
-  t("<b>Cleaner cross-confirmation:</b> BTC leading down + VIX &gt;20–22 + URA/EWY breaking — clearer than waiting for SMH to make lower lows alone",
-    "<b>Confirmación cruzada más limpia:</b> BTC liderando a la baja + VIX &gt;20–22 + URA/EWY rompiendo — más nítido que esperar a que SMH haga mínimos más bajos sola"),
+  t("<b>Cleaner cross-confirmation:</b> BTC losing its 200W SMA (~$59–61k) on rising volume + VIX &gt;20–22 + URA/EWY breaking — clearer than waiting for SMH to make lower lows alone",
+    "<b>Confirmación cruzada más limpia:</b> BTC perdiendo su SMA de 200 semanas (~$59–61k) con volumen creciente + VIX &gt;20–22 + URA/EWY rompiendo — más nítido que esperar a que SMH haga mínimos más bajos sola"),
   t("These triggers are <b>lagging</b> — the hedge covers the initial gap, so the <b>instrument and size of the cover matter more</b> than the exact trigger level",
     "Estos disparadores son <b>rezagados</b> — la cobertura cubre el gap inicial, así que <b>el instrumento y el tamaño de la cobertura importan más</b> que el nivel exacto del disparador"),
   t("Context: the <b>Jun 16–17 FOMC</b> is the vol catalyst between debut and inclusion",
