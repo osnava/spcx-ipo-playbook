@@ -38,6 +38,7 @@ body{
 .tlive{width:7px;height:7px;border-radius:50%;background:var(--go);
   box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 70%,transparent);
   animation:tlive-pulse 1.8s ease-out infinite}
+.tlive.stale{background:var(--dim);box-shadow:none;animation:none}
 @keyframes tlive-pulse{
   0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 60%,transparent)}
   70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}

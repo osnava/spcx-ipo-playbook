@@ -1,7 +1,7 @@
 /* app.js — renders the playbook from the data layer and wires interactions.
    State: current phase (ph0..ph3) + current language (en|es). */
 import { UI, PHASES, TRIGGERS, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING,
-         MARKET, TAPE_LIVE, TAPE_SNAPSHOT, startTape } from "./data/index.js";
+         MARKET, startTape } from "./data/index.js";
 
 let lang = "en";
 let activePhase = "ph2"; // Build-Up closed on the Jun 12 debut; Inclusion Window is now live
@@ -73,9 +73,8 @@ function renderTape() {
     lastCellsHTML = "";
   }
 
-  host.querySelector(".tape-tag").innerHTML = live > 0
-    ? `<span class="tlive"></span>${tr(TAPE_LIVE)} ${live}/${total} · ${new Date().toLocaleTimeString("en-GB")}`
-    : tr(TAPE_SNAPSHOT);
+  host.querySelector(".tape-tag").innerHTML =
+    `<span class="tlive${live > 0 ? "" : " stale"}"></span>`;
 
   const cells = market + book;
   if (cells !== lastCellsHTML) {           // only touch the track when content actually changed
