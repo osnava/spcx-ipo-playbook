@@ -73,8 +73,9 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   align-items:center;gap:6px;transition:.15s}
 .langbtn:hover{background:var(--accent);color:var(--bg)}
 
-.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
-@media(max-width:720px){.phases{grid-template-columns:1fr}}
+.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+@media(max-width:860px){.phases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.phases{grid-template-columns:1fr}}
 .phase{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:16px;
   background:var(--panel);transition:.18s;position:relative;overflow:hidden;text-align:left;
   font-family:inherit;color:var(--txt)}
@@ -87,6 +88,12 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .phase .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--c);opacity:.5}
 .phase.active{background:var(--panel2);border-color:var(--c);
   box-shadow:0 0 0 1px var(--c),0 8px 30px color-mix(in srgb,var(--c) 18%,transparent)}
+
+/* lockup tile: live +30%-trigger status pill in place of the date line */
+.lk-tile .lk-tag{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;
+  letter-spacing:.5px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.lk-tile .lk-tag.armed{color:var(--hot);background:rgba(255,93,74,.14)}
+.lk-tile .lk-tag.safe{color:var(--ice);background:rgba(127,212,255,.1)}
 
 .directive{border:1px solid var(--c);border-radius:12px;background:var(--panel);
   padding:24px;margin-bottom:30px;display:flex;gap:22px;align-items:flex-start}
@@ -176,6 +183,58 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .hold.open .hold-detail{max-height:240px}
 .hold-detail-inner{padding:0 18px 16px 64px;font-size:13.5px;line-height:1.6;color:#aebbd9}
 .hold-detail-inner b{color:var(--txt)}
+
+/* --- Lockup supply schedule (the supply-side mirror) --------------------- */
+.lockup{border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  padding:22px;margin-bottom:30px}
+
+/* live status dial — tone shifts armed (hot) vs safe (ice/dim) */
+.lk-status{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;
+  border-radius:10px;padding:16px 18px;margin-bottom:18px;
+  border:1px solid var(--line);background:var(--panel2)}
+.lk-status.lk-armed{border-color:var(--hot);
+  background:linear-gradient(180deg,rgba(255,93,74,.1),transparent),var(--panel2)}
+.lk-status.lk-safe{border-color:color-mix(in srgb,var(--ice) 30%,var(--line))}
+.lk-now{display:flex;flex-direction:column;gap:4px;flex:none}
+.lk-sym{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--dim)}
+.lk-pxrow{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.lk-px{font-size:26px;font-weight:700;color:var(--txt);line-height:1;
+  font-variant-numeric:tabular-nums}
+.lk-snap{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+.lk-vsipo{font-size:12px;font-weight:700;color:var(--dim)}
+.lk-trig{flex:1;min-width:230px;display:flex;flex-direction:column;gap:6px}
+.lk-pill{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:11px;
+  font-weight:700;letter-spacing:1px;padding:4px 11px;border-radius:20px}
+.lk-armed .lk-pill{color:var(--hot);background:rgba(255,93,74,.14)}
+.lk-safe .lk-pill{color:var(--ice);background:rgba(127,212,255,.1)}
+.lk-line{font-size:12.5px;color:var(--dim)}
+.lk-line b{color:var(--txt)}
+.lk-gap{font-size:13px;line-height:1.5;color:#aebbd9}
+.lk-gap b{color:var(--txt)}
+
+.lk-concept{font-size:14px;line-height:1.6;color:#aebbd9;margin-bottom:16px;
+  border-left:3px solid var(--accent);padding-left:14px;max-width:72ch}
+.lk-concept b{color:var(--txt)}
+
+.lk-table{display:grid;gap:8px;margin-bottom:16px}
+.lk-row{display:grid;grid-template-columns:150px 64px 1fr;gap:14px;align-items:baseline;
+  border-radius:8px;background:var(--panel2);padding:12px 15px;border-left:3px solid var(--line)}
+.lk-row.lk-earn{border-left-color:var(--warn)}
+.lk-row.lk-price{border-left-color:var(--hot)}
+.lk-row.lk-time{border-left-color:var(--dim)}
+.lk-row.lk-full{border-left-color:var(--accent)}
+.lk-when{font-size:12px;font-weight:700;color:var(--dim);letter-spacing:.5px}
+.lk-pct{font-size:17px;font-weight:700;color:var(--txt);text-align:right;
+  font-variant-numeric:tabular-nums}
+.lk-row.lk-price .lk-pct{color:var(--hot)}
+.lk-text{font-size:13px;line-height:1.55;color:#aebbd9}
+.lk-text b{color:var(--txt)}
+
+.lk-note{font-size:12.5px;line-height:1.6;color:var(--dim);border:1px dashed var(--line);
+  border-radius:8px;padding:12px 14px;margin-bottom:14px}
+.lk-note b{color:#aebbd9}
+.lk-foot{font-size:12.5px;line-height:1.6;color:#aebbd9}
+.lk-foot b{color:var(--txt)}
 
 /* --- Narrative discrimination framework (TASK 3) --- */
 .framework{border:1px solid var(--accent);border-radius:12px;background:
@@ -267,4 +326,12 @@ footer b{color:#9fb0d4}
 
   .cls-conc,.fw-card,.driver{padding:12px 13px}
   .trig-list li{font-size:13.5px}
+
+  /* lockup: stack the status dial and collapse the tranche rows to 2 lines */
+  .lockup{padding:18px}
+  .lk-px{font-size:22px}
+  .lk-row{grid-template-columns:1fr auto;gap:4px 10px;padding:11px 13px}
+  .lk-when{order:1}
+  .lk-pct{order:2;font-size:16px}
+  .lk-text{order:3;grid-column:1 / -1;font-size:12.5px}
 }

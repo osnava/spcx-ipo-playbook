@@ -1,6 +1,6 @@
 /* app.js — renders the playbook from the data layer and wires interactions.
    State: current phase (ph0..ph3) + current language (en|es). */
-import { UI, PHASES, TRIGGERS, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING,
+import { UI, PHASES, TRIGGERS, LOCKUP, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOSING,
          MARKET, startTape } from "./data/index.js";
 
 let lang = "en";
@@ -57,7 +57,7 @@ function renderTape() {
   }).join("");
 
   const book = HOLDINGS.map((h) => {
-    const s = h.states[activePhase];
+    const s = h.states[bookPhase()];
     const q = QUOTES[h.ticker];
     let px = "";
     if (q?.price != null) {
@@ -102,11 +102,31 @@ function renderPhaseCards() {
     card.addEventListener("click", () => setPhase(p.id));
     host.appendChild(card);
   });
+
+  // 5th tile: the lockup supply schedule, with its live +30%-trigger status pill
+  const s = lockupStatus();
+  const lk = el("button", `phase tone-hot lk-tile${activePhase === "lk" ? " active" : ""}`);
+  lk.dataset.phase = "lk";
+  lk.innerHTML = `
+    <div class="pnum">${tr(LOCKUP.tile.num)}</div>
+    <div class="pname">${tr(LOCKUP.tile.name)}</div>
+    <div class="lk-tag mono ${s.armed ? "armed" : "safe"}">${
+      s.hasPrice ? `$${fmtNum(s.price)} · ` : ""
+    }${s.armed ? tr(LOCKUP.status.armed) : tr(LOCKUP.status.below)}</div>
+    <div class="bar"></div>`;
+  lk.addEventListener("click", () => setPhase("lk"));
+  host.appendChild(lk);
 }
+
+/* Which phase-state the book/tape shows. The lockup tile isn't a real phase, so
+   the book keeps its Phase-03 (post-inclusion) stance while the schedule is open. */
+const bookPhase = () => (activePhase === "lk" ? "ph3" : activePhase);
 
 function renderDirective() {
   const p = PHASES.find((x) => x.id === activePhase);
   const host = $("#directive");
+  if (!p) { host.style.display = "none"; return; } // lockup tile active → panel takes over
+  host.style.display = "";
   host.className = `directive tone-${p.tone}`;
 
   const drivers = p.drivers
@@ -152,6 +172,75 @@ function renderTrigger() {
     <ul class="trig-list">
       ${TRIGGERS.map((x) => `<li><span>${tr(x)}</span></li>`).join("")}
     </ul>`;
+}
+
+/* Lockup supply schedule — the supply-side mirror of the inclusion trade.
+   Always visible (not phase-gated). The price-conditioned bonus tranche gets a
+   LIVE status off the SPCX tape quote: is SPCX at/above the +30% line ($175.50)
+   today? Falls back to the snapshot price when no live quote has arrived yet. */
+const LK_TYPE = { earn: "lk-earn", price: "lk-price", time: "lk-time", full: "lk-full" };
+
+/* Resolve the live SPCX price (or the snapshot fallback) and the +30% bonus-
+   trigger state — shared by the phase-row tile pill and the full schedule panel. */
+function lockupStatus() {
+  const L = LOCKUP;
+  const q = QUOTES[L.sym];
+  const live = q?.price != null;
+  const snap = MARKET.find((m) => m.sym === L.sym);
+  const price = live ? q.price : parseFloat(String(snap?.price ?? "").replace(/,/g, ""));
+  const hasPrice = Number.isFinite(price);
+  const armed = hasPrice && price >= L.triggerPrice;
+  const pctVsIpo = hasPrice ? (price / L.ipoPrice - 1) * 100 : null;
+  const toGo = hasPrice ? ((L.triggerPrice - price) / price) * 100 : null; // % rise still needed
+  return { L, q, live, price, hasPrice, armed, pctVsIpo, toGo };
+}
+
+/* The full schedule panel — only mounted when its tile (activePhase "lk") is selected. */
+function renderLockup() {
+  const show = activePhase === "lk";
+  $("#lockupLabel").style.display = show ? "" : "none";
+  const host = $("#lockup");
+  host.style.display = show ? "" : "none";
+  if (!show) return;
+  $("#lockupLabel").innerHTML = tr(UI.lockupLabel);
+
+  const { L, q, live, price, hasPrice, armed, pctVsIpo, toGo } = lockupStatus();
+
+  const px = hasPrice
+    ? `<span class="lk-px mono">$${fmtNum(price)}</span>` +
+      (live ? chgSpan(q.chg) : `<span class="lk-snap mono">${tr(L.status.snapshot)}</span>`)
+    : "";
+  const vsIpo = pctVsIpo != null
+    ? `<span class="lk-vsipo mono">${fmtPct(pctVsIpo)} ${tr(L.status.vsIpo)}</span>` : "";
+  const gauge = armed
+    ? `<div class="lk-gap">${tr(L.status.armedNote)}</div>`
+    : (toGo != null
+        ? `<div class="lk-gap">${tr(L.status.needs)} <b>+${toGo.toFixed(1)}%</b> ${tr(L.status.toArm)}</div>`
+        : "");
+
+  const rows = L.tranches.map((x) => `
+    <div class="lk-row ${LK_TYPE[x.type]}">
+      <div class="lk-when mono">${tr(x.when)}</div>
+      <div class="lk-pct mono">${x.pct}</div>
+      <div class="lk-text">${tr(x.text)}</div>
+    </div>`).join("");
+
+  host.innerHTML = `
+    <div class="lk-status ${armed ? "lk-armed" : "lk-safe"}">
+      <div class="lk-now">
+        <div class="lk-sym mono">${L.sym}</div>
+        <div class="lk-pxrow">${px}${vsIpo}</div>
+      </div>
+      <div class="lk-trig">
+        <div class="lk-pill">${armed ? tr(L.status.armed) : tr(L.status.below)}</div>
+        <div class="lk-line mono">${tr(L.status.threshold)}: <b>$${fmtNum(L.triggerPrice)}</b> (+${L.triggerPct}%)</div>
+        ${gauge}
+      </div>
+    </div>
+    <div class="lk-concept">${tr(L.concept)}</div>
+    <div class="lk-table">${rows}</div>
+    <div class="lk-note">${tr(L.status.note)}</div>
+    <div class="lk-foot">${tr(L.footnote)}</div>`;
 }
 
 /* Live countdown to the NDX forced-buy auction. Pinned to the top of the page,
@@ -239,7 +328,7 @@ function renderHoldings() {
   const host = $("#holdings");
   host.innerHTML = "";
   HOLDINGS.forEach((h) => {
-    const s = h.states[activePhase];
+    const s = h.states[bookPhase()];
     const row = el("div", "hold");
     row.innerHTML = `
       <div class="hold-head">
@@ -266,6 +355,7 @@ function setPhase(id) {
   );
   renderDirective();
   renderTrigger();
+  renderLockup();
   renderHoldings();
   renderTape();
 }
@@ -282,6 +372,7 @@ function renderAll() {
   renderPhaseCards();
   renderDirective();
   renderTrigger();
+  renderLockup();
   renderCountdown();
   renderFramework();
   renderHoldings();
@@ -293,5 +384,5 @@ function renderAll() {
 document.addEventListener("DOMContentLoaded", () => {
   $("#langBtn").addEventListener("click", toggleLang);
   renderAll();
-  startTape((quotes) => { QUOTES = quotes; renderTape(); });
+  startTape((quotes) => { QUOTES = quotes; renderTape(); renderPhaseCards(); renderLockup(); });
 });
