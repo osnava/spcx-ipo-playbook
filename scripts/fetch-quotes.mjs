@@ -12,14 +12,15 @@ const DATA_BRANCH = "quotes-data";
 const PUBLISHED_URL = `https://raw.githubusercontent.com/${REPO}/${DATA_BRANCH}/quotes.json`;
 const TIMEOUT_MS = 10_000;
 
+const UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"; // cloud IPs get blocked without a real UA
+
 async function getJSON(url) {
   const ctrl = new AbortController();
   const to = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
-    const r = await fetch(url, {
-      signal: ctrl.signal,
-      headers: { "User-Agent": "Mozilla/5.0 (spcx-quotes-bot)" },
-    });
+    const r = await fetch(url, { signal: ctrl.signal, headers: { "User-Agent": UA } });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return await r.json();
   } finally {
@@ -27,25 +28,38 @@ async function getJSON(url) {
   }
 }
 
-// Yahoo `spark` — price + previous close for many symbols in one request.
+/* Yahoo `spark` — one request, price + prior close for many symbols.
+   The current endpoint returns a FLAT map: { "SPY": { close:[…], chartPreviousClose }, … }
+   (the old { spark: { result: […] } } shape is handled too, just in case).
+   price = latest close; chg = vs the previous day's close. */
+function sparkQuote(sym, closeArr, chartPrev) {
+  const closes = (closeArr || []).filter((v) => typeof v === "number");
+  if (!closes.length) return null;
+  const price = closes[closes.length - 1];
+  const prev = closes.length >= 2 ? closes[closes.length - 2]
+             : (typeof chartPrev === "number" ? chartPrev : null);
+  return { sym, q: { price, chg: prev ? (price / prev - 1) * 100 : null, live: true } };
+}
+
 async function yahooBatch(symbols) {
   const qs = symbols.map(encodeURIComponent).join(",");
   const url = `https://query1.finance.yahoo.com/v8/finance/spark?symbols=${qs}&range=2d&interval=1d`;
   const d = await getJSON(url);
   const out = {};
-  for (const r of d?.spark?.result ?? []) {
-    const node = r?.response?.[0];
-    const meta = node?.meta;
-    let price = meta?.regularMarketPrice;
-    if (typeof price !== "number") {
-      const closes = node?.indicators?.quote?.[0]?.close ?? node?.close ?? [];
-      for (let i = closes.length - 1; i >= 0; i--) {
-        if (typeof closes[i] === "number") { price = closes[i]; break; }
+  const push = (res) => { if (res) out[res.sym] = res.q; };
+
+  if (d?.spark?.result) {                       // legacy shape
+    for (const r of d.spark.result) {
+      const node = r?.response?.[0];
+      push(sparkQuote(r.symbol, node?.indicators?.quote?.[0]?.close ?? node?.close,
+                      node?.meta?.chartPreviousClose));
+    }
+  } else {                                      // current flat-map shape
+    for (const [sym, node] of Object.entries(d ?? {})) {
+      if (node && typeof node === "object" && Array.isArray(node.close)) {
+        push(sparkQuote(sym, node.close, node.chartPreviousClose));
       }
     }
-    if (typeof price !== "number") continue;
-    const prev = meta?.chartPreviousClose ?? meta?.previousClose ?? null;
-    out[r.symbol] = { price, chg: prev ? (price / prev - 1) * 100 : null, live: true };
   }
   return out;
 }
