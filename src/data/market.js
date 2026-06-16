@@ -13,6 +13,11 @@
    chg = same-day % (arrow/colour from its sign; VIX inverts — a rise is risk-off). */
 import { t } from "./i18n.js";
 
+/* ⛔ TEMP KILL-SWITCH — set back to `true` tomorrow to resume live equities.
+   While false, the tape makes ZERO Yahoo requests (equities show the snapshot);
+   BTC/Coinbase stays live. Paused to let Yahoo's per-IP rate limit reset. */
+export const YAHOO_ENABLED = false;
+
 export const REFRESH_MS   = 600_000; // poll every 10 min — one batched request, very gentle on the API
 export const CACHE_TTL_MS = 570_000; // reuse cached quotes within this window (reloads/phase-clicks → no refetch)
 

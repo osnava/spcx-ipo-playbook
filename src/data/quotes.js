@@ -12,7 +12,7 @@
      · per-request AbortController timeout + per-source isolation (one failure can't
        sink the others)
      · any failure simply falls back to the snapshot in market.js — the strip never breaks. */
-import { MARKET, BOOK_Q, REFRESH_MS, CACHE_TTL_MS } from "./market.js";
+import { MARKET, BOOK_Q, REFRESH_MS, CACHE_TTL_MS, YAHOO_ENABLED } from "./market.js";
 
 const CACHE_KEY = "spcx_tape_quotes_v1";
 const TIMEOUT_MS = 8_000;
@@ -88,6 +88,7 @@ function writeCache(q) {
 /* Map every Yahoo symbol back to the tape key it feeds (market sym or book ticker). */
 function yahooSymbolMap() {
   const map = new Map(); // yahooSymbol → tape key
+  if (!YAHOO_ENABLED) return map; // ⛔ paused — make no Yahoo requests at all
   for (const m of MARKET) if (m.q) map.set(m.q, m.sym);
   for (const [tk, cfg] of Object.entries(BOOK_Q)) if (cfg.q) map.set(cfg.q, tk);
   return map;
