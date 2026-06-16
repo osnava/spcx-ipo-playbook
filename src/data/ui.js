@@ -17,6 +17,12 @@ export const UI = {
   sectionWatch: t("Watch for", "Vigila"),
   frameworkLabel: t("Narrative discrimination framework", "Marco de discriminación de narrativas"),
   holdingsLabel: t("My real book · sell priority order", "Mi cartera real · orden de prioridad de venta"),
+  bookCols: {
+    asset: t("Asset", "Activo"),
+    role: t("Role", "Rol"),
+    action: t("Action", "Acción"),
+    notes: t("Notes", "Notas"),
+  },
   closingLabel: t("How to read this", "Cómo leer esto"),
   triggerTitle: t(
     'Reversal confirmation — define "rolls over" before July',

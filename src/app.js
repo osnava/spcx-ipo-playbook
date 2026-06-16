@@ -7,6 +7,7 @@ let lang = "en";
 let activePhase = "ph2"; // Build-Up closed on the Jun 12 debut; Inclusion Window is now live
 let QUOTES = {}; // sym → { price:Number, chg:Number, live:true }, filled by startTape
 let countdownTimer = null; // ticking handle for the Phase-02 inclusion countdown
+let bookOpen = true;       // "My real book" table collapse state
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const el = (tag, cls, html) => {
@@ -234,25 +235,43 @@ function renderClosing() {
   $("#closing").innerHTML = CLOSING.map((p) => `<p>${tr(p)}</p>`).join("");
 }
 
+/* The book renders as one collapsible table (click the section label to toggle).
+   Rows reflect the active phase's state; on phones the table reflows to stacked
+   label/value pairs via the data-l attributes (see .book-table CSS). */
+function toggleBook() { bookOpen = !bookOpen; renderHoldings(); }
+
 function renderHoldings() {
-  $("#holdingsLabel").innerHTML = tr(UI.holdingsLabel);
+  const label = $("#holdingsLabel");
+  label.classList.add("book-head");
+  label.classList.toggle("open", bookOpen);
+  label.innerHTML = `<span class="book-chev">▶</span>${tr(UI.holdingsLabel)}`;
+  label.style.cursor = "pointer";
+  label.onclick = toggleBook;
+
   const host = $("#holdings");
-  host.innerHTML = "";
-  HOLDINGS.forEach((h) => {
+  host.style.display = bookOpen ? "" : "none";
+  if (!bookOpen) { host.innerHTML = ""; return; }
+
+  const C = UI.bookCols;
+  const rows = HOLDINGS.map((h) => {
     const s = h.states[activePhase];
-    const row = el("div", "hold");
-    row.innerHTML = `
-      <div class="hold-head">
-        <div class="rank">${h.rank}</div>
-        <div class="htick">${h.ticker}</div>
-        <div class="hrole">${tr(h.role)}</div>
-        <span class="hstate ${STATE_CLASS[s.tone]}">${tr(s.label)}</span>
-        <span class="chev">▶</span>
-      </div>
-      <div class="hold-detail"><div class="hold-detail-inner">${tr(h.detail)}</div></div>`;
-    row.querySelector(".hold-head").addEventListener("click", () => row.classList.toggle("open"));
-    host.appendChild(row);
-  });
+    return `
+      <tr>
+        <td class="bt-rank" data-l="#">${h.rank}</td>
+        <td class="bt-tick mono" data-l="${tr(C.asset)}">${h.ticker}</td>
+        <td class="bt-role" data-l="${tr(C.role)}">${tr(h.role)}</td>
+        <td class="bt-state" data-l="${tr(C.action)}"><span class="hstate ${STATE_CLASS[s.tone]}">${tr(s.label)}</span></td>
+        <td class="bt-note" data-l="${tr(C.notes)}">${tr(h.detail)}</td>
+      </tr>`;
+  }).join("");
+
+  host.innerHTML = `
+    <table class="book-table">
+      <thead>
+        <tr><th>#</th><th>${tr(C.asset)}</th><th>${tr(C.role)}</th><th>${tr(C.action)}</th><th>${tr(C.notes)}</th></tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
 }
 
 function renderFooter() {

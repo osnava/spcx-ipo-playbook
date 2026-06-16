@@ -156,26 +156,54 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .sec-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
   margin:6px 0 16px;display:flex;align-items:center;gap:12px}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
-.holdings{display:grid;gap:10px}
-.hold{border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden;transition:.15s}
-.hold:hover{border-color:var(--accent)}
-.hold-head{display:flex;align-items:center;gap:16px;padding:15px 18px;cursor:pointer}
-.rank{width:30px;height:30px;flex:none;border-radius:7px;display:grid;place-items:center;
-  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;background:var(--panel2);border:1px solid var(--line)}
-.htick{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;width:96px;flex:none}
-.hrole{color:var(--dim);font-size:13px;flex:1;min-width:120px}
+/* "My real book" is a collapsible header — the label toggles the table below */
+.book-head{cursor:pointer;user-select:none}
+.book-head .book-chev{color:var(--accent);font-size:11px;transition:transform .2s;
+  display:inline-block}
+.book-head.open .book-chev{transform:rotate(90deg)}
+
 .hstate{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
-  padding:5px 11px;border-radius:20px;white-space:nowrap}
+  padding:5px 11px;border-radius:20px;white-space:nowrap;display:inline-block}
 .st-hold{color:var(--go);background:rgba(52,217,154,.12)}
 .st-watch{color:var(--warn);background:rgba(255,180,61,.12)}
 .st-sell{color:var(--hot);background:rgba(255,93,74,.14)}
 .st-keep{color:var(--ice);background:rgba(127,212,255,.1)}
-.chev{color:var(--dim);transition:.2s;font-size:12px}
-.hold.open .chev{transform:rotate(90deg)}
-.hold-detail{max-height:0;overflow:hidden;transition:max-height .25s ease}
-.hold.open .hold-detail{max-height:240px}
-.hold-detail-inner{padding:0 18px 16px 64px;font-size:13.5px;line-height:1.6;color:#aebbd9}
-.hold-detail-inner b{color:var(--txt)}
+
+/* the book as one table */
+.book-table{width:100%;border-collapse:separate;border-spacing:0;
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  background:var(--panel);table-layout:fixed}
+.book-table th,.book-table td{text-align:left;padding:12px 14px;
+  vertical-align:top;border-bottom:1px solid var(--line)}
+.book-table thead th{font-family:'JetBrains Mono',monospace;font-size:11px;
+  font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dim);
+  background:var(--panel2);white-space:nowrap}
+.book-table tbody tr:last-child td{border-bottom:none}
+.book-table tbody tr:hover td{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+/* column widths (table-layout:fixed) */
+.book-table th:nth-child(1),.bt-rank{width:42px}
+.book-table th:nth-child(2),.bt-tick{width:104px}
+.book-table th:nth-child(3),.bt-role{width:22%}
+.book-table th:nth-child(4),.bt-state{width:118px}
+.bt-rank{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--txt)}
+.bt-tick{font-weight:700;font-size:15px;color:var(--txt)}
+.bt-role{color:var(--dim);font-size:13px;line-height:1.5}
+.bt-note{font-size:13px;line-height:1.55;color:#aebbd9}
+.bt-note b{color:var(--txt)}
+
+/* phones: reflow each row into a stacked label/value card */
+@media(max-width:640px){
+  .book-table,.book-table thead,.book-table tbody,.book-table tr,.book-table td{display:block;width:auto}
+  .book-table{border:none;background:none}
+  .book-table thead{position:absolute;left:-9999px}      /* hide header row, labels come from data-l */
+  .book-table tr{border:1px solid var(--line);border-radius:10px;background:var(--panel);
+    margin-bottom:10px;padding:6px 4px;overflow:hidden}
+  .book-table td{border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+    padding:9px 14px;display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:baseline}
+  .book-table tr td:last-child{border-bottom:none}
+  .book-table td::before{content:attr(data-l);font-family:'JetBrains Mono',monospace;
+    font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+}
 
 /* --- Narrative discrimination framework (TASK 3) --- */
 .framework{border:1px solid var(--accent);border-radius:12px;background:
