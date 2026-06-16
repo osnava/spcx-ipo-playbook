@@ -20,3 +20,6 @@ desktop.ini
 
 # Working notes / task specs (not part of the published site)
 spcx-playbook-tasks.md
+
+# CI-generated shared quote file (lives on the quotes-data branch, not main)
+quotes.json
