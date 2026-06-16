@@ -163,8 +163,10 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .sec-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
   margin:6px 0 16px;display:flex;align-items:center;gap:12px}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
-/* "My real book" is a collapsible header — the label toggles the table below */
-.book-head{cursor:pointer;user-select:none}
+/* "My real book" is a collapsible header — the label toggles the table +
+   classification below. Brighter than the other dim section labels so the
+   whole (now merged) section reads clearly. */
+.book-head{cursor:pointer;user-select:none;color:#aebbd9}
 .book-head .book-chev{color:var(--accent);font-size:11px;transition:transform .2s;
   display:inline-block}
 .book-head.open .book-chev{transform:rotate(90deg)}
@@ -279,12 +281,17 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .fw-ct{font-size:13.5px;line-height:1.6;color:#aebbd9}
 .fw-ct b{color:var(--txt)}
 
-/* --- Signal vs noise classification (TASK 6) --- */
+/* --- Signal vs noise — folded into the "My real book" section, collapses with
+   it, and brightened so it's clearly legible (was washed out on the dark bg) --- */
 .classification{margin:14px 0 30px}
+.cls-sub{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:11px}
+.cls-sub::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .cls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 @media(max-width:680px){.cls-grid{grid-template-columns:1fr}}
-.cls-card{border-radius:10px;background:var(--panel2);padding:13px 16px;
-  border-left:3px solid var(--line)}
+.cls-card{border-radius:10px;background:color-mix(in srgb,var(--panel2) 84%,#fff 9%);
+  padding:13px 16px;border:1px solid var(--line);border-left:3px solid var(--line)}
 .cls-card.st-sell{border-left-color:var(--hot)}
 .cls-card.st-watch{border-left-color:var(--warn)}
 .cls-card.st-keep{border-left-color:var(--ice)}
@@ -292,11 +299,12 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .cls-card.st-sell .cls-label{color:var(--hot)}
 .cls-card.st-watch .cls-label{color:var(--warn)}
 .cls-card.st-keep .cls-label{color:var(--ice)}
-.cls-names{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
-.cls-note{font-size:12.5px;line-height:1.5;color:var(--dim)}
-.cls-conc{font-size:13px;line-height:1.6;color:#aebbd9;border:1px dashed var(--line);
-  border-radius:8px;padding:13px 15px;background:var(--panel)}
-.cls-conc b{color:var(--txt)}
+.cls-names{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.cls-note{font-size:12.5px;line-height:1.5;color:#c2cde9}
+.cls-conc{font-size:13px;line-height:1.6;color:#cdd7ef;
+  border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));
+  border-radius:8px;padding:13px 15px;background:color-mix(in srgb,var(--panel2) 80%,#fff 6%)}
+.cls-conc b{color:#fff}
 
 /* --- Closing "how to read this" (TASK 8) --- */
 .closing{margin-bottom:10px}

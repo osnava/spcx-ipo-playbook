@@ -315,6 +315,7 @@ function renderClassification() {
     )
     .join("");
   $("#classification").innerHTML = `
+    <div class="cls-sub">${tr(UI.classLabel)}</div>
     <div class="cls-grid">${groups}</div>
     <div class="cls-conc">${tr(CLASSIFICATION.concentration)}</div>`;
 }
@@ -338,7 +339,9 @@ function renderHoldings() {
   label.onclick = toggleBook;
 
   const host = $("#holdings");
+  const cls = $("#classification");          // signal-vs-noise block is part of this section now
   host.style.display = bookOpen ? "" : "none";
+  if (cls) cls.style.display = bookOpen ? "" : "none";
   if (!bookOpen) { host.innerHTML = ""; return; }
 
   const C = UI.bookCols;

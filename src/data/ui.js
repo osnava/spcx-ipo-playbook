@@ -24,6 +24,7 @@ export const UI = {
     action: t("Action", "Acción"),
     notes: t("Notes", "Notas"),
   },
+  classLabel: t("Signal vs noise · concentration", "Señal vs ruido · concentración"),
   closingLabel: t("How to read this", "Cómo leer esto"),
   triggerTitle: t(
     'Reversal confirmation — define "rolls over" before July',
