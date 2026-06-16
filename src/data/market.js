@@ -1,25 +1,20 @@
 /* market.js — config for the top "tape" (Wall-Street-style scrolling ticker).
-   The tape is LIVE where the browser can reach a free, keyless, CORS-enabled
-   quote source (see quotes.js): Yahoo Finance's chart endpoint for stocks /
-   indices, Coinbase for BTC. Each cell falls back to the SNAPSHOT values below
-   (Jun 9 2026 close) when a fetch fails — so the strip always renders, and the
-   tag honestly reports how many cells are actually live.
+   Live values come from a SHARED quotes.json refreshed by a GitHub Action
+   (scripts/fetch-quotes.mjs) — Yahoo `spark` for stocks/indices, Coinbase for
+   BTC — which the browser reads via quotes.js. No browser ever calls a market
+   API, so the user count is irrelevant. Each cell falls back to the SNAPSHOT
+   values below (Jun 9 2026 close) until/unless the shared file resolves, so the
+   strip always renders.
 
-   Why no API key: this is a public static repo, so embedding a key would leak
-   it. Keyless endpoints + caching + a slow poll keep us well inside rate limits.
+   The `q` / `src` fields below are consumed by the CI fetch script (not the
+   browser) to know which symbols to pull.
 
    q   = Yahoo symbol (^ = index).  src "cb" = Coinbase.
    price/chg = fallback snapshot shown until/unless a live quote arrives.
    chg = same-day % (arrow/colour from its sign; VIX inverts — a rise is risk-off). */
 import { t } from "./i18n.js";
 
-/* ⛔ TEMP KILL-SWITCH — set back to `true` tomorrow to resume live equities.
-   While false, the tape makes ZERO Yahoo requests (equities show the snapshot);
-   BTC/Coinbase stays live. Paused to let Yahoo's per-IP rate limit reset. */
-export const YAHOO_ENABLED = false;
-
-export const REFRESH_MS   = 600_000; // poll every 10 min — one batched request, very gentle on the API
-export const CACHE_TTL_MS = 570_000; // reuse cached quotes within this window (reloads/phase-clicks → no refetch)
+export const REFRESH_MS = 600_000; // browser re-reads the shared quotes.json every 10 min (see quotes.js)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
 export const TAPE_SNAPSHOT = t("SNAPSHOT · 12 JUN '26", "INSTANTÁNEA · 12 JUN '26");

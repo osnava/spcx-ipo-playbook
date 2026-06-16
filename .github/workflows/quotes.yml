@@ -1,0 +1,54 @@
+name: Refresh quotes
+
+# One shared fetch for the whole site. Runs server-side (no CORS, no per-user
+# calls), publishes quotes.json to the `quotes-data` branch — main stays clean.
+on:
+  schedule:
+    - cron: "*/20 13-21 * * 1-5"   # ~every 20 min during US market hours (UTC), weekdays
+  workflow_dispatch: {}            # lets you trigger a refresh manually from the Actions tab
+
+permissions:
+  contents: write                  # push the data branch with the default token
+
+concurrency:                       # never let two refreshes race the branch
+  group: quotes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch quotes
+        run: node scripts/fetch-quotes.mjs
+
+      - name: Publish quotes.json to the quotes-data branch
+        run: |
+          set -e
+          [ -f quotes.json ] || { echo "no quotes.json produced — skipping"; exit 0; }
+          git config user.name "quotes-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # stash the fresh file, then move onto a clean quotes-data branch
+          mv quotes.json "$RUNNER_TEMP/quotes.json"
+          if git fetch origin quotes-data --depth 1 2>/dev/null; then
+            git checkout -B quotes-data origin/quotes-data
+          else
+            git checkout --orphan quotes-data
+          fi
+          # the branch holds ONLY quotes.json — clear anything inherited
+          git ls-files -z | xargs -0 -r git rm -q --cached --
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          mv "$RUNNER_TEMP/quotes.json" quotes.json
+
+          git add quotes.json
+          if git diff --staged --quiet; then
+            echo "no change — nothing to publish"
+            exit 0
+          fi
+          git commit -m "data: refresh quotes [skip ci]"
+          git push origin quotes-data
