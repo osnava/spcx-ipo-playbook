@@ -313,7 +313,9 @@ footer b{color:#9fb0d4}
 
 /* =========================================================================
    Responsive — tablet ≤720px, phone ≤480px
-   (grid collapses for .phases/.drivers/.fw-cards/.cls-grid live inline above)
+   Grid/layout reflows live inline above next to their components:
+     .phases 5→2 col ≤860 → 1 col ≤480 · .drivers/.fw-cards/.cls-grid → 1 col ≤680
+     .book-table → stacked label/value cards ≤640 · .lk-row → 2-line ≤480
    ========================================================================= */
 @media(max-width:720px){
   :root{--padx:16px;--padt:22px}
@@ -340,13 +342,9 @@ footer b{color:#9fb0d4}
   .dir-headline{font-size:16.5px;margin-bottom:14px}
   .block-text,.callout .block-text{font-size:13.5px}
 
-  /* holdings: let the row wrap so it never overflows a narrow screen */
-  .hold-head{flex-wrap:wrap;gap:9px 11px;padding:13px 14px}
-  .htick{width:auto;font-size:15px}
-  .hstate{margin-left:auto}
-  .hrole{flex-basis:100%;min-width:0;order:5;font-size:12.5px}
-  .hold-detail-inner{padding:0 14px 14px;font-size:13px}
-  .hold.open .hold-detail{max-height:520px}
+  /* book table: tighten the stacked label column on the narrowest screens
+     (the table already reflows to label/value cards at ≤640px above) */
+  .book-table td{grid-template-columns:72px 1fr;gap:10px;padding:9px 12px}
 
   /* tape: tighter cells on phones */
   .tcell{padding:0 12px;font-size:11.5px;gap:6px}
@@ -357,6 +355,7 @@ footer b{color:#9fb0d4}
 
   /* lockup: stack the status dial and collapse the tranche rows to 2 lines */
   .lockup{padding:18px}
+  .lk-trig{min-width:0}          /* don't force 230px → no overflow on ~300px phones */
   .lk-px{font-size:22px}
   .lk-row{grid-template-columns:1fr auto;gap:4px 10px;padding:11px 13px}
   .lk-when{order:1}
