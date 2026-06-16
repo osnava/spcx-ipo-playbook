@@ -15,6 +15,7 @@ export const UI = {
   sectionDrivers: t("What's happening", "Qué está pasando"),
   sectionAction: t("Do this", "Haz esto"),
   sectionWatch: t("Watch for", "Vigila"),
+  lockupLabel: t("Lockup supply schedule · the other side of the trade", "Calendario de oferta del lockup · el otro lado del trade"),
   frameworkLabel: t("Narrative discrimination framework", "Marco de discriminación de narrativas"),
   holdingsLabel: t("My real book · sell priority order", "Mi cartera real · orden de prioridad de venta"),
   closingLabel: t("How to read this", "Cómo leer esto"),
