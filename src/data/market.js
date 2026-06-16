@@ -13,9 +13,8 @@
    chg = same-day % (arrow/colour from its sign; VIX inverts — a rise is risk-off). */
 import { t } from "./i18n.js";
 
-export const REFRESH_MS   = 60_000; // poll once a minute — ample for a playbook, gentle on the API
-export const CACHE_TTL_MS = 55_000; // serve cached quotes within this window (avoids redundant calls)
-export const FETCH_POOL   = 4;      // max concurrent requests (don't burst the endpoint)
+export const REFRESH_MS   = 600_000; // poll every 10 min — one batched request, very gentle on the API
+export const CACHE_TTL_MS = 570_000; // reuse cached quotes within this window (reloads/phase-clicks → no refetch)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
 export const TAPE_SNAPSHOT = t("SNAPSHOT · 12 JUN '26", "INSTANTÁNEA · 12 JUN '26");
