@@ -7,6 +7,11 @@ export const UI = {
     "Reglas de mantener / vender por fases · alineadas al calendario de inclusión en índices"
   ),
   langToggle: t("Español", "English"),
+  /* tape freshness — shown next to the live dot; %m/%h are integer placeholders */
+  ageLive: t("LIVE", "EN VIVO"),
+  ageMin: t("UPDATED %m MIN AGO", "ACTUALIZADO HACE %m MIN"),
+  ageHour: t("UPDATED %h HR AGO", "ACTUALIZADO HACE %h H"),
+  ageStale: t("STALE", "DESFASADO"),
   cdDays: t("DAYS", "DÍAS"),
   cdHours: t("HRS", "HRS"),
   cdMins: t("MIN", "MIN"),
@@ -16,13 +21,13 @@ export const UI = {
   sectionAction: t("Do this", "Haz esto"),
   sectionWatch: t("Watch for", "Vigila"),
   lockupLabel: t("Lockup supply schedule · the other side of the trade", "Calendario de oferta del lockup · el otro lado del trade"),
-  frameworkLabel: t("Narrative discrimination framework", "Marco de discriminación de narrativas"),
+  frameworkLabel: t("Operating principles", "Principios operativos"),
   holdingsLabel: t("My real book · sell priority order", "Mi cartera real · orden de prioridad de venta"),
   bookCols: {
     asset: t("Asset", "Activo"),
     role: t("Role", "Rol"),
     action: t("Action", "Acción"),
-    notes: t("Notes", "Notas"),
+    notes: t("Thesis", "Tesis"),
   },
   classLabel: t("Signal vs noise · concentration", "Señal vs ruido · concentración"),
   closingLabel: t("How to read this", "Cómo leer esto"),

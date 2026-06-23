@@ -15,7 +15,8 @@ const QUOTES_URL =
 let timer = null;
 
 /* Start the tape: read the shared file now, then re-read every REFRESH_MS.
-   onUpdate(quoteMap) is called whenever fresh quotes arrive. */
+   onUpdate(quoteMap, updatedIso) is called whenever fresh quotes arrive —
+   `updatedIso` is the server-side write time, used to flag staleness in the UI. */
 export function startTape(onUpdate) {
   const load = async () => {
     if (document.visibilityState === "hidden") return; // don't poll a backgrounded tab
@@ -23,7 +24,7 @@ export function startTape(onUpdate) {
       const r = await fetch(QUOTES_URL, { cache: "no-store" });
       if (!r.ok) return; // 404 before the first publish → keep snapshot
       const data = await r.json();
-      if (data?.quotes && Object.keys(data.quotes).length) onUpdate(data.quotes);
+      if (data?.quotes && Object.keys(data.quotes).length) onUpdate(data.quotes, data.updated);
     } catch { /* network/CORS hiccup → keep last good / snapshot */ }
   };
 

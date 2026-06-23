@@ -6,6 +6,7 @@ import { UI, PHASES, TRIGGERS, LOCKUP, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOS
 let lang = "en";
 let activePhase = "ph2"; // Build-Up closed on the Jun 12 debut; Inclusion Window is now live
 let QUOTES = {}; // sym → { price:Number, chg:Number, live:true }, filled by startTape
+let quotesUpdated = null; // ISO write-time of the shared quotes.json (for staleness)
 let countdownTimer = null; // ticking handle for the Phase-02 inclusion countdown
 let bookOpen = true;       // "My real book" table collapse state
 
@@ -31,6 +32,19 @@ const chgSpan = (chg, invert) => {
   if (chg == null) return "";
   const up = invert ? chg < 0 : chg >= 0;
   return `<span class="tchg ${up ? "up" : "down"}">${chg >= 0 ? "▲" : "▼"} ${fmtPct(chg)}</span>`;
+};
+
+/* Tape freshness — the shared quotes.json carries an `updated` ISO timestamp.
+   Surface it as "LIVE / UPDATED N MIN AGO" and flip the dot+tag to stale (hot)
+   once the file is older than STALE_MS or no quote has ever resolved. */
+const STALE_MS = 5 * 60 * 1000;
+const freshness = () => {
+  const ts = quotesUpdated ? Date.parse(quotesUpdated) : NaN;
+  if (!Number.isFinite(ts)) return { label: tr(UI.ageStale), stale: true };
+  const mins = Math.floor((Date.now() - ts) / 60000);
+  if (mins < 1) return { label: tr(UI.ageLive), stale: false };
+  if (mins < 60) return { label: tr(UI.ageMin).replace("%m", String(mins)), stale: mins * 60000 > STALE_MS };
+  return { label: tr(UI.ageHour).replace("%h", String(Math.floor(mins / 60))), stale: true };
 };
 
 let lastCellsHTML = ""; // guards against needless track repaints
@@ -75,7 +89,12 @@ function renderTape() {
   }
 
   host.querySelector(".tape-tag").innerHTML =
-    `<span class="tlive${live > 0 ? "" : " stale"}"></span>`;
+    (() => {
+      const f = freshness();
+      const stale = live === 0 || f.stale;
+      return `<span class="tlive${stale ? " stale" : ""}"></span>` +
+        `<span class="tage${stale ? " stale" : ""}">${f.label}</span>`;
+    })();
 
   const cells = market + book;
   if (cells !== lastCellsHTML) {           // only touch the track when content actually changed
@@ -260,8 +279,18 @@ function renderCountdown() {
   host.style.display = "block";
   host.className = `countdown tone-${p.tone}`;
 
-  const cell = (v, l) =>
-    `<span class="cd-unit"><b>${String(v).padStart(2, "0")}</b><i>${l}</i></span>`;
+  // Build the full structure ONCE; per-tick we patch only the 4 <b> numbers,
+  // avoiding a full innerHTML rebuild (6-element subtree) every second.
+  const unitLabels = [tr(UI.cdDays), tr(UI.cdHours), tr(UI.cdMins), tr(UI.cdSecs)];
+  host.innerHTML =
+    `<div class="cd-title">${tr(cd.title)}</div>` +
+    `<div class="cd-clock mono">` +
+      unitLabels.map((l) => `<span class="cd-unit"><b>00</b><i>${l}</i></span>`).join("") +
+    `</div>` +
+    `<div class="cd-label">${tr(cd.label)}</div>` +
+    `<div class="cd-note">${tr(cd.note)}</div>`;
+
+  const nums = [...host.querySelectorAll(".cd-unit b")];
 
   const paint = () => {
     const ms = new Date(cd.target).getTime() - Date.now();
@@ -272,15 +301,15 @@ function renderCountdown() {
       return;
     }
     const s = Math.floor(ms / 1000);
-    const clock = cell(Math.floor(s / 86400), tr(UI.cdDays)) +
-      cell(Math.floor((s % 86400) / 3600), tr(UI.cdHours)) +
-      cell(Math.floor((s % 3600) / 60), tr(UI.cdMins)) +
-      cell(s % 60, tr(UI.cdSecs));
-    host.innerHTML =
-      `<div class="cd-title">${tr(cd.title)}</div>` +
-      `<div class="cd-clock mono">${clock}</div>` +
-      `<div class="cd-label">${tr(cd.label)}</div>` +
-      `<div class="cd-note">${tr(cd.note)}</div>`;
+    const vals = [
+      Math.floor(s / 86400),
+      Math.floor((s % 86400) / 3600),
+      Math.floor((s % 3600) / 60),
+      s % 60,
+    ];
+    for (let i = 0; i < nums.length; i++) {
+      nums[i].textContent = String(vals[i]).padStart(2, "0");
+    }
   };
 
   paint();
@@ -289,18 +318,10 @@ function renderCountdown() {
 
 function renderFramework() {
   $("#frameworkLabel").innerHTML = tr(UI.frameworkLabel);
-  const cards = FRAMEWORK.cards
-    .map(
-      (c) => `
-      <div class="fw-card">
-        <div class="fw-cl">${tr(c.label)}</div>
-        <div class="fw-ct">${tr(c.text)}</div>
-      </div>`
-    )
+  const items = FRAMEWORK.principles
+    .map((p) => `<li>${tr(p)}</li>`)
     .join("");
-  $("#framework").innerHTML = `
-    <div class="fw-lead">${tr(FRAMEWORK.lead)}</div>
-    <div class="fw-cards">${cards}</div>`;
+  $("#framework").innerHTML = `<ul class="fw-principles">${items}</ul>`;
 }
 
 function renderClassification() {
@@ -329,14 +350,44 @@ function renderClosing() {
    Rows reflect the active phase's state; on phones the table reflows to stacked
    label/value pairs via the data-l attributes (see .book-table CSS). */
 function toggleBook() { bookOpen = !bookOpen; renderHoldings(); }
+const handleBookKey = (e) => {
+  if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+    e.preventDefault();
+    toggleBook();
+  }
+};
+
+/* Per-row expand: the table shows the one-line `summary`; clicking a row opens
+   a detail row beneath with the fuller `detail`. State lives in expandedRows so
+   it survives re-renders (phase/lang switches); toggles patch classes directly
+   to avoid a full table rebuild (no flicker, scroll preserved). */
+const expandedRows = new Set();
+const handleRowKey = (tick) => (e) => {
+  if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+    e.preventDefault();
+    toggleRow(tick);
+  }
+};
+function toggleRow(tick) {
+  const row = document.querySelector(`tr.bt-row[data-tick="${CSS.escape(tick)}"]`);
+  const det = document.querySelector(`tr.bt-detail[data-tick="${CSS.escape(tick)}"]`);
+  if (!row || !det) return;
+  const open = expandedRows.has(tick);
+  if (open) { expandedRows.delete(tick); det.classList.add("hide"); row.classList.remove("open"); row.setAttribute("aria-expanded", "false"); }
+  else      { expandedRows.add(tick);    det.classList.remove("hide"); row.classList.add("open"); row.setAttribute("aria-expanded", "true"); }
+}
 
 function renderHoldings() {
   const label = $("#holdingsLabel");
   label.classList.add("book-head");
   label.classList.toggle("open", bookOpen);
-  label.innerHTML = `<span class="book-chev">▶</span>${tr(UI.holdingsLabel)}`;
+  label.setAttribute("role", "button");
+  label.setAttribute("tabindex", "0");
+  label.setAttribute("aria-expanded", String(bookOpen));
+  label.innerHTML = `<span class="book-chev" aria-hidden="true">▶</span>${tr(UI.holdingsLabel)}`;
   label.style.cursor = "pointer";
   label.onclick = toggleBook;
+  label.onkeydown = handleBookKey;
 
   const host = $("#holdings");
   const cls = $("#classification");          // signal-vs-noise block is part of this section now
@@ -347,13 +398,17 @@ function renderHoldings() {
   const C = UI.bookCols;
   const rows = HOLDINGS.map((h) => {
     const s = h.states[bookPhase()];
+    const open = expandedRows.has(h.ticker);
     return `
-      <tr>
+      <tr class="bt-row${open ? " open" : ""}" data-tick="${h.ticker}" role="button" tabindex="0" aria-expanded="${open}">
         <td class="bt-rank" data-l="#">${h.rank}</td>
-        <td class="bt-tick mono" data-l="${tr(C.asset)}">${h.ticker}</td>
+        <td class="bt-tick mono" data-l="${tr(C.asset)}">${h.ticker}<span class="bt-chev" aria-hidden="true">▾</span></td>
         <td class="bt-role" data-l="${tr(C.role)}">${tr(h.role)}</td>
         <td class="bt-state" data-l="${tr(C.action)}"><span class="hstate ${STATE_CLASS[s.tone]}">${tr(s.label)}</span></td>
-        <td class="bt-note" data-l="${tr(C.notes)}">${tr(h.detail)}</td>
+        <td class="bt-note" data-l="${tr(C.notes)}">${tr(h.summary)}</td>
+      </tr>
+      <tr class="bt-detail${open ? "" : " hide"}" data-tick="${h.ticker}">
+        <td colspan="5">${tr(h.detail)}</td>
       </tr>`;
   }).join("");
 
@@ -364,6 +419,12 @@ function renderHoldings() {
       </thead>
       <tbody>${rows}</tbody>
     </table>`;
+
+  host.querySelectorAll(".bt-row").forEach((r) => {
+    const tick = r.dataset.tick;
+    r.onclick = () => toggleRow(tick);
+    r.onkeydown = handleRowKey(tick);
+  });
 }
 
 function renderFooter() {
@@ -404,7 +465,36 @@ function renderAll() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  $("#langBtn").addEventListener("click", toggleLang);
-  renderAll();
-  startTape((quotes) => { QUOTES = quotes; renderTape(); renderPhaseCards(); renderLockup(); });
+  try {
+    $("#langBtn").addEventListener("click", toggleLang);
+    renderAll();
+    startTape((quotes, updated) => {
+      QUOTES = quotes;
+      quotesUpdated = updated;
+      renderTape(); renderPhaseCards(); renderLockup();
+    });
+    // Re-evaluate tape freshness every minute so "UPDATED N MIN AGO" ticks up
+    // and the dot greys out on its own, even with no new fetch arriving.
+    setInterval(() => {
+      const tag = document.querySelector(".tape-tag");
+      if (tag) {
+        const f = freshness();
+        const live = Object.keys(QUOTES).length;
+        const stale = live === 0 || f.stale;
+        tag.classList.toggle("stale", stale);
+        tag.innerHTML = `<span class="tlive${stale ? " stale" : ""}"></span>` +
+          `<span class="tage${stale ? " stale" : ""}">${f.label}</span>`;
+      }
+    }, 60_000);
+  } catch (err) {
+    // Never ship a blank page: a data-shape bug surfaces a visible diagnostic.
+    console.error("SPCX playbook render failed:", err);
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      `<pre style="position:fixed;top:0;left:0;right:0;z-index:9999;margin:0;padding:12px;
+        background:#1a0c0c;color:#ff8a7a;font:12px/1.5 'JetBrains Mono',monospace;
+        white-space:pre-wrap;border-bottom:2px solid #ff5d4a">⚠ render error: ${
+        String(err?.message || err).replace(/</g, "&lt;")}</pre>`
+    );
+  }
 });

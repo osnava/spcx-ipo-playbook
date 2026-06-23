@@ -10,6 +10,78 @@ fact-checking (24 sources fetched, 76 claims extracted, 25 verified, 2 refuted).
 
 ---
 
+## UPDATE — 2026-06-23 (the reversal arrived before inclusion)
+
+The playbook's central thesis was "hold through inclusion, sell the post-inclusion
+reversal." **The reversal started *before* inclusion** — Phase 00's "shakeout first, not
+after" warning was correct, and the calendar has compressed. Five developments resolve the
+remaining open questions:
+
+1. **SPCX price action → ✅ POST-DEBUT CRASH.** Debuted Jun 12 at $135 → opened $150 →
+   closed $160.95 (+19.2%). Ran to a **$225.64 intraday peak Jun 16** (briefly >$2.78T
+   market cap, larger than AMZN/MSFT), then **three straight down sessions**: −5% Jun 17,
+   −3.6% Jun 18, **−16.4% Mon Jun 22 to $154.60** (the biggest one-day value decline on
+   record for a newly debuted stock). Premarket Jun 23 dipped **below $149** (~+10% over
+   the $135 IPO) before rebounding ~$157. **~$400–750B of market cap erased in a week.**
+   Now only ~+14% above IPO — "almost to its IPO price," as observed.
+   ([Yahoo](https://finance.yahoo.com/markets/stocks/article/spacex-stock-tumbles-164-shaving-off-most-ipo-gains-since-debut-141725657.html) ·
+   [Benzinga/El-Erian](https://www.benzinga.com/markets/tech/26/06/60035140/) ·
+   [Motley Fool](https://www.fool.com/investing/2026/06/23/spacex-stock-has-plunged-3-days-in-a-row-is-this-a/))
+2. **Warsh FOMC (Jun 16–17) → ✅ RESOLVED HAWKISH.** Warsh was **confirmed May 13**;
+   Powell's term ended May 15 (Powell remains a Board governor and voted at the meeting).
+   **First FOMC as chair: held 3.5–3.75% (12–0), removed forward guidance, filed no dot
+   plot, formed 5 task forces.** The SEP now shows **9 of 18 participants expecting a hike
+   in 2026 (6 see two)** — the prior easing bias is gone. Markets pricing a possible hike
+   by October. This was the vol catalyst that started the SPCX rollover.
+   ([Fed statement](https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm) ·
+   [Warsh presser transcript](https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260617.pdf) ·
+   [CNBC](https://www.cnbc.com/2026/06/17/fed-interest-rate-decision-june-2026.html))
+3. **Capital-structure shocks (the crash triggers) → ✅ CONFIRMED.**
+   - **Jun 16: $60B all-stock acquisition of Anysphere (Cursor)** (SEC 8-K, implied equity
+     $60B, paid in Class A at 7-day VWAP, $10B breakup fee, closing Q3 2026). Drove the
+     $225.64 peak; now a **dilution overhang**.
+     ([Reuters](https://www.reuters.com/legal/transactional/spacex-buy-anysphere-60-billion-2026-06-16/) ·
+     [SEC 8-K](https://www.sec.gov/Archives/edgar/data/1181412/000162828026043411/spaceexplorationtechnologi.htm))
+   - **Jun 22: inaugural $20B senior unsecured notes** (Rule 144A, refinancing the $20B
+     xAI bridge loan maturing Sep 2027). The immediate −16% trigger — "why debt so soon?"
+     SpaceX discloses **$100.8B cash** (incl. the **$85.7B IPO proceeds with greenshoe**)
+     vs **~$29B debt**, but the market read it as capital-intensity signalling.
+     ([Economic Times](https://economictimes.indiatimes.com/markets/us-stocks/news/spacex-bankers-prepare-for-bond-sale-of-at-least-20-billion/articleshow/131838013.cms) ·
+     [Simply Wall St](https://simplywall.st/stocks/us/telecom/nasdaq-spcx/space-exploration-technologies/news/spacex-spcx-closes-60-billion-cursor-deal-and-lines-up-20-bi))
+4. **Lockup → 🟡 BONUS 10% NOW AT RISK (was on track).** The price-gated bonus needs SPCX
+   to close **≥$175.50 on 5 of the 10 trading days ending on Q2 earnings** (~late Jul /
+   early Aug). SPCX cleared this **easily Jun 14–17** (peaked $225) but the crash pulled it
+   **back below $175.50** — so unless price recovers into earnings, the +10% **rolls into
+   the later time tranches**. The **base 20% (post-Q2 earnings) and 7% time tranches are
+   unconditional and still land**: **Aug 21 · Sep 10 · Sep 25 · Oct 10 · Oct 25**, +28% at
+   Q3 earnings, full expiry **Dec 8/9**. 22V Research: insiders could sell **up to 44% of
+   shares by early Sep** (float expansion ~+900%).
+   ([Motley Fool lockup](https://www.fool.com/investing/2026/06/17/spacex-has-successfully-completed-its-ipo-here-are/) ·
+   [Stock Alarm](https://pro.stockalarm.io/blog/spacex-ipo-lockup-financials) ·
+   [TechTimes/22V](https://www.techtimes.com/articles/318874/20260622/spacex-stock-falls-16-20-billion-bond-debut-capital-already-owed.htm))
+5. **Index inclusion → ✅ ALL CONFIRMED.** **Russell 1000/3000 + CRSP Total Market added
+   SPCX after the Jun 18 close** (5-day fast-entry). **Nasdaq-100 rebalance remains Jul 6**
+   (Day 15 — countdown target in `phases.js` holds). **S&P 500 still off** (MR4292 rejected
+   Jun 4; mid-2027 earliest due to GAAP-profitability rule). ARK Invest bought **210,121
+   SPCX shares (~$32.5M)** across 4 ETFs on Monday's crash.
+   ([Morningstar](https://www.morningstar.com/funds/spacex-ipo-how-index-funds-are-adapting) ·
+   [CNBC](https://www.cnbc.com/2026/06/12/spacex-ipo-sp-500-index-funds-investors.html) ·
+   [Invezz/ARK](https://invezz.com/ie/news/2026/06/23/spacex-stock-tanks-3percent-are-investors-fleeing-after-mondays-dollar400b-rout/))
+
+**Macro backdrop (Jun 22–23):** S&P 500 **7,427** (below the 7,500 trigger), Nasdaq-100
+**−2.4%**, VIX **~24** (above the 20–22 band, rising on the crash + Fed pivot). BTC
+**~$64,107** holding just above its **200-week SMA (~$62k)**, Fear & Greed **23 (Extreme
+Fear)** — not broken, but the risk gauge is flashing.
+
+**Net deployment read:** the dashboard correctly keeps **Phase 02 (Inclusion Window) as
+default** — the Jul 6 NDX auction is still the next hard catalyst and the countdown target
+is intact. But Phase 02's drivers are reframed to acknowledge the early selloff, and the
+first reversal trigger (**SPCX breaking its debut close on rising volume**) is now **LIVE**.
+The hedge should be **confirmed in place now**, not after the Jul 6 print — the unwind did
+not wait for inclusion.
+
+---
+
 ## UPDATE — 2026-06-10 (resolves the open questions)
 
 Three of the four open questions below are now **settled**, and the picture shifted:

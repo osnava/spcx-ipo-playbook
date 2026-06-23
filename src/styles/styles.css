@@ -5,11 +5,12 @@
 
 :root{
   --bg:#080b14; --panel:#0e1424; --panel2:#131b30; --line:#1f2c47;
-  --txt:#dce6ff; --dim:#6b7da6; --accent:#3da9ff;
+  --txt:#dce6ff; --dim:#8a9bc4; --accent:#3da9ff;   /* --dim 6b7da6→8a9bc4 for WCAG AA (4.5:1 on --bg) */
   --hot:#ff5d4a; --warn:#ffb43d; --go:#34d99a; --ice:#7fd4ff;
   --padx:20px; --padt:28px;   /* page gutters — tape margins track these */
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 body{
   font-family:'Space Grotesk',system-ui,sans-serif; color:var(--txt);
   background:
@@ -39,6 +40,8 @@ body{
   box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 70%,transparent);
   animation:tlive-pulse 1.8s ease-out infinite}
 .tlive.stale{background:var(--dim);box-shadow:none;animation:none}
+.tape-tag .tage{letter-spacing:.5px}
+.tape-tag.stale{color:var(--hot)}
 @keyframes tlive-pulse{
   0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 60%,transparent)}
   70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}
@@ -70,7 +73,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .langbtn{cursor:pointer;user-select:none;font-family:'JetBrains Mono',monospace;
   font-size:12px;font-weight:700;border:1px solid var(--accent);color:var(--accent);
   background:var(--panel);padding:7px 14px;border-radius:20px;display:inline-flex;
-  align-items:center;gap:6px;transition:.15s}
+  align-items:center;gap:6px;transition:.15s;touch-action:manipulation}
 .langbtn:hover{background:var(--accent);color:var(--bg)}
 
 .phases{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
@@ -78,7 +81,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 @media(max-width:480px){.phases{grid-template-columns:1fr}}
 .phase{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:16px;
   background:var(--panel);transition:.18s;position:relative;overflow:hidden;text-align:left;
-  font-family:inherit;color:var(--txt)}
+  font-family:inherit;color:var(--txt);touch-action:manipulation}
 .phase:hover{transform:translateY(-2px)}
 .phase:not(.active){opacity:.55}                 /* mute the inactive phases so the active one leads */
 .phase:not(.active):hover{opacity:.85}
@@ -166,7 +169,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 /* "My real book" is a collapsible header — the label toggles the table +
    classification below. Brighter than the other dim section labels so the
    whole (now merged) section reads clearly. */
-.book-head{cursor:pointer;user-select:none;color:#aebbd9}
+.book-head{cursor:pointer;user-select:none;color:#aebbd9;touch-action:manipulation}
 .book-head .book-chev{color:var(--accent);font-size:11px;transition:transform .2s;
   display:inline-block}
 .book-head.open .book-chev{transform:rotate(90deg)}
@@ -200,6 +203,16 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .bt-note{font-size:13px;line-height:1.55;color:#aebbd9}
 .bt-note b{color:var(--txt)}
 
+/* expandable detail row: summary is always visible, detail opens on row click */
+.bt-row{cursor:pointer}
+.bt-row.open td{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.bt-chev{font-size:9px;color:var(--dim);margin-left:6px;transition:transform .2s;display:inline-block}
+.bt-row.open .bt-chev{transform:rotate(180deg);color:var(--accent)}
+.bt-detail td{background:var(--panel2);font-size:13px;line-height:1.55;color:#aebbd9;
+  padding:12px 14px 14px;border-bottom:1px solid var(--line)}
+.bt-detail td b{color:var(--txt)}
+.bt-detail.hide{display:none}
+
 /* phones: reflow each row into a stacked label/value card */
 @media(max-width:640px){
   .book-table,.book-table thead,.book-table tbody,.book-table tr,.book-table td{display:block;width:auto}
@@ -207,11 +220,21 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   .book-table thead{position:absolute;left:-9999px}      /* hide header row, labels come from data-l */
   .book-table tr{border:1px solid var(--line);border-radius:10px;background:var(--panel);
     margin-bottom:10px;padding:6px 4px;overflow:hidden}
+  /* Label sits in a left gutter (absolutely positioned); the value flows as
+     normal inline text. NB: do NOT use display:grid here — it fragments the
+     value because each inline <b>/text-run becomes its own grid item, which
+     shattered the long notes column into overlapping shards. */
   .book-table td{border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
-    padding:9px 14px;display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:baseline}
+    padding:9px 14px 9px 92px;position:relative}
   .book-table tr td:last-child{border-bottom:none}
-  .book-table td::before{content:attr(data-l);font-family:'JetBrains Mono',monospace;
-    font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+  .book-table td::before{content:attr(data-l);position:absolute;left:14px;top:9px;
+    width:70px;white-space:nowrap;
+    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+    letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+  /* detail row attaches under its row, not as a separate card */
+  .book-table tr.bt-detail{border:none;background:none;margin:0;padding:0;border-radius:0}
+  .book-table tr.bt-detail td{display:block;padding:12px 14px 14px}
+  .book-table tr.bt-detail td::before{content:none}
 }
 
 /* --- Lockup supply schedule (the supply-side mirror) --------------------- */
@@ -270,16 +293,10 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .framework{border:1px solid var(--accent);border-radius:12px;background:
   linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,transparent),transparent),var(--panel);
   padding:22px;margin-bottom:30px}
-.fw-lead{font-size:16px;line-height:1.55;color:var(--txt);margin-bottom:18px;
-  border-left:3px solid var(--accent);padding-left:14px}
-.fw-lead b{color:#fff}
-.fw-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:680px){.fw-cards{grid-template-columns:1fr}}
-.fw-card{border-radius:8px;background:var(--panel2);padding:14px 16px}
-.fw-cl{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.5px;
-  text-transform:uppercase;color:var(--accent);margin-bottom:8px;line-height:1.3}
-.fw-ct{font-size:13.5px;line-height:1.6;color:#aebbd9}
-.fw-ct b{color:var(--txt)}
+.fw-principles{list-style:none;display:grid;gap:10px}
+.fw-principles li{font-size:14px;line-height:1.55;color:#aebbd9;
+  border-left:3px solid var(--accent);padding:10px 14px;background:var(--panel2);border-radius:0 8px 8px 0}
+.fw-principles li b{color:var(--txt)}
 
 /* --- Signal vs noise — folded into the "My real book" section, collapses with
    it, and brightened so it's clearly legible (was washed out on the dark bg) --- */
@@ -342,7 +359,7 @@ footer b{color:#9fb0d4}
   .title{font-size:21px}
   .sub{font-size:12.5px}
   .head-top{gap:10px}
-  .langbtn{padding:6px 11px;font-size:11px}
+  .langbtn{min-height:44px;padding:10px 16px;font-size:12px}   /* WCAG 2.5.5 ≥44px tap target */
 
   /* directive: stack the icon above the body */
   .directive{flex-direction:column;padding:16px;gap:14px}
@@ -350,9 +367,10 @@ footer b{color:#9fb0d4}
   .dir-headline{font-size:16.5px;margin-bottom:14px}
   .block-text,.callout .block-text{font-size:13.5px}
 
-  /* book table: tighten the stacked label column on the narrowest screens
-     (the table already reflows to label/value cards at ≤640px above) */
-  .book-table td{grid-template-columns:72px 1fr;gap:10px;padding:9px 12px}
+  /* book table: tighten the stacked label gutter on the narrowest screens
+      (the table already reflows to label/value cards at ≤640px above) */
+  .book-table td{padding:9px 12px 9px 80px}
+  .book-table td::before{left:12px;width:62px}
 
   /* tape: tighter cells on phones */
   .tcell{padding:0 12px;font-size:11.5px;gap:6px}

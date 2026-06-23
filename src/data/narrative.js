@@ -1,29 +1,23 @@
 /* narrative.js — the regime/AI layer that frames the whole playbook.
-   FRAMEWORK     : the narrative-discrimination thesis (central section)
+   FRAMEWORK     : now a short list of operating principles (was lead + cards)
    CLASSIFICATION: signal vs noise grouping of the book + concentration note
-   CLOSING       : "how to read this" sign-off */
+   CLOSING       : one-line sign-off */
 import { t } from "./i18n.js";
 
 export const FRAMEWORK = {
-  lead: t(
-    "The classic valuation books (DCF, P/E mean-reversion, 'high multiples = bubble') were written for a regime of expensive capital and linear growth. AI is rewriting unit economics — productivity, capital intensity, margins, and the speed of scaling.",
-    "Los libros clásicos de valuación (DCF, reversión a la media de P/E, 'múltiplos altos = burbuja') se escribieron para un régimen de capital caro y crecimiento lineal. La IA está reescribiendo la economía unitaria — productividad, intensidad de capital, márgenes y velocidad de escalamiento."
-  ),
-  cards: [
-    {
-      label: t("But not everything expensive is justified", "Pero no todo lo caro está justificado"),
-      text: t(
-        "The skill isn't 'everything is a bubble' nor 'this time is different' — it's to <b>discriminate</b>: is the high valuation backed by real structural change (compounding revenue, a defensible moat, measurable productivity), or is it pure story + liquidity (no path to profit, forced demand, hype)?",
-        "La habilidad no es 'todo es burbuja' ni 'esta vez es diferente' — es <b>discriminar</b>: ¿la valuación alta está respaldada por cambio estructural real (revenue compuesto, foso defendible, productividad medible), o es puro relato + liquidez (sin camino a rentabilidad, demanda forzada, hype)?"
-      ),
-    },
-    {
-      label: t("Decision rule", "Regla de decisión"),
-      text: t(
-        "You <b>heed the narrative when cash flow or adoption validates it</b>; you <b>ignore it when there's only multiple expansion with no fundamentals</b>. That single test is what this whole book is sorted by.",
-        "A la narrativa <b>le haces caso cuando hay flujo de caja o adopción que la valida</b>; la <b>ignoras cuando solo hay expansión de múltiplo sin fundamento</b>. Esa única prueba es como está ordenada toda esta cartera."
-      ),
-    },
+  principles: [
+    t(
+      "<b>Heed the narrative</b> when cash flow or adoption validates it; ignore pure multiple expansion.",
+      "<b>Haz caso a la narrativa</b> cuando haya flujo de caja o adopción que la valide; ignora la pura expansión de múltiplo."
+    ),
+    t(
+      "<b>Forced demand always exhausts</b> — and the unwind doesn't have to wait for it (it didn't, Jun '26).",
+      "<b>Toda demanda forzada se agota</b> — y el desarme no tiene que esperarla (no la esperó, jun '26)."
+    ),
+    t(
+      "<b>Separate structural signal</b> (real revenue, compounding) <b>from liquidity noise</b> (story with no cash).",
+      "<b>Separa la señal estructural</b> (revenue real, compuesto) <b>del ruido de liquidez</b> (relato sin caja)."
+    ),
   ],
 };
 
@@ -49,18 +43,14 @@ export const CLASSIFICATION = {
     },
   ],
   concentration: t(
-    "Concentration check: all eight positions are <b>risk-on, correlated to the tech/AI cycle</b> (SMH and EWY overlap in semis); BTC and URA widen the factor (global liquidity + energy) but stay risk-on. <b>The only real counterweight is gold.</b>",
-    "Nota de concentración: las ocho posiciones son <b>risk-on, correlacionadas al ciclo tech/IA</b> (SMH y EWY se solapan en semis); BTC y URA amplían el factor (liquidez global + energía) pero siguen siendo risk-on. <b>El único contrapeso real es el oro.</b>"
+    "All eight are <b>risk-on, correlated to tech/AI</b> (SMH + EWY overlap in semis); BTC + URA widen the factor but stay risk-on. <b>The only real counterweight is gold.</b>",
+    "Las ocho son <b>risk-on, correlacionadas al tech/IA</b> (SMH + EWY se solapan en semis); BTC + URA amplían el factor pero siguen risk-on. <b>El único contrapeso real es el oro.</b>"
   ),
 };
 
 export const CLOSING = [
   t(
-    "Adapt to the new narratives without forgetting the past. The <b>past</b> teaches that forced demand and hype always revert; the <b>present</b> teaches that the economic regime has changed and the old multiples mislead in both directions.",
-    "Adaptarse a las nuevas narrativas sin olvidar el pasado. El <b>pasado</b> enseña que la demanda forzada y el hype siempre revierten; el <b>presente</b> enseña que el régimen económico cambió y los múltiplos viejos engañan en ambas direcciones."
-  ),
-  t(
-    "In a market where 'everything is a bubble' is consensus, the edge is separating <b>structural signal</b> (real AI productivity, compounding revenue) from <b>liquidity noise</b> (story with no cash). This playbook is an exercise in that discrimination — not a directional bet.",
-    "En un mercado donde 'todo es burbuja' es consenso, el edge está en separar <b>señal estructural</b> (productividad IA real, revenue compuesto) de <b>ruido de liquidez</b> (relato sin caja). Este playbook es un ejercicio de esa discriminación — no una apuesta direccional."
+    "Not a directional bet — an exercise in separating signal from noise.",
+    "No es una apuesta direccional — un ejercicio de separar señal de ruido."
   ),
 ];
