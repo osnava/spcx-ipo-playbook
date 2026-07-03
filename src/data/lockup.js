@@ -38,8 +38,8 @@ export const LOCKUP = {
     needs: t("Needs", "Necesita"),
     toArm: t("to arm the +10% bonus tranche.", "para armar el tramo bonus del +10%."),
     note: t(
-      "<b>Status (Jun 22): bonus at risk.</b> SPCX spiked above +30% Jun 14–17 (peaked $225.64) but the test is <b>5 of the 10 trading days ending on Q2 earnings</b> (~late Jul) closing ≥$175.50 — not the post-debut days. The crash to $154 pulled it back under; unless price recovers, the 10% <b>rolls into the time tranches</b>. The base 20% + time tranches land regardless.",
-      "<b>Estado (22 jun): bonus en riesgo.</b> SPCX picó sobre +30% del 14–17 jun (máximo $225,64) pero la prueba son <b>5 de los 10 días que terminan en resultados del 2T</b> (~fines jul) cerrando ≥$175,50 — no los días post-debut. La caída a $154 lo dejó bajo; salvo que recupere, el 10% <b>pasa a los tramos de tiempo</b>. El 20% base + los tramos de tiempo igual aterrizan."
+      "<b>Status (Jul 2): bonus at risk.</b> SPCX spiked above +30% Jun 14–17 (peaked $225.64) but the test is <b>5 of the 10 trading days ending on Q2 earnings</b> (~late Jul/early Aug) closing ≥$175.50 — not the post-debut days. It has recovered to <b>~$162 (~+20%, still below the trigger)</b>; unless it runs another ~8% into earnings, the 10% <b>rolls into the time tranches</b>. The base 20% + time tranches land regardless.",
+      "<b>Estado (2 jul): bonus en riesgo.</b> SPCX picó sobre +30% del 14–17 jun (máximo $225,64) pero la prueba son <b>5 de los 10 días que terminan en resultados del 2T</b> (~fines jul/inicio ago) cerrando ≥$175,50 — no los días post-debut. Recuperó a <b>~$162 (~+20%, aún bajo el disparador)</b>; salvo que suba otro ~8% hacia los resultados, el 10% <b>pasa a los tramos de tiempo</b>. El 20% base + los tramos de tiempo igual aterrizan."
     ),
   },
 
@@ -57,8 +57,8 @@ export const LOCKUP = {
       when: t("Q2 earnings · price-gated", "Resultados 2T · por precio"),
       pct: "+10%", type: "price",
       text: t(
-        "Needs ≥$175.50 on 5 of 10 days into Q2 earnings. <b>At risk</b> — cleared Jun 14–17 (peaked $225), crashed back below. Miss → rolls into the time tranches.",
-        "Necesita ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>En riesgo</b> — se cumplió 14–17 jun (pico $225), se desplomó bajo. Si falla → pasa a los tramos de tiempo."
+        "Needs ≥$175.50 on 5 of 10 days into Q2 earnings. <b>At risk</b> — cleared Jun 14–17 (peaked $225), now back to ~$162 (below). Miss → rolls into the time tranches.",
+        "Necesita ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>En riesgo</b> — se cumplió 14–17 jun (pico $225), ahora de vuelta en ~$162 (debajo). Si falla → pasa a los tramos de tiempo."
       ),
     },
     {

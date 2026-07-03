@@ -33,7 +33,9 @@ spacex-ipo-playbook/
         ├── market.js       # top "tape" config — symbols + snapshot fallbacks
         ├── quotes.js       # live-quote fetch layer (Yahoo + Coinbase, cached/polled)
         ├── phases.js       # the 4 phases + reversal checklist
-        └── holdings.js     # the 8 positions + per-phase state
+        ├── holdings.js     # the 8 positions + per-phase state
+        ├── lockup.js       # supply-side tranche schedule + live price-gated bonus tracker
+        └── narrative.js    # regime framing — principles, signal/noise classification, sign-off
 ```
 
 **Separation of concerns:** markup (`index.html`) · behavior (`src/app.js`) ·
@@ -63,34 +65,38 @@ fetched (CORS blocked, pre-IPO SPCX, off-hours) falls back to the snapshot baked
 | 00 · Shakeout Watch | Jun 8 & Jun 16–17 | Pre-IPO flush risk (S&P rule + first Warsh FOMC) |
 | 01 · Build-Up | now → ~Jun 12 | Hold; hype lifts the book; set put insurance |
 | 02 · Inclusion Window | ~Jun 12 → ~Jul 7 | Hold + watch; modest index-buying support, short-seasoning froth risk |
-| 03 · Post-Inclusion | ~Jul 7 onward | The trigger; trim in priority order if it rolls over |
+| 03 · Post-Inclusion | Jul 7 onward | The trigger; trim in priority order if it rolls over |
 
-Dates/mechanics updated as of **June 23, 2026**. SPCX debuted **Jun 12 at $135** (~$1.77T,
-$75B base raise / **$85.7B with greenshoe**), closed +19.2% at $160.95, then ran to a
-**$225.64 peak on Jun 16** — and has since **rolled over for three straight sessions
-(−16.4% Mon Jun 22 to $154.60)**, dipping below $149 premarket Jun 23 (only ~+10% over IPO).
-The reversal is the story, and it arrived **before** the inclusion window closed:
+Dates/mechanics updated as of **July 2, 2026**. SPCX debuted **Jun 12 at $135** (~$1.77T,
+$75B base raise / **$85.7B with greenshoe**), closed +19.2% at $160.95, ran to a **$225.64
+peak Jun 16**, then **crashed to a $147.11 low on Jun 23** — and has since **recovered to
+~$162** (Jul 1, back above the debut close), heading **into** a now-confirmed inclusion:
 
-- **Warsh's first FOMC (Jun 16–17) — RESOLVED hawkish.** Held 3.5–3.75%, **removed forward
-  guidance**, filed no dot; the SEP now shows **9/18 members seeing a hike in 2026**. This
-  was the catalyst that started the rollover.
-- **Capital-structure shocks.** Jun 16: **$60B all-stock deal for Anysphere (Cursor)**
-  (drove the $225 peak, now a dilution overhang). Jun 22: inaugural **$20B senior unsecured
-  notes** (refinancing the xAI bridge) triggered the −16% day. Balance sheet: **$100.8B cash
-  vs ~$29B debt**.
-- **Lockup — the +10% price-gated bonus is now AT RISK.** SPCX cleared ≥$175.50 easily Jun
-  14–17 (peaked $225) but crashed back below; the formal test is the 10 trading days ending
-  on Q2 earnings (~late Jul/early Aug). Base 20% + 7% time tranches still land regardless
-  (**Aug 21 · Sep 10 · Sep 25 · Oct 10 · Oct 25**).
-- **Index flows.** **Russell 1000/3000 + CRSP already added SPCX after Jun 18** (5-day rule).
-  **Nasdaq-100 rebalance still Jul 6** (the last big forced-buy wave this summer). **S&P 500
-  still off** (MR4292 rejected Jun 4; mid-2027 earliest).
+- **Nasdaq-100 inclusion — CONFIRMED (announced Jun 26).** SPCX joins **effective Jul 7**,
+  the first stock to use the 15-day fast-track rule; index funds buy the **Jul 6 closing
+  auction**. Forced demand is ~**$4.3B** (~1% weight) + ~$3B of Russell reweighting (already
+  added Jun 18) — smaller than early guesses. **S&P 500 still off** (profitability rule;
+  2027+). History says post-inclusion names *fade* — **Palantir, Strategy & Axon all fell in
+  the 10 days after joining** (2024).
+- **The $25B bond was a bullish tell, not just a shock.** The −16% Jun 22 selloff came on the
+  debut bond news, but the deal **priced at $25B** (up from $20B) with **~$90B of orders —
+  3.5× oversubscribed**, one of the largest IG order books ever (5 tranches 2031–2056,
+  5.35–6.65%; refinancing the xAI bridge). That demand helped SPCX recover off the low.
+- **Cursor is a $60B option.** SpaceX can buy Anysphere (Cursor) for **$60B all-stock** or
+  pay a **$10B breakup fee** to walk; Oppenheimer since set a **$250 target** citing revenue
+  visibility. Drove the $225 peak, still a dilution overhang.
+- **Lockup — the supply wall right after inclusion.** Base **20%** of insider shares unlock
+  the 2nd trading day after Q2 earnings (~late Jul/early Aug), rising to 30% if SPCX closes
+  **≥$175.50** (30% over IPO) on 5 of the 10 days into earnings — **at risk** at ~$162.
+  **~$800B of stock is eligible by October.**
 
-Macro: **S&P 7,427 / Nasdaq 100 −2.4% / VIX ~24** (S&P below the 7,500 trigger, VIX above
-the 20–22 band). BTC holding **~$64k just above its 200W (~$62k)**, Extreme Fear. The
-classic "index effect" has largely faded, so the remaining Jul 6 forced-buy support is
-**modest and single-print** — and now competes with a growing supply wall. See the dated
-UPDATE block in [`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md).
+Macro (Jul 1 close): **S&P 7,483 / Nasdaq 26,040 / VIX ~16.6** — risk-off has **unwound**
+(Q2 the strongest quarter since 2020; S&P/Dow near records). The odd one out is **BTC: it
+wicked to a 652-day low (~$58k)** early in the week, then **recovered back above $60k** (still
+under its 200W ~$62k) as on-chain **long-term holders flipped back to accumulation** — so the
+cross-confirmation trigger is *testing, not confirmed*. The classic "index effect" has faded,
+so the Jul 6 forced-buy is **modest and single-print**, and now competes with the Aug lockup.
+See the dated UPDATE block in [`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md).
 
 See [`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md) for the fact-checked, cited
 breakdown of every claim (✅ fact · 🟡 overstated · ⚠️ contingent · ❌ wrong).

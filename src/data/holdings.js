@@ -70,12 +70,12 @@ export const HOLDINGS = [
   },
   {
     rank: "₿", ticker: "BTCUSDT",
-    role: t("Global liquidity asset · capitulated at 200W", "Activo de liquidez global · capitulado en 200s"),
-    states: { ph0: watch(t("200W TEST", "PRUEBA 200s")), ph1: hold(), ph2: watch(WATCH), ph3: hold(t("HOLD · 200W", "MANTENER · 200s")) },
-    summary: t("Global-liquidity asset, not an AI bet. Hold the 200W (~$62k); sell only on a confirmed weekly break.", "Activo de liquidez global, no apuesta IA. Mantén la 200s (~$62k); vende solo con ruptura semanal confirmada."),
+    role: t("Global liquidity asset · 200W wick bought", "Activo de liquidez global · mecha 200s comprada"),
+    states: { ph0: watch(t("200W TEST", "PRUEBA 200s")), ph1: hold(), ph2: watch(t("200W TEST", "PRUEBA 200s")), ph3: hold(t("HOLD · 200W", "MANTENER · 200s")) },
+    summary: t("Global-liquidity asset, not an AI bet. Wicked to ~$58k (652-day low) then bounced back above $60k — still under the 200W (~$62k). Sell only on a confirmed weekly close below, not the wick.", "Activo de liquidez global, no apuesta IA. Mechó a ~$58k (mínimo en 652 días) y rebotó sobre $60k — aún bajo la 200s (~$62k). Vende solo con cierre semanal confirmado debajo, no la mecha."),
     detail: t(
-      "Institutions hold <b>&gt;12% of supply</b>. <b>−52% off high</b>, tagging the 200W SMA (~$62k) — capitulation zone. <b>Jun 23: ~$64k just above the 200W</b> (F&amp;G 23, Extreme Fear) — not broken. Doubles as a <b>risk gauge</b>: losing the 200W flags a deeper liquidity drain.",
-      "Las instituciones tienen <b>&gt;12% del suministro</b>. <b>−52% bajo el máximo</b>, tocando la SMA 200s (~$62k) — zona de capitulación. <b>23 jun: ~$64k justo sobre la 200s</b> (F&amp;G 23, Miedo Extremo) — no roto. Sirve además como <b>termómetro de riesgo</b>: perder la 200s señala un drenaje más profundo."
+      "Institutions hold <b>&gt;12% of supply</b>. Early this week BTC hit <b>~$58k — its lowest in 652 days</b> — then <b>recovered back above $60k</b>, still below the 200W SMA (~$62k) but the panic wick was bought (was ~$64k <i>above</i> the 200W on Jun 23). On-chain turned constructive: Glassnode shows <b>long-term holders (155d+) back to net accumulation (~50–100k BTC)</b>, small/mid wallets leading the dip-buying, whales still neutral — 'too early to call a full regime.' Vindicates the rule: sell only on a <b>confirmed weekly close</b> below the 200W on rising volume, <b>not the intraweek wick</b>.",
+      "Las instituciones tienen <b>&gt;12% del suministro</b>. A inicios de esta semana BTC tocó <b>~$58k — su mínimo en 652 días</b> — y luego <b>recuperó sobre $60k</b>, aún bajo la SMA 200s (~$62k) pero la mecha de pánico se compró (era ~$64k <i>sobre</i> la 200s el 23 jun). El on-chain se volvió constructivo: Glassnode muestra <b>holders de largo plazo (155d+) de vuelta en acumulación neta (~50–100k BTC)</b>, con billeteras pequeñas/medianas liderando la compra en la caída y las ballenas aún neutrales — 'muy pronto para un régimen pleno.' Valida la regla: vende solo con <b>cierre semanal confirmado</b> bajo la 200s con volumen creciente, <b>no la mecha intrasemana</b>."
     ),
   },
   {

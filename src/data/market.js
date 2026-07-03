@@ -17,20 +17,24 @@ import { t } from "./i18n.js";
 export const REFRESH_MS = 600_000; // browser re-reads the shared quotes.json every 10 min (see quotes.js)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
-export const TAPE_SNAPSHOT = t("SNAPSHOT · 22 JUN '26", "INSTANTÁNEA · 22 JUN '26");
+export const TAPE_SNAPSHOT = t("SNAPSHOT · 1 JUL '26", "INSTANTÁNEA · 1 JUL '26");
 
-/* Snapshot = Jun 22 2026 close (SPCX's −16% crash day). SPCX peaked at $225.64
-   on Jun 16, then rolled over for 3 straight sessions (−5%, −3.6%, −16.4%) —
-   now only ~+14% above the $135 IPO price. VIX/indices are Jun 22-23 prints
-   (VIX estimated ~24 — risk-off elevated); the live quotes.json overrides these
-   during market hours, so precision here is for the fallback only. */
+/* Snapshot = Jul 1 2026 close. SPCX bottomed at $147.11 on Jun 23 (its all-time
+   low), then recovered on a 3.5× oversubscribed $25B bond (~$90B orders) + ARK
+   buying + fresh Street coverage — back to ~$162, above its $160.95 debut close,
+   heading into the Jul 7 Nasdaq-100 inclusion. Risk-off has UNWOUND: VIX ~16.6
+   (was ~24 Jun 22), S&P/Dow near records, Q2 the strongest quarter since 2020.
+   The odd one out is BTC: it wicked to a 652-day low (~$58k) then bounced back
+   above $60k (still under its 200W ~$62k) as long-term holders re-accumulated.
+   The live quotes.json overrides these during market hours, so precision here is
+   for the fallback only. */
 export const MARKET = [
-  { sym: "SPCX",    q: "SPCX",  price: "154.60", chg: -16.43, tag: t("SLUMP · JUN 22", "CAÍDA · 22 JUN") },
-  { sym: "SPY",     q: "SPY",   chg: -0.91 },
-  { sym: "QQQ",     q: "QQQ",   chg: -2.45 },
-  { sym: "VIX",     q: "^VIX",  price: "24.00", chg: 5.20, invert: true },
-  { sym: "S&P 500", q: "^GSPC", price: "7,426.60", chg: -0.91 },
-  { sym: "NASDAQ",  q: "^IXIC", price: "25,520.00", chg: -1.90 },
+  { sym: "SPCX",    q: "SPCX",  price: "162.00", chg: 2.83, tag: t("REBOUND · PRE-NDX", "REBOTE · PRE-NDX") },
+  { sym: "SPY",     q: "SPY",   chg: -0.22 },
+  { sym: "QQQ",     q: "QQQ",   chg: -0.66 },
+  { sym: "VIX",     q: "^VIX",  price: "16.59", chg: 0.85, invert: true },
+  { sym: "S&P 500", q: "^GSPC", price: "7,483.23", chg: -0.22 },
+  { sym: "NASDAQ",  q: "^IXIC", price: "26,040.03", chg: -0.66 },
 ];
 
 /* book tickers → quote symbol, so each holding cell can show a live price

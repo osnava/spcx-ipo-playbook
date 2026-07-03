@@ -10,6 +10,75 @@ fact-checking (24 sources fetched, 76 claims extracted, 25 verified, 2 refuted).
 
 ---
 
+## UPDATE — 2026-07-02 (inclusion confirmed; the shakeout unwound, BTC diverged)
+
+Nine days on, the picture flipped from "reversal in progress" to **"strong into a confirmed
+inclusion, with the real risk deferred to the lockup."** Six developments:
+
+1. **Nasdaq-100 inclusion → ✅ CONFIRMED for Jul 7.** On **Jun 26** Nasdaq announced SPCX
+   joins the Nasdaq-100 **effective Jul 7** — the **first company to use the 15-day
+   fast-track rule** (top-40 by market cap). Index funds buy in the **Jul 6 closing
+   auction**. The `phases.js` countdown target (Jul 6, 16:00 ET) was correct and is now
+   locked. ([Seeking Alpha](https://seekingalpha.com/news/4607865-spacex-to-join-nasdaq-100-effective-july-7-2026) ·
+   [StockTitan/Nasdaq](https://www.stocktitan.net/news/NDAQ/space-exploration-technologies-corporation-to-join-the-nasdaq-100-h953ppe72o4z.html) ·
+   [Fast Company](https://www.fastcompany.com/91566621/spacex-stock-nasdaq-100-timeline-date-impact-qqq-401k))
+2. **Forced-buy size → 🟡 SMALLER than the dashboard guessed (~$4.3B, not $15–30B).** The
+   confirmed passive demand is ~**$4.3B** from Nasdaq-100 inclusion (~**1% index weight**,
+   ~$450B tracking QQQ & peers) plus ~**$3B** of Russell reweighting. One capped print
+   against the coming supply wall. ([Money Morning](https://moneymorning.com/2026/07/01/spacex-spcx-nasdaq-100-inclusion-july-7-lockup-expiry-2026) ·
+   [Fast Company](https://www.fastcompany.com/91566621/spacex-stock-nasdaq-100-timeline-date-impact-qqq-401k))
+3. **SPCX price → ✅ RECOVERED, going in strong.** Bottomed at an all-time low **$147.11 on
+   Jun 23**, then rallied to **~$162 by Jul 1** (+2.8%) — **back above the $160.95 debut
+   close**, market cap ~**$2.1T**. Drivers: a wildly oversubscribed bond, ARK buying, and
+   fresh Street coverage (Oppenheimer **$250** PT; consensus ~$188, range $62–$310). The
+   Jun 23 "first reversal trigger LIVE" call has **reset**. ([Motley Fool, Jul 2](https://www.fool.com/investing/2026/07/02/is-spacex-stock-a-buy-before-july-7/) ·
+   [TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/261985390-spacex-spcx-ipo-bonds-200-250-58-starlink-starship-ai-tradingkey))
+4. **The $25B bond → ✅ A BULLISH CREDIT TELL.** The −16% Jun 22 drop came on the debut
+   bond news, but the deal **priced at $25B** (upsized from $20B) with **~$90B of orders
+   (3.5× oversubscribed)** — among the largest IG order books on record (5 tranches
+   2031–2056, 5.35–6.65%; refinancing the xAI bridge). The demand helped the stock recover.
+   ([Yahoo Finance](https://finance.yahoo.com/markets/stocks/article/spacex-stock-slips-as-it-announces-25-billion-bond-offering-135726178.html) ·
+   [TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/261986935-spcx-stock-analysis-bond-demand-june-2026-tradingkey))
+5. **Macro → ✅ RISK-OFF UNWOUND.** Jul 1 close: **S&P 500 7,483.23**, **Nasdaq Composite
+   26,040.03**, **VIX 16.59** (from ~24 Jun 22) — Q2 2026 was the **strongest quarter since
+   2020**, S&P/Dow near records. The Phase-00 "shakeout" fully reversed; equity insurance is
+   **cheap again**. ([TheStreet](https://www.thestreet.com/stock-market-today/stock-market-today-july-1-2026-nasdaq-futures-slip-after-strongest-quarter-since-2020) ·
+   [KuCoin](https://www.kucoin.com/news/flash/u-s-stock-markets-rise-on-july-1-2026-led-by-nasdaq-gains))
+6. **BTC → ⚠️ WICKED BELOW ITS 200W, THEN THE BID RETURNED.** BTC hit **~$58k early this
+   week — the lowest in 652 days** (was ~$64k *above* the 200W on Jun 23), then **recovered
+   back above $60k** by Jul 2 — still under the 200W (~$62k), but the panic wick was bought.
+   On-chain corroborates the stabilization: **Glassnode shows long-term holders (155d+)
+   flipping from net distribution to net accumulation (~50–100k BTC)** — modest vs the
+   ~400k-BTC waves of Nov 2024 / May 2025 — with small and mid-sized wallets leading the
+   dip-buying and the largest whales (>10k BTC) still neutral ("too early to call a full
+   accumulation regime"). So the cross-confirmation trigger is **testing, not confirmed** —
+   the sell signal remains a **weekly close** below the 200W on rising volume, *not* the
+   intraweek wick, which this week's bounce vindicated.
+   ([CoinDesk/Glassnode](https://www.coindesk.com/markets/2026/07/02/bitcoin-long-term-holders-have-returned-to-accumulation) ·
+   [Fortune](https://fortune.com/article/price-of-bitcoin-07-01-2026/) ·
+   [LatestLY](https://www.latestly.com/business/bitcoin-price-today-july-1-2026-btc-price-at-usd-58798-ahead-of-key-us-jobs-data-release-7497417.html))
+
+**The lockup is the real risk now → 🟡 AT RISK / deferred.** Base **20%** of insider shares
+unlock the **2nd trading day after Q2 earnings** (~late Jul/early Aug), rising to **30%** if
+SPCX closes **≥$175.50** (30% over the $135 IPO) on 5 of the 10 days into earnings — at ~$162
+that bonus needs a ~+10% run. **~$800B of stock is eligible by October.** Every major
+post-IPO lockup in the last decade produced at least temporary weakness. ([Money Morning](https://moneymorning.com/2026/07/01/spacex-spcx-nasdaq-100-inclusion-july-7-lockup-expiry-2026) ·
+[Motley Fool, Jul 2](https://www.fool.com/investing/2026/07/02/is-spacex-stock-a-buy-before-july-7/))
+
+**History backs the Phase 02→03 thesis → ✅ RE-CONFIRMED.** Stocks that joined the Nasdaq-100
+don't reliably pop: **Palantir, Strategy (MSTR) and Axon all *fell* in the 10 days after
+joining** (2024), and the Jun 22 2026 additions saw no meaningful gains. Expect forced
+buyers to pay up into Jul 6, then real price discovery. ([Motley Fool, Jul 2](https://www.fool.com/investing/2026/07/02/will-spacex-soar-after-it-joins-the-nasdaq-100-his/))
+
+**Net deployment read:** Phase 02 is at its **climax** — the Jul 6 auction is 2 trading days
+out and confirmed. SPCX goes in **strong**, not weak, so don't chase the print; the edge is
+the **post-Jul 7 unwind + Aug lockup**. With VIX ~16.6, **this is the cheap window to set the
+hedge** (SMH put spread + Sep SPY/QQQ puts). Watch BTC's weekly close as the cross-asset
+risk gauge — it wicked below the 200W to a 652-day low this week, but the bid returned above
+$60k (long-term holders re-accumulating), so it's testing, not confirmed.
+
+---
+
 ## UPDATE — 2026-06-23 (the reversal arrived before inclusion)
 
 The playbook's central thesis was "hold through inclusion, sell the post-inclusion
@@ -198,9 +267,9 @@ This is the **most solid** leg of the playbook.
   range). Index funds buy in **one closing auction the session *before* the effective
   date** (the index only holds SPCX from the effective open), not spread across the
   day — so the forced bid is a **single, float-capped print**, not a multi-day tailwind.
-  Nasdaq's official notice (**≥5 trading days ahead, ~Jun 29–30**) names the exact
-  effective date; the buy is then "effective − 1 session," and Phase 03 begins the next
-  session.
+  ✅ **Confirmed (Jun 26):** Nasdaq's official notice named **effective Jul 7** — exactly the
+  estimate above. The buy is the **Jul 6 closing auction** ("effective − 1 session"), and
+  Phase 03 begins Jul 7. (See the 2026-07-02 UPDATE at the top.)
 
 ---
 
