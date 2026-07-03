@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="SPCX IPO Playbook">
+  <!-- app tile -->
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#0e1424" stroke="#1f2c47"/>
+
+  <!-- exhaust: one flat flame -->
+  <path d="M13.7 21.4C13.7 24.4 15 27.1 16 28.3C17 27.1 18.3 24.4 18.3 21.4Z" fill="#ff5d4a"/>
+
+  <!-- fins + body: one flat color -->
+  <path d="M12.4 16 8.8 21.4 12.4 20.6Z" fill="#e6f0ff"/>
+  <path d="M19.6 16 23.2 21.4 19.6 20.6Z" fill="#e6f0ff"/>
+  <path d="M16 3.5C13.2 7 12.5 11.4 12.5 15v4.7c0 1.6 1.2 2.5 3.5 2.5s3.5-.9 3.5-2.5V15c0-3.6-.7-8-3.5-11.5Z" fill="#e6f0ff"/>
+
+  <!-- porthole: negative space -->
+  <circle cx="16" cy="11.6" r="2.1" fill="#0e1424"/>
+</svg>
