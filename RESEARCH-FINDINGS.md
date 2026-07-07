@@ -10,6 +10,67 @@ fact-checking (24 sources fetched, 76 claims extracted, 25 verified, 2 refuted).
 
 ---
 
+## UPDATE — 2026-07-07 (inclusion DONE; the fade arrived on day 1, BTC reclaimed its 200W)
+
+Inclusion day. The demand-side trade resolved exactly as the playbook scripted — no pop,
+then an immediate fade — while the cross-asset gauge went the *other* way. Six developments:
+
+1. **Nasdaq-100 inclusion → ✅ DONE (effective Jul 7).** SPCX became the first 15-day
+   fast-track entry at the Jul 7 open. The ~$4.3B forced buy printed in the **Jul 6 closing
+   auction**: a violent **$155.17–$167.90** session that closed **$160.42, down ~1%** — the
+   sellers met the index bid; the "single print, no tailwind" call was right.
+   ([Seeking Alpha](https://seekingalpha.com/news/4607865-spacex-to-join-nasdaq-100-effective-july-7-2026) ·
+   [Motley Fool](https://www.fool.com/investing/2026/07/06/spacex-joins-the-nasdaq-100-on-july-7-here-is-what/) ·
+   [StartupHub](https://www.startuphub.ai/ai-news/ipo-watch/2026/spacex-nasdaq-100-inclusion-2026-07-05))
+2. **The post-inclusion fade → ✅ STARTED ON DAY 1.** Jul 7, first session *in* the index:
+   SPCX **−5.2% to ~$152.14**, breaking below the **$160.95 debut close** — the playbook's
+   Phase-03 reversal line — on heavy inclusion-day volume. The Palantir/Strategy/Axon
+   precedent (all fell in the 10 days after joining) is tracking. **Trigger tripped;
+   follow-through unconfirmed** — one close is a signal, not a rout.
+   ([Yahoo Finance live](https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-futures-slip-with-ai-trade-in-focus-223015294.html) ·
+   [TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/262016028-spacex-spcx-stock-forecast-july-2026-nasdaq-100-palantir-comparison-tradingkey))
+3. **Quiet period expired → ✅ COVERAGE WAVE, ALL BUYS + ONE DISSENTER.** The 25-day
+   underwriter quiet period (21 banks, Goldman-led) ended and initiations landed Jul 7:
+   **Goldman Buy $205** (Sheridan — "multi-trillion-dollar opportunity"), **Morgan Stanley
+   Overweight $300** (Jonas — the high outlier), plus RBC, Bernstein, Stifel, Citi
+   buy-equivalents; Oppenheimer already at $250. **Morningstar is the dissenter: fair value
+   ≈ $780B** vs a ~$1.9T cap. The wave could not hold the tape — narrative support ≠
+   forced-buy support. ([Yahoo/Quartz](https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-morgan-stanley-split-143310108.html) ·
+   [Benzinga](https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/07/60303994/spacex-spcx-goldman-buy-rating-205-price-target) ·
+   [Seeking Alpha](https://seekingalpha.com/news/4611831-morgan-stanley-buys-into-spacexs-ai-future-with-new-overweight-rating) ·
+   [CoinCentral](https://coincentral.com/spacex-spcx-stock-joins-the-nasdaq-100-goldman-and-morgan-stanley-both-say-buy/))
+4. **Macro → 🟡 RECORD, THEN A CHIP ROUT.** Jul 6 was a record day (Dow closed at an
+   all-time **53,055.91**; S&P +0.72% to 7,537; Nasdaq +1.12% to 26,121 on "revived AI
+   optimism"). Jul 7 turned: **Samsung printed a record Q2 (operating profit up ~19×) and
+   still sold off on AI-capex doubts**, and Reuters reported **DeepSeek is developing its
+   own AI chip** (Nvidia-reliance risk) — semis led the tape lower (S&P ~7,519 −0.2%,
+   Nasdaq ~25,960 −0.6%, VIX ~15.7). Directly hits the SMH/EWY sleeve; EWY's top holding
+   *is* Samsung. ([TheStreet Jul 6](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-6-2026) ·
+   [Yahoo Finance live](https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-futures-slip-with-ai-trade-in-focus-223015294.html))
+5. **BTC → ✅ RECLAIMED THE 200W — THE DIVERGENCE.** BTC traded **~$64,034 on Jul 7, +6.3%
+   on the week — back above the 200W (~$62k)** after the soft June jobs report (57k added,
+   unemployment 4.2%) trimmed rate-hike odds. The $58k wick → reclaim round trip vindicated
+   the weekly-close rule (selling the wick was the error). Key read: **BTC rallying while
+   SPCX fades = an SPCX/AI-supply story, not a broad liquidity break** — the cross-asset
+   trigger is OFF. ([Fortune](https://fortune.com/article/price-of-bitcoin-07-07-2026/) ·
+   [Yahoo Finance](https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-monday-july-6-2026-prices-falling-after-last-weeks-rebound-131307981.html))
+6. **Lockup → ⚠️ NOW THE WHOLE TRADE; bonus nearly dead.** Q2 earnings are ~2 weeks out —
+   the first report unlocks the base **20%** of insider shares on the 2nd trading day after.
+   At ~$152 (+13% vs the $135 IPO) the **$175.50 bonus tranche needs ~+15% with the 10-day
+   test window effectively open** — short of a Street-target rally it rolls into the time
+   tranches. ~$800B of stock eligible by October.
+   ([CoinCentral](https://coincentral.com/spacex-spcx-stock-joins-the-nasdaq-100-goldman-and-morgan-stanley-both-say-buy/) ·
+   [Money Morning](https://moneymorning.com/2026/07/01/spacex-spcx-nasdaq-100-inclusion-july-7-lockup-expiry-2026))
+
+**Net deployment read:** Phase 03 is **live** and its trigger **tripped on day 1** — SPCX
+closed below the $160.95 debut line at ~$152. Discipline: confirm (a failure to reclaim
+$160.95, or a lower close) before running the sell order (ARKQ → EWY → trim SMH/ROBO/URA).
+BTC's divergence says this is not a broad risk-off break, which argues for the *trim*
+reading over the *thesis-break* reading — for now. VIX ~15.7 is the last cheap window for
+the SMH put spread + Sep SPY/QQQ puts before earnings + the 20% unlock in ~2 weeks.
+
+---
+
 ## UPDATE — 2026-07-02 (inclusion confirmed; the shakeout unwound, BTC diverged)
 
 Nine days on, the picture flipped from "reversal in progress" to **"strong into a confirmed

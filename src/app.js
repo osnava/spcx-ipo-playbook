@@ -4,7 +4,7 @@ import { UI, PHASES, TRIGGERS, LOCKUP, HOLDINGS, FRAMEWORK, CLASSIFICATION, CLOS
          MARKET, startTape } from "./data/index.js";
 
 let lang = "en";
-let activePhase = "ph2"; // Build-Up closed on the Jun 12 debut; Inclusion Window is now live
+let activePhase = "ph3"; // Inclusion done Jul 7 (Jul 6 auction printed) — Post-Inclusion is live
 let QUOTES = {}; // sym → { price:Number, chg:Number, live:true }, filled by startTape
 let quotesUpdated = null; // ISO write-time of the shared quotes.json (for staleness)
 let countdownTimer = null; // ticking handle for the Phase-02 inclusion countdown

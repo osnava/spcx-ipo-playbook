@@ -67,17 +67,21 @@ fetched (CORS blocked, pre-IPO SPCX, off-hours) falls back to the snapshot baked
 | 02 · Inclusion Window | ~Jun 12 → ~Jul 7 | Hold + watch; modest index-buying support, short-seasoning froth risk |
 | 03 · Post-Inclusion | Jul 7 onward | The trigger; trim in priority order if it rolls over |
 
-Dates/mechanics updated as of **July 2, 2026**. SPCX debuted **Jun 12 at $135** (~$1.77T,
-$75B base raise / **$85.7B with greenshoe**), closed +19.2% at $160.95, ran to a **$225.64
-peak Jun 16**, then **crashed to a $147.11 low on Jun 23** — and has since **recovered to
-~$162** (Jul 1, back above the debut close), heading **into** a now-confirmed inclusion:
+Dates/mechanics updated as of **July 7, 2026 — inclusion day**. SPCX debuted **Jun 12 at
+$135** (~$1.77T, $75B base raise / **$85.7B with greenshoe**), closed +19.2% at $160.95, ran
+to a **$225.64 peak Jun 16**, **crashed to a $147.11 low on Jun 23**, recovered to ~$162 —
+and then the inclusion trade resolved:
 
-- **Nasdaq-100 inclusion — CONFIRMED (announced Jun 26).** SPCX joins **effective Jul 7**,
-  the first stock to use the 15-day fast-track rule; index funds buy the **Jul 6 closing
-  auction**. Forced demand is ~**$4.3B** (~1% weight) + ~$3B of Russell reweighting (already
-  added Jun 18) — smaller than early guesses. **S&P 500 still off** (profitability rule;
-  2027+). History says post-inclusion names *fade* — **Palantir, Strategy & Axon all fell in
-  the 10 days after joining** (2024).
+- **Nasdaq-100 inclusion — DONE (effective Jul 7).** The ~$4.3B forced buy printed in the
+  **Jul 6 closing auction**: a $155–168 session that closed **$160.42, −1% — no pop**. Day 1
+  *in* the index SPCX **faded −5.2% to ~$152**, breaking the $160.95 debut close — right on
+  the **Palantir/Strategy/Axon** post-inclusion script. **S&P 500 still off** (profitability
+  rule; 2027+). The Phase-03 reversal trigger **tripped on day 1; confirmation pending**.
+- **Quiet period over — the coverage wave hit Jul 7.** All underwriter initiations were
+  buy-equivalent: **Goldman Buy $205** ("multi-trillion-dollar opportunity"), **Morgan
+  Stanley Overweight $300** (Adam Jonas, the high outlier), plus RBC/Bernstein/Stifel/Citi;
+  Oppenheimer already at $250. The dissenter: **Morningstar's fair value ≈ $780B** vs a
+  ~$1.9T cap. The wave still couldn't hold day 1.
 - **The $25B bond was a bullish tell, not just a shock.** The −16% Jun 22 selloff came on the
   debut bond news, but the deal **priced at $25B** (up from $20B) with **~$90B of orders —
   3.5× oversubscribed**, one of the largest IG order books ever (5 tranches 2031–2056,
@@ -85,18 +89,19 @@ peak Jun 16**, then **crashed to a $147.11 low on Jun 23** — and has since **r
 - **Cursor is a $60B option.** SpaceX can buy Anysphere (Cursor) for **$60B all-stock** or
   pay a **$10B breakup fee** to walk; Oppenheimer since set a **$250 target** citing revenue
   visibility. Drove the $225 peak, still a dilution overhang.
-- **Lockup — the supply wall right after inclusion.** Base **20%** of insider shares unlock
-  the 2nd trading day after Q2 earnings (~late Jul/early Aug), rising to 30% if SPCX closes
-  **≥$175.50** (30% over IPO) on 5 of the 10 days into earnings — **at risk** at ~$162.
+- **Lockup — now the whole trade.** Base **20%** of insider shares unlock the 2nd trading
+  day after Q2 earnings (**~2 weeks out**), rising to 30% if SPCX closes **≥$175.50** (30%
+  over IPO) on 5 of the 10 days into earnings — **nearly dead** at ~$152 (needs ~+15%).
   **~$800B of stock is eligible by October.**
 
-Macro (Jul 1 close): **S&P 7,483 / Nasdaq 26,040 / VIX ~16.6** — risk-off has **unwound**
-(Q2 the strongest quarter since 2020; S&P/Dow near records). The odd one out is **BTC: it
-wicked to a 652-day low (~$58k)** early in the week, then **recovered back above $60k** (still
-under its 200W ~$62k) as on-chain **long-term holders flipped back to accumulation** — so the
-cross-confirmation trigger is *testing, not confirmed*. The classic "index effect" has faded,
-so the Jul 6 forced-buy is **modest and single-print**, and now competes with the Aug lockup.
-See the dated UPDATE block in [`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md).
+Macro (Jul 7): the Dow set a record Jul 6 (53,055.91), then the tape turned — **S&P
+7,519 / Nasdaq 25,960 / VIX ~15.7** as semis sold off on **Samsung's AI-capex worries**
+(record Q2, stock down anyway) and a Reuters report that **DeepSeek is developing its own
+AI chip**. The diverger is **BTC: it reclaimed its 200W (~$64k vs ~$62k, +6.3% on the
+week)** after the soft June jobs report (57k) — so the cross-asset gauge is *not* confirming
+a broad risk-off break; this is an SPCX/AI-supply story. Insurance is still cheap; the Aug
+lockup is the next wall. See the dated UPDATE block in
+[`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md).
 
 See [`RESEARCH-FINDINGS.md`](./RESEARCH-FINDINGS.md) for the fact-checked, cited
 breakdown of every claim (✅ fact · 🟡 overstated · ⚠️ contingent · ❌ wrong).

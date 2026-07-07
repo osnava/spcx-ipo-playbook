@@ -34,8 +34,8 @@ export const HOLDINGS = [
     states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: sell(t("SELL 2nd", "VENDER 2º")) },
     summary: t("Memory/semis proxy (Samsung/SK Hynix) + won FX + EM beta. Sell early.", "Proxy de memoria/semis (Samsung/SK Hynix) + FX won + beta EM. Vende temprano."),
     detail: t(
-      "Essentially the <b>same semi bet as SMH</b> with extra fragility — EM liquidity flees first.",
-      "Esencialmente la <b>misma apuesta de semis que SMH</b> con fragilidad extra — la liquidez EM huye primero."
+      "Essentially the <b>same semi bet as SMH</b> with extra fragility — EM liquidity flees first. Live case: <b>Samsung (its top holding) printed a record Q2 on Jul 7 and still sold off</b> on AI-spending doubts — good numbers no longer protect the theme.",
+      "Esencialmente la <b>misma apuesta de semis que SMH</b> con fragilidad extra — la liquidez EM huye primero. Caso en vivo: <b>Samsung (su mayor posición) reportó un 2T récord el 7 jul y aun así cayó</b> por dudas sobre su gasto en IA — los buenos números ya no protegen al tema."
     ),
   },
   {
@@ -44,8 +44,8 @@ export const HOLDINGS = [
     states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: trim(t("TRIM", "RECORTAR")) },
     summary: t("AI infra with real revenue (NVDA/AVGO/TSM). Trim only.", "Infra IA con revenue real (NVDA/AVGO/TSM). Solo trim."),
     detail: t(
-      "Structural signal, not noise. Crowded; bleeds on the NDX reweight — don't liquidate. <b>One SMH put spread hedges SMH + EWY</b>.",
-      "Señal estructural, no ruido. Crowded; sangra con el reweight del NDX — no liquides. <b>Un put spread de SMH cubre SMH + EWY</b>."
+      "Structural signal, not noise. Crowded; bled on the NDX reweight and again <b>Jul 7</b>, when Samsung's AI-capex worries + the <b>DeepSeek own-chip report</b> (Nvidia-reliance risk) hit semis on SPCX's fade day. Trim only — don't liquidate. <b>One SMH put spread hedges SMH + EWY</b>; if it isn't on, VIX ~15.7 is the window.",
+      "Señal estructural, no ruido. Crowded; sangró con el reweight del NDX y de nuevo el <b>7 jul</b>, cuando las dudas del capex de IA de Samsung + el <b>reporte del chip propio de DeepSeek</b> (riesgo para la dependencia de Nvidia) golpearon a los semis el día del fade de SPCX. Solo trim — no liquides. <b>Un put spread de SMH cubre SMH + EWY</b>; si no está puesto, VIX ~15,7 es la ventana."
     ),
   },
   {
@@ -70,12 +70,12 @@ export const HOLDINGS = [
   },
   {
     rank: "₿", ticker: "BTCUSDT",
-    role: t("Global liquidity asset · 200W wick bought", "Activo de liquidez global · mecha 200s comprada"),
-    states: { ph0: watch(t("200W TEST", "PRUEBA 200s")), ph1: hold(), ph2: watch(t("200W TEST", "PRUEBA 200s")), ph3: hold(t("HOLD · 200W", "MANTENER · 200s")) },
-    summary: t("Global-liquidity asset, not an AI bet. Wicked to ~$58k (652-day low) then bounced back above $60k — still under the 200W (~$62k). Sell only on a confirmed weekly close below, not the wick.", "Activo de liquidez global, no apuesta IA. Mechó a ~$58k (mínimo en 652 días) y rebotó sobre $60k — aún bajo la 200s (~$62k). Vende solo con cierre semanal confirmado debajo, no la mecha."),
+    role: t("Global liquidity asset · 200W reclaimed", "Activo de liquidez global · 200s recuperada"),
+    states: { ph0: watch(t("200W TEST", "PRUEBA 200s")), ph1: hold(), ph2: watch(t("200W TEST", "PRUEBA 200s")), ph3: hold(t("HOLD · >200W", "MANTENER · >200s")) },
+    summary: t("Global-liquidity asset, not an AI bet. Reclaimed the 200W (~$64k vs ~$62k, +6.3% wk) after the $58k wick — diverging from the SPCX fade. Re-arm the sell only on a weekly close back below.", "Activo de liquidez global, no apuesta IA. Recuperó la 200s (~$64k vs ~$62k, +6,3% sem) tras la mecha a $58k — diverge del fade de SPCX. Re-arma la venta solo con cierre semanal de vuelta debajo."),
     detail: t(
-      "Institutions hold <b>&gt;12% of supply</b>. Early this week BTC hit <b>~$58k — its lowest in 652 days</b> — then <b>recovered back above $60k</b>, still below the 200W SMA (~$62k) but the panic wick was bought (was ~$64k <i>above</i> the 200W on Jun 23). On-chain turned constructive: Glassnode shows <b>long-term holders (155d+) back to net accumulation (~50–100k BTC)</b>, small/mid wallets leading the dip-buying, whales still neutral — 'too early to call a full regime.' Vindicates the rule: sell only on a <b>confirmed weekly close</b> below the 200W on rising volume, <b>not the intraweek wick</b>.",
-      "Las instituciones tienen <b>&gt;12% del suministro</b>. A inicios de esta semana BTC tocó <b>~$58k — su mínimo en 652 días</b> — y luego <b>recuperó sobre $60k</b>, aún bajo la SMA 200s (~$62k) pero la mecha de pánico se compró (era ~$64k <i>sobre</i> la 200s el 23 jun). El on-chain se volvió constructivo: Glassnode muestra <b>holders de largo plazo (155d+) de vuelta en acumulación neta (~50–100k BTC)</b>, con billeteras pequeñas/medianas liderando la compra en la caída y las ballenas aún neutrales — 'muy pronto para un régimen pleno.' Valida la regla: vende solo con <b>cierre semanal confirmado</b> bajo la 200s con volumen creciente, <b>no la mecha intrasemana</b>."
+      "Institutions hold <b>&gt;12% of supply</b>. The round trip vindicated the rule: BTC wicked to <b>~$58k (652-day low)</b>, was bought back above $60k, and by <b>Jul 7 reclaimed the 200W SMA at ~$64k (+6.3% on the week)</b> — helped by the soft June jobs report (57k added) trimming rate-hike odds. Glassnode had shown <b>long-term holders back to net accumulation</b> through the low. Selling the wick would have been the error; the rule stands: act only on a <b>confirmed weekly close</b> below the 200W on rising volume. Note the divergence — BTC rallying while SPCX fades means this is an SPCX/AI-supply story, not a broad liquidity break.",
+      "Las instituciones tienen <b>&gt;12% del suministro</b>. El viaje redondo validó la regla: BTC mechó a <b>~$58k (mínimo en 652 días)</b>, se compró de vuelta sobre $60k y para el <b>7 jul recuperó la SMA 200s en ~$64k (+6,3% en la semana)</b> — ayudado por el flojo empleo de junio (57k) que recortó las probabilidades de subida de tasas. Glassnode ya mostraba a los <b>holders de largo plazo en acumulación neta</b> durante el mínimo. Vender la mecha habría sido el error; la regla sigue: actúa solo con <b>cierre semanal confirmado</b> bajo la 200s con volumen creciente. Nota la divergencia — BTC subiendo mientras SPCX se desvanece indica una historia de oferta SPCX/IA, no una ruptura amplia de liquidez."
     ),
   },
   {

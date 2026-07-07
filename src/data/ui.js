@@ -32,8 +32,8 @@ export const UI = {
   classLabel: t("Signal vs noise · concentration", "Señal vs ruido · concentración"),
   closingLabel: t("How to read this", "Cómo leer esto"),
   triggerTitle: t(
-    'Reversal confirmation — define "rolls over" before July',
-    'Confirmación de reversión — define "darse la vuelta" antes de julio'
+    'Reversal confirmation — "rolls over" is being tested right now',
+    'Confirmación de reversión — "darse la vuelta" se está probando ahora mismo'
   ),
   footer: t(
     "Not financial advice. The reversal is a scenario, not a certainty — if SPCX keeps ripping, holding everything is the right call. The discipline is deciding triggers <b>now</b> so emotion doesn't decide later.",

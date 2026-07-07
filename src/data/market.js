@@ -17,24 +17,24 @@ import { t } from "./i18n.js";
 export const REFRESH_MS = 600_000; // browser re-reads the shared quotes.json every 10 min (see quotes.js)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
-export const TAPE_SNAPSHOT = t("SNAPSHOT · 1 JUL '26", "INSTANTÁNEA · 1 JUL '26");
+export const TAPE_SNAPSHOT = t("SNAPSHOT · 7 JUL '26", "INSTANTÁNEA · 7 JUL '26");
 
-/* Snapshot = Jul 1 2026 close. SPCX bottomed at $147.11 on Jun 23 (its all-time
-   low), then recovered on a 3.5× oversubscribed $25B bond (~$90B orders) + ARK
-   buying + fresh Street coverage — back to ~$162, above its $160.95 debut close,
-   heading into the Jul 7 Nasdaq-100 inclusion. Risk-off has UNWOUND: VIX ~16.6
-   (was ~24 Jun 22), S&P/Dow near records, Q2 the strongest quarter since 2020.
-   The odd one out is BTC: it wicked to a 652-day low (~$58k) then bounced back
-   above $60k (still under its 200W ~$62k) as long-term holders re-accumulated.
-   The live quotes.json overrides these during market hours, so precision here is
-   for the fallback only. */
+/* Snapshot = Jul 7 2026 (NDX inclusion day). The Jul 6 forced-buy auction gave
+   no pop — SPCX swung $155–168 and closed $160.42 while the Dow set a record
+   (53,055.91). Day 1 IN the index it faded −5.2% to ~$152, breaking the $160.95
+   debut close, even as the quiet period ended and six underwriters initiated at
+   buy (GS $205, MS $300). The tape turned with it: Samsung AI-capex worries +
+   a Reuters report that DeepSeek is building its own AI chip hit semis; Nasdaq
+   led the decline. BTC is the diverger — reclaimed its 200W (~$64k vs ~$62k)
+   on soft June jobs. The live quotes.json overrides these during market hours,
+   so precision here is for the fallback only. */
 export const MARKET = [
-  { sym: "SPCX",    q: "SPCX",  price: "162.00", chg: 2.83, tag: t("REBOUND · PRE-NDX", "REBOTE · PRE-NDX") },
-  { sym: "SPY",     q: "SPY",   chg: -0.22 },
-  { sym: "QQQ",     q: "QQQ",   chg: -0.66 },
-  { sym: "VIX",     q: "^VIX",  price: "16.59", chg: 0.85, invert: true },
-  { sym: "S&P 500", q: "^GSPC", price: "7,483.23", chg: -0.22 },
-  { sym: "NASDAQ",  q: "^IXIC", price: "26,040.03", chg: -0.66 },
+  { sym: "SPCX",    q: "SPCX",  price: "152.14", chg: -5.16, tag: t("NDX DAY 1 · FADE", "DÍA 1 NDX · FADE") },
+  { sym: "SPY",     q: "SPY",   chg: -0.24 },
+  { sym: "QQQ",     q: "QQQ",   chg: -0.62 },
+  { sym: "VIX",     q: "^VIX",  price: "15.65", chg: 0.51, invert: true },
+  { sym: "S&P 500", q: "^GSPC", price: "7,519.44", chg: -0.24 },
+  { sym: "NASDAQ",  q: "^IXIC", price: "25,960.45", chg: -0.62 },
 ];
 
 /* book tickers → quote symbol, so each holding cell can show a live price

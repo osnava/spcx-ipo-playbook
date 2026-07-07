@@ -96,13 +96,13 @@ export const PHASES = [
     name: t("Inclusion Window", "Ventana de Inclusión"),
     date: "~JUN 12 → ~JUL 7",
     headline: t("Hold, but watch. Forced buying still supports the tape.", "Mantén, pero vigila. La compra forzada aún sostiene el mercado."),
-    /* Live countdown to the NDX forced-buy auction. CONFIRMED: Nasdaq announced
-       Jun 26 that SPCX joins the Nasdaq-100 effective Jul 7 (first stock to use
-       the 15-day fast-track rule). Index funds buy the Jul 6 closing auction; the
-       index holds SPCX from the Jul 7 open. Target is the Jul 6, 16:00 ET close. */
+    /* Countdown to the NDX forced-buy auction — now PAST (target hit Jul 6,
+       16:00 ET), so app.js renders the `done` line instead of the clock. The
+       auction printed with no pop (SPCX closed $160.42 on Jul 6); SPCX has been
+       in the index since the Jul 7 open and faded −5.2% on day 1. */
     countdown: {
-      target: "2026-07-06T16:00:00-04:00", // Jul 6, 16:00 ET (EDT, -04:00) — confirmed
-      title: t("NDX inclusion — CONFIRMED Jul 7", "Inclusión NDX — CONFIRMADA 7 jul"),
+      target: "2026-07-06T16:00:00-04:00", // Jul 6, 16:00 ET (EDT, -04:00) — passed
+      title: t("NDX inclusion — DONE (Jul 7)", "Inclusión NDX — HECHA (7 jul)"),
       label: t(
         "to the forced-buy closing auction (Jul 6, 16:00 ET). Effective Jul 7; Phase 03 opens the next session.",
         "hasta la subasta de cierre de compra forzada (6 jul, 16:00 ET). Efectivo 7 jul; la Fase 03 abre la sesión siguiente."
@@ -112,8 +112,8 @@ export const PHASES = [
         "Confirmado el 26 jun: SPCX entra al Nasdaq-100 efectivo el 7 jul — la primera entrada rápida de 15 días. Los fondos compran el cierre del 6 jul: ~$4,3B de demanda forzada Nasdaq-100 (~1% del peso, ~$450B siguiendo QQQ y pares), más ~$3B de reponderación Russell ya hecha."
       ),
       done: t(
-        "Auction window reached — forced demand is exhausting. Phase 03 is live.",
-        "Ventana de subasta alcanzada — la demanda forzada se agota. La Fase 03 está activa."
+        "The auction printed Jul 6 with <b>no pop</b> (close $160.42); SPCX joined the index Jul 7 and <b>faded −5.2% to ~$152 on day 1</b>. Forced demand is spent — Phase 03 is live.",
+        "La subasta imprimió el 6 jul <b>sin salto</b> (cierre $160,42); SPCX entró al índice el 7 jul y <b>se desvaneció −5,2% a ~$152 el día 1</b>. La demanda forzada se agotó — la Fase 03 está activa."
       ),
     },
     concept: t(
@@ -122,10 +122,10 @@ export const PHASES = [
     ),
     drivers: [
       {
-        label: t("Nasdaq-100 Fast Entry · CONFIRMED Jul 7", "Nasdaq-100 Entrada Rápida · CONFIRMADA 7 jul"),
+        label: t("Nasdaq-100 Fast Entry · DONE Jul 7", "Nasdaq-100 Entrada Rápida · HECHA 7 jul"),
         text: t(
-          "<b>Confirmed Jun 26</b> — SPCX is the <b>first stock to use the 15-day fast-track</b> (top-40, no seasoning, no 10% float min). Effective <b>Jul 7</b>; funds buy in <b>one closing auction the session before (Jul 6)</b> — a single print, not a multi-day tailwind. Phase 03 opens Jul 7.",
-          "<b>Confirmado el 26 jun</b> — SPCX es la <b>primera acción en usar la entrada rápida de 15 días</b> (top-40, sin maduración, sin mínimo de float del 10%). Efectivo <b>7 jul</b>; los fondos compran en <b>una sola subasta de cierre la sesión previa (6 jul)</b> — un único print, no un viento de cola de varios días. La Fase 03 abre el 7 jul."
+          "<b>It happened as scripted.</b> SPCX — the <b>first 15-day fast-track entry</b> — joined effective <b>Jul 7</b>. The ~$4.3B forced buy printed in the <b>Jul 6 closing auction</b>: a violent $155–168 session that closed <b>$160.42, down ~1%</b> — sellers met the index bid, <b>no pop</b>. Exactly the single-print, no-tailwind outcome this phase predicted.",
+          "<b>Ocurrió según el guion.</b> SPCX — la <b>primera entrada rápida de 15 días</b> — se unió efectivo el <b>7 jul</b>. La compra forzada de ~$4,3B imprimió en la <b>subasta de cierre del 6 jul</b>: una sesión violenta de $155–168 que cerró en <b>$160,42, −1%</b> — los vendedores salieron al encuentro de la puja indexada, <b>sin salto</b>. Exactamente el resultado de un solo print, sin viento de cola, que esta fase predijo."
         ),
       },
       {
@@ -162,19 +162,19 @@ export const PHASES = [
       "<b>La vol se desplomó (VIX ~16,6) → el seguro vuelve a estar barato.</b> Esta es la ventana para colocarlo antes del 7 jul + el lockup de agosto: un <b>put spread de SMH (jul/ago)</b> pave tus semis (una posición cubre SMH + EWY); los <b>puts SPY/QQQ a septiembre</b> son cobertura amplia. Dimensiona al gap hasta tu disparador, no a toda la cartera. Elige strikes ahora."
     ),
     watch: t(
-      "Don't chase the pop — the notice is in (<b>Jun 26, effective Jul 7</b>) and history says post-inclusion names <i>fade</i> (Palantir/Strategy/Axon). Demand peaks in the <b>Jul 6 closing auction</b>, exhausts at that close; Phase 03 opens Jul 7.",
-      "No persigas el pico — el aviso ya está (<b>26 jun, efectivo 7 jul</b>) y la historia dice que los nombres post-inclusión se <i>desvanecen</i> (Palantir/Strategy/Axon). La demanda pica en la <b>subasta de cierre del 6 jul</b>, se agota en ese cierre; la Fase 03 abre el 7 jul."
+      "<b>Closed out Jul 7.</b> The pop never came — the Jul 6 auction absorbed the forced bid at $160.42 and day 1 in the index faded −5.2%, right on the Palantir/Strategy/Axon script. This phase is history; the playbook now runs on Phase 03.",
+      "<b>Cerrada el 7 jul.</b> El salto nunca llegó — la subasta del 6 jul absorbió la puja forzada en $160,42 y el día 1 en el índice se desvaneció −5,2%, calcado al guion de Palantir/Strategy/Axon. Esta fase es historia; el playbook ahora corre en la Fase 03."
     ),
   },
   {
     id: "ph3", tone: "hot", icon: "!",
     num: "PHASE 03",
     name: t("Post-Inclusion", "Post-Inclusión"),
-    date: t("JUL 7 ONWARD", "7 JUL EN ADELANTE"),
-    headline: t("The trigger. If it rolls over, trim in priority order.", "El disparador. Si se da la vuelta, recorta en orden de prioridad."),
+    date: t("JUL 7 ONWARD · LIVE", "7 JUL EN ADELANTE · ACTIVA"),
+    headline: t("The trigger — and it tripped on day 1. Confirm, then trim in priority order.", "El disparador — y saltó el día 1. Confirma, luego recorta en orden de prioridad."),
     concept: t(
-      "Forced demand is spent; real price discovery takes over. <b>Forced demand always exhausts</b> — then real price discovery rules.",
-      "La demanda forzada se agotó; toma el control el descubrimiento de precio real. <b>Toda demanda forzada se agota</b> — entonces manda el precio real."
+      "Forced demand is spent; real price discovery takes over. <b>Forced demand always exhausts</b> — then real price discovery rules. Day 1 proved it: −5.2% with the index bid gone.",
+      "La demanda forzada se agotó; toma el control el descubrimiento de precio real. <b>Toda demanda forzada se agota</b> — entonces manda el precio real. El día 1 lo probó: −5,2% sin la puja indexada."
     ),
     drivers: [
       {
@@ -182,6 +182,20 @@ export const PHASES = [
         text: t(
           "Distinguish a <b>technical correction</b> (buy the dip) from a <b>thesis break</b> (revenue no longer validates the multiple → exit). Technical triggers measure only the first.",
           "Distingue una <b>corrección técnica</b> (compra la caída) de una <b>ruptura de tesis</b> (el revenue ya no valida el múltiplo → sal). Los disparadores técnicos solo miden lo primero."
+        ),
+      },
+      {
+        label: t("Day 1 · fade + chip rout (Jul 7)", "Día 1 · fade + purga de chips (7 jul)"),
+        text: t(
+          "SPCX <b>−5.2% to ~$152</b> on its first day in the index — <b>below the $160.95 debut close</b>, the exact reversal line. Not alone: semis sold off after <b>Samsung's record Q2 came with AI-capex worries</b> and Reuters reported <b>DeepSeek is developing its own AI chip</b> (Nvidia-reliance risk) — Nasdaq led the tape lower. The fade and the SMH↔SPCX linkage arrived together.",
+          "SPCX <b>−5,2% a ~$152</b> en su primer día en el índice — <b>bajo el cierre de debut de $160,95</b>, la línea exacta de reversión. No fue solo: los semis cayeron tras un <b>2T récord de Samsung empañado por dudas sobre su capex de IA</b> y un reporte de Reuters de que <b>DeepSeek desarrolla su propio chip de IA</b> (riesgo para la dependencia de Nvidia) — el Nasdaq lideró la baja. El fade y el vínculo SMH↔SPCX llegaron juntos."
+        ),
+      },
+      {
+        label: t("Quiet period over · six buys, one dissenter (Jul 7)", "Fin del quiet period · seis compras, un disidente (7 jul)"),
+        text: t(
+          "The 25-day underwriter quiet period expired and the coverage wave hit: <b>buy-equivalents across the syndicate — Goldman Buy $205</b> ('multi-trillion-dollar opportunity'), <b>Morgan Stanley Overweight $300</b> (Adam Jonas, the high outlier), plus RBC/Bernstein/Stifel/Citi; Oppenheimer already at $250. The dissenter: <b>Morningstar pegs fair value near $780B</b> — vs a ~$1.9T cap. Even the wave couldn't hold day 1 — <b>narrative support ≠ forced-buy support</b>.",
+          "El quiet period de 25 días de los colocadores expiró y llegó la ola de cobertura: <b>equivalentes a compra en todo el sindicato — Goldman Compra $205</b> ('oportunidad de múltiples billones'), <b>Morgan Stanley Overweight $300</b> (Adam Jonas, el atípico alto), más RBC/Bernstein/Stifel/Citi; Oppenheimer ya en $250. El disidente: <b>Morningstar estima el valor justo cerca de $780B</b> — vs una capitalización de ~$1,9T. Ni la ola sostuvo el día 1 — <b>apoyo narrativo ≠ apoyo de compra forzada</b>."
         ),
       },
       {
@@ -200,23 +214,23 @@ export const PHASES = [
       },
     ],
     action: t(
-      "Confirmed reversal → sell in order: <b>ARKQ → EWY</b> (noise) → <b>SMH → ROBO → URA</b> (trim only). <b>Hold BTC</b> — the ~$58k wick (652-day low) was <i>already bought back above $60k</i> with on-chain holders re-accumulating; the sell signal is a <b>weekly close</b> &lt; ~$62k on rising volume, not the wick. Keep ISAC. <b>Stagger into gold</b> — it's panic liquidity (sold for margin calls day 1, recovers after), not conviction. Still rising → do nothing.",
-      "Reversión confirmada → vende en orden: <b>ARKQ → EWY</b> (ruido) → <b>SMH → ROBO → URA</b> (solo trim). <b>Mantén BTC</b> — <i>ya</i> está bajo la 200s intrasemana (~$58k); la señal de venta es un <b>cierre semanal</b> &lt; ~$62k con volumen creciente, no la mecha intrasemana. Conserva ISAC. <b>Escalona hacia el oro</b> — es liquidez de pánico (se vende por margin calls el día 1, recupera después), no convicción. Sigue subiendo → no hagas nada."
+      "Confirmed reversal → sell in order: <b>ARKQ → EWY</b> (noise) → <b>SMH → ROBO → URA</b> (trim only). <b>Hold BTC</b> — it <i>reclaimed</i> the 200W (~$64k vs ~$62k) and is diverging from the SPCX fade; the sell signal is a <b>weekly close</b> back &lt; ~$62k on rising volume. Keep ISAC. <b>Stagger into gold</b> — it's panic liquidity (sold for margin calls day 1, recovers after), not conviction. Day 1 tripped the line — <b>confirm the follow-through before selling</b>.",
+      "Reversión confirmada → vende en orden: <b>ARKQ → EWY</b> (ruido) → <b>SMH → ROBO → URA</b> (solo trim). <b>Mantén BTC</b> — <i>recuperó</i> la 200s (~$64k vs ~$62k) y diverge del fade de SPCX; la señal de venta es un <b>cierre semanal</b> de vuelta &lt; ~$62k con volumen creciente. Conserva ISAC. <b>Escalona hacia el oro</b> — es liquidez de pánico (se vende por margin calls el día 1, recupera después), no convicción. El día 1 pisó la línea — <b>confirma el seguimiento antes de vender</b>."
     ),
     watch: t(
-      "You're hedging <b>timing risk</b> (temporary reversal), not the thesis. Confirm before acting; don't front-run.",
-      "Estás cubriendo el <b>riesgo de timing</b> (reversión temporal), no la tesis. Confirma antes de actuar; no te adelantes."
+      "You're hedging <b>timing risk</b> (temporary reversal), not the thesis. One −5% close ≠ confirmation — <b>a failure to reclaim $160.95, or a lower close, does</b>. Don't front-run, but don't rationalize either.",
+      "Estás cubriendo el <b>riesgo de timing</b> (reversión temporal), no la tesis. Un cierre de −5% ≠ confirmación — <b>no recuperar $160,95, o un cierre más bajo, sí lo es</b>. No te adelantes, pero tampoco lo racionalices."
     ),
   },
 ];
 
 export const TRIGGERS = [
-  t("<b>RE-ARMED:</b> SPCX <b>recovered above its $160.95 debut close to ~$162</b> (Jul 1), off the $147.11 Jun 23 low — it's going <i>into</i> inclusion strong. The trigger re-fires if it breaks the debut close on rising volume <b>after</b> the Jul 6 auction.",
-    "<b>RE-ARMADO:</b> SPCX <b>recuperó sobre su cierre de debut de $160,95 a ~$162</b> (1 jul), desde el mínimo de $147,11 del 23 jun — entra <i>fuerte</i> a la inclusión. El disparador vuelve a activarse si rompe el cierre de debut con volumen creciente <b>tras</b> la subasta del 6 jul."),
-  t("<b>OFF:</b> VIX <b>~16.6</b> (was ~24 Jun 22) — collapsed <i>below</i> the 20–22 band as risk-off unwound. Equity insurance is <b>cheap again</b> — the reason to set the hedge now, not the reason to fear.",
-    "<b>APAGADO:</b> VIX <b>~16,6</b> (era ~24 el 22 jun) — se desplomó <i>bajo</i> la banda 20–22 al revertirse el risk-off. El seguro de acciones vuelve a estar <b>barato</b> — la razón para colocar la cobertura ahora, no para temer."),
-  t("<b>TESTING (unconfirmed):</b> BTC <b>wicked to ~$58k</b> (652-day low) then <b>recovered above $60k</b> — still under the 200W (~$62k), but the panic low was bought and Glassnode shows long-term holders back to <b>net accumulation</b>. The <b>weekly close</b> is the confirm, not the wick.",
-    "<b>EN PRUEBA (sin confirmar):</b> BTC <b>mechó a ~$58k</b> (mínimo en 652 días) y luego <b>recuperó sobre $60k</b> — aún bajo la 200s (~$62k), pero el mínimo de pánico se compró y Glassnode muestra a los holders de largo plazo de vuelta en <b>acumulación neta</b>. El <b>cierre semanal</b> es la confirmación, no la mecha."),
-  t("Triggers lag — the hedge covers the gap, so <b>instrument + size &gt; exact level</b>. With vol cheap and Jul 7 + the Aug lockup ahead: <b>set/confirm cover now</b>, while it's cheap.",
-    "Los disparadores rezagan — la cobertura cubre el gap, así que <b>instrumento + tamaño &gt; nivel exacto</b>. Con la vol barata y el 7 jul + el lockup de agosto por delante: <b>coloca/confirma la cobertura ahora</b>, mientras está barata."),
+  t("<b>TRIPPED (Jul 7 — confirm the follow-through):</b> SPCX broke <b>below the $160.95 debut close</b> on its first post-auction session, −5.2% to <b>~$152</b> on heavy inclusion-day volume. That is the re-fire condition, met on day 1. Rule: one close is a signal, not a rout — <b>a second lower close / failure to reclaim $160.95 confirms</b>, then the sell order applies (ARKQ → EWY first).",
+    "<b>DISPARADO (7 jul — confirma el seguimiento):</b> SPCX rompió <b>bajo el cierre de debut de $160,95</b> en su primera sesión post-subasta, −5,2% a <b>~$152</b> con el volumen pesado del día de inclusión. Esa es la condición de re-disparo, cumplida el día 1. Regla: un cierre es señal, no derrota — <b>un segundo cierre más bajo / no recuperar $160,95 confirma</b>, y entonces aplica el orden de venta (ARKQ → EWY primero)."),
+  t("<b>OFF (last cheap window):</b> VIX <b>~15.7</b> even on a red day — insurance is still cheap, but the fade has started. If the hedge (SMH put spread + Sep SPY/QQQ puts) isn't on yet, <b>this is the last calm to set it</b>; it gets expensive the day the break confirms.",
+    "<b>APAGADO (última ventana barata):</b> VIX <b>~15,7</b> incluso en un día rojo — el seguro sigue barato, pero el fade ya empezó. Si la cobertura (put spread de SMH + puts SPY/QQQ a septiembre) aún no está puesta, <b>esta es la última calma para colocarla</b>; se encarece el día que la ruptura confirme."),
+  t("<b>RECLAIMED (off):</b> BTC is <b>back above its 200W (~$62k) at ~$64k</b>, +6.3% on the week, after the soft June jobs report (57k) trimmed rate-hike odds. The $58k wick → reclaim sequence vindicated the weekly-close rule. <b>BTC is diverging from the SPCX fade</b> — so the cross-asset gauge is NOT confirming a broad risk-off break. Hold; re-arm only on a weekly close back below ~$62k.",
+    "<b>RECUPERADA (apagado):</b> BTC está <b>de vuelta sobre su 200s (~$62k) en ~$64k</b>, +6,3% en la semana, tras el flojo empleo de junio (57k) que recortó las probabilidades de subida de tasas. La secuencia mecha a $58k → recuperación validó la regla del cierre semanal. <b>BTC diverge del fade de SPCX</b> — el medidor cruzado NO confirma una ruptura risk-off amplia. Mantén; re-arma solo con un cierre semanal bajo ~$62k."),
+  t("Triggers lag — the hedge covers the gap, so <b>instrument + size &gt; exact level</b>. The inclusion print is behind you; what's ahead is supply: <b>Q2 earnings in ~2 weeks → the 20% base unlock</b>, then the tranche ladder into October.",
+    "Los disparadores rezagan — la cobertura cubre el gap, así que <b>instrumento + tamaño &gt; nivel exacto</b>. El print de inclusión quedó atrás; lo que viene es oferta: <b>resultados del 2T en ~2 semanas → el desbloqueo base del 20%</b>, luego la escalera de tramos hasta octubre."),
 ];
