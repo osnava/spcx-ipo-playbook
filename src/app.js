@@ -7,7 +7,6 @@ let lang = "en";
 let activePhase = "ph3"; // Inclusion done Jul 7 (Jul 6 auction printed) — Post-Inclusion is live
 let QUOTES = {}; // sym → { price:Number, chg:Number, live:true }, filled by startTape
 let quotesUpdated = null; // ISO write-time of the shared quotes.json (for staleness)
-let countdownTimer = null; // ticking handle for the Phase-02 inclusion countdown
 let bookOpen = true;       // "My real book" table collapse state
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -21,7 +20,7 @@ const el = (tag, cls, html) => {
 const tr = (field) =>
   typeof field === "string" ? field : field && field[lang] != null ? field[lang] : field?.en ?? "";
 
-const STATE_CLASS = { hold: "st-hold", watch: "st-watch", sell: "st-sell", keep: "st-keep" };
+const STATE_CLASS = { hold: "st-hold", watch: "st-watch", sell: "st-sell", keep: "st-keep", accum: "st-accum" };
 
 const fmtPct = (n) => `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
 const fmtNum = (v) =>
@@ -57,7 +56,12 @@ function renderTape() {
   const host = $("#tape");
   if (!host) return;
   let live = 0;
-  const total = MARKET.length + HOLDINGS.length;
+  // Any holding whose ticker is already a tape market symbol (SPCX is cell #1
+  // in MARKET) would render a second, state-chip-only cell. Drop it — the live
+  // price cell in MARKET already covers it, and the chip lives in the book table.
+  const marketSyms = new Set(MARKET.map((m) => m.sym));
+  const tapeHoldings = HOLDINGS.filter((h) => !marketSyms.has(h.ticker));
+  const total = MARKET.length + tapeHoldings.length;
 
   const market = MARKET.map((m) => {
     const q = QUOTES[m.sym];
@@ -71,7 +75,7 @@ function renderTape() {
     return `<span class="tcell"><span class="tsym">${m.sym}</span>${price}${chg}</span>`;
   }).join("");
 
-  const book = HOLDINGS.map((h) => {
+  const book = tapeHoldings.map((h) => {
     const s = h.states[bookPhase()];
     const q = QUOTES[h.ticker];
     let px = "";
@@ -263,59 +267,6 @@ function renderLockup() {
     <div class="lk-foot">${tr(L.footnote)}</div>`;
 }
 
-/* Live countdown to the NDX forced-buy auction. Pinned to the top of the page,
-   always visible regardless of the selected phase — it reads off whichever phase
-   owns a `countdown` field (Phase 02). A single setInterval is recreated on every
-   render (phase/lang switch) so we never stack timers. */
-function renderCountdown() {
-  const host = $("#countdown");
-  if (!host) return;
-  if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
-
-  const p = PHASES.find((x) => x.countdown);
-  const cd = p?.countdown;
-  if (!cd) { host.style.display = "none"; host.innerHTML = ""; return; }
-
-  host.style.display = "block";
-  host.className = `countdown tone-${p.tone}`;
-
-  // Build the full structure ONCE; per-tick we patch only the 4 <b> numbers,
-  // avoiding a full innerHTML rebuild (6-element subtree) every second.
-  const unitLabels = [tr(UI.cdDays), tr(UI.cdHours), tr(UI.cdMins), tr(UI.cdSecs)];
-  host.innerHTML =
-    `<div class="cd-title">${tr(cd.title)}</div>` +
-    `<div class="cd-clock mono">` +
-      unitLabels.map((l) => `<span class="cd-unit"><b>00</b><i>${l}</i></span>`).join("") +
-    `</div>` +
-    `<div class="cd-label">${tr(cd.label)}</div>` +
-    `<div class="cd-note">${tr(cd.note)}</div>`;
-
-  const nums = [...host.querySelectorAll(".cd-unit b")];
-
-  const paint = () => {
-    const ms = new Date(cd.target).getTime() - Date.now();
-    if (ms <= 0) {
-      host.innerHTML =
-        `<div class="cd-title">${tr(cd.title)}</div><div class="cd-done">${tr(cd.done)}</div>`;
-      if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
-      return;
-    }
-    const s = Math.floor(ms / 1000);
-    const vals = [
-      Math.floor(s / 86400),
-      Math.floor((s % 86400) / 3600),
-      Math.floor((s % 3600) / 60),
-      s % 60,
-    ];
-    for (let i = 0; i < nums.length; i++) {
-      nums[i].textContent = String(vals[i]).padStart(2, "0");
-    }
-  };
-
-  paint();
-  countdownTimer = setInterval(paint, 1000);
-}
-
 function renderFramework() {
   $("#frameworkLabel").innerHTML = tr(UI.frameworkLabel);
   const items = FRAMEWORK.principles
@@ -456,7 +407,6 @@ function renderAll() {
   renderDirective();
   renderTrigger();
   renderLockup();
-  renderCountdown();
   renderFramework();
   renderHoldings();
   renderClassification();

@@ -1,6 +1,9 @@
 # Local Claude Code config (machine-specific)
 .claude/settings.local.json
 
+# Local ZCode agent state (machine-specific)
+.zcode/
+
 # Dependencies
 node_modules/
 

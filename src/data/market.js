@@ -17,19 +17,20 @@ import { t } from "./i18n.js";
 export const REFRESH_MS = 600_000; // browser re-reads the shared quotes.json every 10 min (see quotes.js)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
-export const TAPE_SNAPSHOT = t("SNAPSHOT · 7 JUL '26", "INSTANTÁNEA · 7 JUL '26");
+export const TAPE_SNAPSHOT = t("SNAPSHOT · 12 JUL '26", "INSTANTÁNEA · 12 JUL '26");
 
-/* Snapshot = Jul 7 2026 (NDX inclusion day). The Jul 6 forced-buy auction gave
-   no pop — SPCX swung $155–168 and closed $160.42 while the Dow set a record
-   (53,055.91). Day 1 IN the index it faded −5.2% to ~$152, breaking the $160.95
-   debut close, even as the quiet period ended and six underwriters initiated at
-   buy (GS $205, MS $300). The tape turned with it: Samsung AI-capex worries +
-   a Reuters report that DeepSeek is building its own AI chip hit semis; Nasdaq
-   led the decline. BTC is the diverger — reclaimed its 200W (~$64k vs ~$62k)
-   on soft June jobs. The live quotes.json overrides these during market hours,
-   so precision here is for the fallback only. */
+/* Snapshot = Jul 12 2026. The post-inclusion fade kept going: SPCX broke to
+   ~$138, a fresh low that touched the $135 IPO price — the reversal is now
+   CONFIRMED (it never reclaimed the $160.95 debut close, and printed a new low
+   under the Jun 23 $147.11 floor). Roughly $400B of market cap has evaporated
+   since the $225.64 peak. The 15-bank coverage wave (all Buys, PT range $62–
+   $800, Raymond James the new high; consensus ~$237; Morningstar the dissenter
+   at FV ~$780B) couldn't hold the tape. BTC is still the diverger — back above
+   $64k and holding its 200W (~$62k) on Jul 11–12, so the cross-asset gauge is
+   NOT confirming a broad risk-off break. The live quotes.json overrides these
+   during market hours, so precision here is for the fallback only. */
 export const MARKET = [
-  { sym: "SPCX",    q: "SPCX",  price: "152.14", chg: -5.16, tag: t("NDX DAY 1 · FADE", "DÍA 1 NDX · FADE") },
+  { sym: "SPCX",    q: "SPCX",  price: "138.56", chg: -4.59, tag: t("AT IPO · CONFIRMED", "EN OPV · CONFIRMADA") },
   { sym: "SPY",     q: "SPY",   chg: -0.24 },
   { sym: "QQQ",     q: "QQQ",   chg: -0.62 },
   { sym: "VIX",     q: "^VIX",  price: "15.65", chg: 0.51, invert: true },
