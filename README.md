@@ -51,6 +51,8 @@ fetched (CORS blocked, pre-IPO SPCX, off-hours) falls back to the snapshot baked
 
 ## Editing
 
+- **Writing style** → see [`AGENTS.md`](./AGENTS.md): telegraphic prose + Feynman inline
+  glosses on rare jargon. Read it before editing any string.
 - **Wording / translations** → the relevant file in `src/data/`. Every string is
   `t("English", "Español")`. Add a language by extending those calls + the `lang`
   logic in `app.js`.

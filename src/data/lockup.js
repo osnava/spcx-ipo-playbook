@@ -1,13 +1,13 @@
-/* lockup.js — the SUPPLY-side mirror of the playbook, now two-sided.
-   The demand story (forced index buying) exhausted at ~Jul 7 → Phase 03. The
-   lockup is the supply story: a "lockup" is the post-IPO window when insiders
-   can't sell; the S-1 frees that stock in waves after the debut. To a holder,
+/* lockup.js — the SUPPLY-side mirror of the playbook, two-sided.
+   The demand story (forced index buying) exhausted ~Jul 7 → Phase 03. The
+   lockup is the supply story: a "lockup" = the post-IPO window when insiders
+   can't sell; the S-1 frees that stock in waves after debut. To a holder,
    each wave is downside risk. To a buyer, the SAME wave is a staged entry
    point (forced insider selling → weakness → accumulation window). One tranche
    is PRICE-conditioned — the +30%/$175.50 mechanic is explained ONCE, in
-   status.note (the canonical home); the other fields reference it. app.js
-   renders a LIVE status pill off the SPCX tape quote. Terms pinned to the $135
-   IPO and the Jun 12 2026 debut. */
+   status.note (the canonical home); other fields reference it. app.js renders
+   a LIVE status pill off the SPCX tape quote. Terms pinned to the $135 IPO
+   and the Jun 12 2026 debut. Style: see AGENTS.md. */
 import { t } from "./i18n.js";
 
 export const LOCKUP = {
@@ -23,8 +23,8 @@ export const LOCKUP = {
   },
 
   concept: t(
-    "Your book traded the <b>demand</b> side (forced buying — exhausted at the Jul 6 auction print). The lockup is the <b>supply</b> side: a tiered schedule freeing insider stock in waves after debut. To a holder it <b>amplifies the downside</b> of the reversal. To a buyer of the long-term thesis, the SAME ladder is a <b>staged accumulation calendar</b> — each wave is weakness to buy into, not just risk to fear.",
-    "Tu cartera operó el lado de la <b>demanda</b> (compra forzada — agotada en el print de la subasta del 6 jul). El lockup es el lado de la <b>oferta</b>: un calendario escalonado que libera acciones de insiders en oleadas tras el debut. Para un tenedor <b>amplifica el lado bajista</b> de la reversión. Para un comprador de la tesis de largo plazo, la MISMA escalera es un <b>calendario de acumulación escalonado</b> — cada ola es debilidad para comprar, no solo riesgo a temer."
+    "Your book traded the <b>demand</b> side (forced buying — exhausted at the Jul 6 auction print). The lockup is the <b>supply</b> side: a tiered schedule freeing insider stock in waves. To a holder it <b>amplifies the downside</b>; to a buyer of the long-term thesis, the SAME ladder is a <b>staged accumulation calendar</b> — each wave is weakness to buy into, not just risk to fear.",
+    "Tu cartera operó el lado de la <b>demanda</b> (compra forzada — agotada en el print de la subasta del 6 jul). El lockup es el lado de la <b>oferta</b>: un calendario escalonado que libera acciones de insiders en oleadas. Para un tenedor <b>amplifica el lado bajista</b>; para un comprador de la tesis de largo plazo, la MISMA escalera es un <b>calendario de acumulación escalonado</b> — cada ola es debilidad para comprar, no solo riesgo a temer."
   ),
 
   status: {
@@ -41,8 +41,8 @@ export const LOCKUP = {
     needs: t("Needs", "Necesita"),
     toArm: t("to arm the +10% bonus tranche.", "para armar el tramo bonus del +10%."),
     note: t(
-      "<b>Status (Jul 17): new lows daily — SPCX made a fresh all-time low (~$125.80; intraday $122.12)</b>, down ~40% from the $225.64 peak, after breaking the $135 IPO *close* on Jul 16 ($131.11, −3.08%). The bonus is long dead: the +30% trigger ($175.50) is gone and the valuation has fallen to ~$1.74T, near the IPO valuation, from a >$2.6T peak. It never reclaimed the $160.95 debut close, so the 10% <b>rolls into the time tranches</b>. The base 20% + time tranches land regardless — and insiders could be free to sell ~44% of shares by early September. <b>Q2 earnings are confirmed for Aug 6 → the 20% base unlock lands ~Aug 10</b> (the 2nd trading day after). That same weakness is the accumulation window — see the SPCX row in the book.",
-      "<b>Estado (17 jul): mínimos diarios — SPCX marcó un nuevo mínimo histórico (~$125,80; intradía $122,12)</b>, ~40% por debajo del pico de $225,64, tras romper la OPV de $135 al *cierre* el 16 jul ($131,11, −3,08%). El bonus lleva tiempo muerto: el disparador de +30% ($175,50) se fue y la valoración ha caído a ~$1,74B, cerca de la valoración de OPV, desde un pico de >$2,6B. Nunca recuperó el cierre de debut de $160,95, así que el 10% <b>pasa a los tramos de tiempo</b>. El 20% base + los tramos de tiempo igual aterrizan — y los insiders podrían poder vender ~44% de las acciones para principios de septiembre. <b>Los resultados del 2T están confirmados para el 6 ago → el desbloqueo base del 20% cae ~10 ago</b> (el 2º día de cotización después). Esa misma debilidad es la ventana de acumulación — mira la fila SPCX en la cartera."
+      "<b>Status (Jul 17): new lows daily — fresh all-time low ~$125.80 (intraday $122.12)</b>, ~40% off the $225.64 peak, after breaking the IPO <i>close</i> Jul 16 ($131.11). The bonus is long dead: the +30% trigger ($175.50) is gone and the valuation has fallen to ~$1.74T, near the IPO valuation, from a >$2.6T peak. It never reclaimed the $160.95 debut close, so the 10% <b>rolls into the time tranches</b>. Base 20% + time tranches land regardless — insiders could sell ~44% of shares by early September. <b>Earnings confirmed Aug 6 → 20% base unlock ~Aug 10.</b> That same weakness is the accumulation window — see the SPCX row.",
+      "<b>Estado (17 jul): mínimos diarios — nuevo mínimo histórico ~$125,80 (intradía $122,12)</b>, ~40% por debajo del pico de $225,64, tras romper la OPV al <i>cierre</i> el 16 jul ($131,11). El bonus lleva tiempo muerto: el disparador de +30% ($175,50) se fue y la valoración ha caído a ~$1,74B, cerca de la OPV, desde un pico de >$2,6B. Nunca recuperó el cierre de debut de $160,95, así que el 10% <b>pasa a los tramos de tiempo</b>. El 20% base + los tramos igual aterrizan — los insiders podrían vender ~44% de las acciones para principios de septiembre. <b>Resultados confirmados 6 ago → desbloqueo base 20% ~10 ago.</b> Esa misma debilidad es la ventana de acumulación — mira la fila SPCX."
     ),
   },
 
@@ -52,16 +52,16 @@ export const LOCKUP = {
       when: t("Q2 earnings · Aug 6 → unlock ~Aug 10", "Resultados 2T · 6 ago → unlock ~10 ago"),
       pct: "20%", type: "earn",
       text: t(
-        "Unconditional — 2nd trading day after Q2 results (earnings confirmed Aug 6, so the unlock lands ~Aug 10). SpaceX will release earnings only via its website &amp; X (not the wires), so watch for the drop. <b>First accumulation scale.</b>",
-        "Incondicional — 2º día de cotización tras los resultados del 2T (resultados confirmados 6 ago, así que el unlock cae ~10 ago). SpaceX publicará los resultados solo vía su web y X (no las agencias), así que atento al drop. <b>Primer tramo de acumulación.</b>"
+        "Unconditional — 2nd trading day after Q2 results (earnings Aug 6 → unlock ~Aug 10). SpaceX releases results only via its website &amp; X (not the wires) — watch for the drop. <b>First accumulation scale.</b>",
+        "Incondicional — 2º día tras los resultados del 2T (resultados 6 ago → unlock ~10 ago). SpaceX publica resultados solo vía su web y X (no las agencias) — atento al drop. <b>Primer tramo de acumulación.</b>"
       ),
     },
     {
       when: t("Q2 earnings · price-gated", "Resultados 2T · por precio"),
       pct: "+10%", type: "price",
       text: t(
-        "Needed ≥$175.50 on 5 of 10 days into Q2 earnings. <b>Dead</b> — SPCX made a fresh all-time low Jul 17 (~$125.80; intraday $122.12), miles below the $135 IPO and the line. The 10% rolls into the time tranches below.",
-        "Necesitaba ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>Muerto</b> — SPCX marcó un nuevo mínimo histórico el 17 jul (~$125,80; intradía $122,12), muy por debajo de la OPV de $135 y de la línea. El 10% pasa a los tramos de tiempo de abajo."
+        "Needed ≥$175.50 on 5 of 10 days into Q2 earnings. <b>Dead</b> — SPCX at a fresh low Jul 17 (~$125.80; intraday $122.12), miles below the $135 IPO. Rolls into the time tranches below.",
+        "Necesitaba ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>Muerto</b> — SPCX en un nuevo mínimo el 17 jul (~$125,80; intradía $122,12), muy por debajo de la OPV de $135. Pasa a los tramos de tiempo de abajo."
       ),
     },
     {
@@ -99,7 +99,7 @@ export const LOCKUP = {
   ],
 
   footnote: t(
-    "Perverse: a <b>stronger SPCX unlocks more supply</b> to meet the rally. <b>The flip side:</b> each wave is also a staged entry point — buy the thesis into the weakness, don't chase strength. Read with the SPCX row in the book and with Phase 03. <i>S-1 terms; not financial advice.</i>",
-    "Perverso: un <b>SPCX más fuerte libera más oferta</b> para encontrarse con el rally. <b>El reverso:</b> cada ola es también un punto de entrada escalonado — compra la tesis en la debilidad, no persigas la fuerza. Léelo con la fila SPCX en la cartera y con la Fase 03. <i>Términos del S-1; no es asesoría financiera.</i>"
+    "Perverse: a <b>stronger SPCX unlocks more supply</b> to meet the rally. <b>Flip side:</b> each wave is also a staged entry — buy the thesis into the weakness, don't chase strength. Read with the SPCX row + Phase 03. <i>S-1 terms; not financial advice.</i>",
+    "Perverso: un <b>SPCX más fuerte libera más oferta</b> para encontrarse con el rally. <b>Reverso:</b> cada ola es también una entrada escalonada — compra la tesis en la debilidad, no persigas la fuerza. Léelo con la fila SPCX + Fase 03. <i>Términos del S-1; no es asesoría financiera.</i>"
   ),
 };
