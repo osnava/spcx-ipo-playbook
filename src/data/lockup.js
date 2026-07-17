@@ -41,27 +41,27 @@ export const LOCKUP = {
     needs: t("Needs", "Necesita"),
     toArm: t("to arm the +10% bonus tranche.", "para armar el tramo bonus del +10%."),
     note: t(
-      "<b>Status (Jul 12): bonus dead.</b> The +30% trigger ($175.50) is gone — SPCX broke to <b>~$138, near the $135 IPO price</b>, a fresh low under the Jun 23 $147.11 floor. It never reclaimed the $160.95 debut close, so the 10% <b>rolls into the time tranches</b>. The base 20% + time tranches land regardless. That same weakness is the accumulation window — see the SPCX row in the book.",
-      "<b>Estado (12 jul): bonus muerto.</b> El disparador de +30% ($175,50) se fue — SPCX rompió a <b>~$138, cerca de la OPV de $135</b>, un nuevo mínimo bajo el suelo de $147,11 del 23 jun. Nunca recuperó el cierre de debut de $160,95, así que el 10% <b>pasa a los tramos de tiempo</b>. El 20% base + los tramos de tiempo igual aterrizan. Esa misma debilidad es la ventana de acumulación — mira la fila SPCX en la cartera."
+      "<b>Status (Jul 17): new lows daily — SPCX made a fresh all-time low (~$125.80; intraday $122.12)</b>, down ~40% from the $225.64 peak, after breaking the $135 IPO *close* on Jul 16 ($131.11, −3.08%). The bonus is long dead: the +30% trigger ($175.50) is gone and the valuation has fallen to ~$1.74T, near the IPO valuation, from a >$2.6T peak. It never reclaimed the $160.95 debut close, so the 10% <b>rolls into the time tranches</b>. The base 20% + time tranches land regardless — and insiders could be free to sell ~44% of shares by early September. <b>Q2 earnings are confirmed for Aug 6 → the 20% base unlock lands ~Aug 10</b> (the 2nd trading day after). That same weakness is the accumulation window — see the SPCX row in the book.",
+      "<b>Estado (17 jul): mínimos diarios — SPCX marcó un nuevo mínimo histórico (~$125,80; intradía $122,12)</b>, ~40% por debajo del pico de $225,64, tras romper la OPV de $135 al *cierre* el 16 jul ($131,11, −3,08%). El bonus lleva tiempo muerto: el disparador de +30% ($175,50) se fue y la valoración ha caído a ~$1,74B, cerca de la valoración de OPV, desde un pico de >$2,6B. Nunca recuperó el cierre de debut de $160,95, así que el 10% <b>pasa a los tramos de tiempo</b>. El 20% base + los tramos de tiempo igual aterrizan — y los insiders podrían poder vender ~44% de las acciones para principios de septiembre. <b>Los resultados del 2T están confirmados para el 6 ago → el desbloqueo base del 20% cae ~10 ago</b> (el 2º día de cotización después). Esa misma debilidad es la ventana de acumulación — mira la fila SPCX en la cartera."
     ),
   },
 
   /* type drives the row accent: earn (earnings-gated) · price (conditional) · time (clockwork) · full */
   tranches: [
     {
-      when: t("Q2 earnings · ~Aug 6–11", "Resultados 2T · ~6–11 ago"),
+      when: t("Q2 earnings · Aug 6 → unlock ~Aug 10", "Resultados 2T · 6 ago → unlock ~10 ago"),
       pct: "20%", type: "earn",
       text: t(
-        "Unconditional — 2nd trading day after Q2 results. SpaceX will release earnings only via its website &amp; X (not the wires), so watch for the drop. <b>First accumulation scale.</b>",
-        "Incondicional — 2º día de cotización tras los resultados del 2T. SpaceX publicará los resultados solo vía su web y X (no las agencias), así que atento al drop. <b>Primer tramo de acumulación.</b>"
+        "Unconditional — 2nd trading day after Q2 results (earnings confirmed Aug 6, so the unlock lands ~Aug 10). SpaceX will release earnings only via its website &amp; X (not the wires), so watch for the drop. <b>First accumulation scale.</b>",
+        "Incondicional — 2º día de cotización tras los resultados del 2T (resultados confirmados 6 ago, así que el unlock cae ~10 ago). SpaceX publicará los resultados solo vía su web y X (no las agencias), así que atento al drop. <b>Primer tramo de acumulación.</b>"
       ),
     },
     {
       when: t("Q2 earnings · price-gated", "Resultados 2T · por precio"),
       pct: "+10%", type: "price",
       text: t(
-        "Needed ≥$175.50 on 5 of 10 days into Q2 earnings. <b>Dead</b> — SPCX broke to ~$138 (at the $135 IPO), miles below the line. The 10% rolls into the time tranches below.",
-        "Necesitaba ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>Muerto</b> — SPCX rompió a ~$138 (en la OPV de $135), muy por debajo de la línea. El 10% pasa a los tramos de tiempo de abajo."
+        "Needed ≥$175.50 on 5 of 10 days into Q2 earnings. <b>Dead</b> — SPCX made a fresh all-time low Jul 17 (~$125.80; intraday $122.12), miles below the $135 IPO and the line. The 10% rolls into the time tranches below.",
+        "Necesitaba ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>Muerto</b> — SPCX marcó un nuevo mínimo histórico el 17 jul (~$125,80; intradía $122,12), muy por debajo de la OPV de $135 y de la línea. El 10% pasa a los tramos de tiempo de abajo."
       ),
     },
     {

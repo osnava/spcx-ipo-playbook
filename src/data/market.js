@@ -3,7 +3,7 @@
    (scripts/fetch-quotes.mjs) — Yahoo `spark` for stocks/indices, Coinbase for
    BTC — which the browser reads via quotes.js. No browser ever calls a market
    API, so the user count is irrelevant. Each cell falls back to the SNAPSHOT
-   values below (Jun 9 2026 close) until/unless the shared file resolves, so the
+   values below (the date stamped in TAPE_SNAPSHOT below) until/unless the shared file resolves, so the
    strip always renders.
 
    The `q` / `src` fields below are consumed by the CI fetch script (not the
@@ -17,25 +17,32 @@ import { t } from "./i18n.js";
 export const REFRESH_MS = 600_000; // browser re-reads the shared quotes.json every 10 min (see quotes.js)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
-export const TAPE_SNAPSHOT = t("SNAPSHOT · 12 JUL '26", "INSTANTÁNEA · 12 JUL '26");
+export const TAPE_SNAPSHOT = t("SNAPSHOT · 17 JUL '26", "INSTANTÁNEA · 17 JUL '26");
 
-/* Snapshot = Jul 12 2026. The post-inclusion fade kept going: SPCX broke to
-   ~$138, a fresh low that touched the $135 IPO price — the reversal is now
-   CONFIRMED (it never reclaimed the $160.95 debut close, and printed a new low
-   under the Jun 23 $147.11 floor). Roughly $400B of market cap has evaporated
-   since the $225.64 peak. The 15-bank coverage wave (all Buys, PT range $62–
-   $800, Raymond James the new high; consensus ~$237; Morningstar the dissenter
-   at FV ~$780B) couldn't hold the tape. BTC is still the diverger — back above
-   $64k and holding its 200W (~$62k) on Jul 11–12, so the cross-asset gauge is
-   NOT confirming a broad risk-off break. The live quotes.json overrides these
-   during market hours, so precision here is for the fallback only. */
+/* Snapshot = Jul 17 2026 (intraday ~12:40 ET). The slide accelerated: SPCX
+   broke the $135 IPO *close* on Jul 16 ($131.11, -3.08%) — the first close
+   below IPO — then made a fresh all-time low on Jul 17 (~$125.80, -4.05%;
+   intraday low $122.12), cap ~$1.74T, down ~40% from the $225.64 peak. The
+   catalyst that was supposed to floor sentiment — Starship Flight 13 —
+   ABORTED at T-0 on Jul 16 (Raptors failed to ignite); retry retargeted
+   Mon Jul 20. Two days ago the read was "idiosyncratic SPCX weakness"; that
+   broke on Jul 17: SOX entered a BEAR MARKET (-3% day, -13% over 30d),
+   Netflix -7% on a weak guide, China's Moonshot dropped Kimi K3 (open AI
+   model), Nikkei -4%, and Iran-war oil spiked (Brent >$86). The AI-capex
+   trade is de-risking broadly — directly hitting the SMH/EWY sleeve. BTC
+   faded to ~$62.7k, back near its 200W (~$62k), narrowing the extreme
+   divergence. The full 27/31-Buy analyst wave (avg PT ~$242, range to
+   Raymond James $800; Morningstar dissenter FV ~$780B) still can't hold it;
+   short sellers +$8.7B since IPO; ARK buying the dip. Earnings confirmed
+   Aug 6 → base 20% unlock ~Aug 10. The live quotes.json overrides these
+   during market hours, fallback only. */
 export const MARKET = [
-  { sym: "SPCX",    q: "SPCX",  price: "138.56", chg: -4.59, tag: t("AT IPO · CONFIRMED", "EN OPV · CONFIRMADA") },
-  { sym: "SPY",     q: "SPY",   chg: -0.24 },
-  { sym: "QQQ",     q: "QQQ",   chg: -0.62 },
-  { sym: "VIX",     q: "^VIX",  price: "15.65", chg: 0.51, invert: true },
-  { sym: "S&P 500", q: "^GSPC", price: "7,519.44", chg: -0.24 },
-  { sym: "NASDAQ",  q: "^IXIC", price: "25,960.45", chg: -0.62 },
+  { sym: "SPCX",    q: "SPCX",  price: "125.80", chg: -4.05, tag: t("BELOW IPO", "BAJO OPV") },
+  { sym: "SPY",     q: "SPY",   chg: -0.66 },
+  { sym: "QQQ",     q: "QQQ",   chg: -1.04 },
+  { sym: "VIX",     q: "^VIX",  chg: 5.2, invert: true },
+  { sym: "S&P 500", q: "^GSPC", price: "7,483.73", chg: -0.66 },
+  { sym: "NASDAQ",  q: "^IXIC", price: "25,905", chg: -1.04 },
 ];
 
 /* book tickers → quote symbol, so each holding cell can show a live price
