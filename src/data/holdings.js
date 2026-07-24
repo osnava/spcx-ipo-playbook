@@ -9,9 +9,9 @@
    Holds (not sold): BTC (capitulated at its 200-week average, sell only on a
                      confirmed weekly break) · ISAC (anchor) · gold (stagger in).
    Accumulate: SPCX — buy the long-term thesis into the lockup-driven weakness
-               waves, never chase strength. New low ~$125.80 Jul 17 (intraday
-               $122.12); Flight 13 retries Jul 20; earnings Aug 6 → base 20%
-               unlock ~Aug 10. Style: see AGENTS.md. */
+               waves, never chase strength. Fresh 52-week low ~$112.69 Jul 24
+               (intraday $110.85); Flight 13's 3rd attempt today Jul 24; earnings
+               Aug 4 → base 20% unlock ~Aug 6. Style: see AGENTS.md. */
 import { t } from "./i18n.js";
 
 const hold  = (l) => ({ label: l || t("HOLD", "MANTENER"), tone: "hold" });
@@ -120,11 +120,11 @@ export const HOLDINGS = [
     ),
     detail: t(
       "<b>Why own it:</b> the only pure-play megacap in space — Starship (reusable heavy-lift), the Starlink revenue ramp, and the <b>$60B all-stock option to buy Cursor (Anysphere)</b>, closing Q3. <b>Pre-profit</b> (−$4.3B net loss Q1 2026; $41.3B accumulated deficit) — a thesis hold on the revenue ramp and optionality, not an earnings multiple.<br><br>" +
-      "<b>When to buy — the lockup IS the calendar:</b> a <i>lockup</i> = the post-IPO window when insiders can't sell; as it expires in waves they become forced sellers and the stock tends to weaken, so each unlock is a <b>staged entry point</b>. <b>Aug 10</b> base 20% (earnings confirmed <b>Aug 6</b>); then <b>Aug 21 / Sep 10 / Sep 25 / Oct 10 / Oct 25</b> time tranches (7% each); <b>180-day full unlock ~Dec 9</b>. (Full ladder in SUPPLY.)<br><br>" +
-      "<b>Entry discipline:</b> favor weakness <b>≤ $135 IPO</b> into each wave — live and cheapening (Jul 16 broke the IPO <i>close</i> $131.11; Jul 17 new low ~$125.80). <b>Flight 13 retries Jul 20 = binary</b> (scrubbed at T-0 Jul 16) — size the first scale small to add into Aug 10 regardless. Don't chase <b>&gt; ~$175</b> (the dead +30% line) unless the thesis re-rates. Stagger — never one entry.",
+      "<b>When to buy — the lockup IS the calendar:</b> a <i>lockup</i> = the post-IPO window when insiders can't sell; as it expires in waves they become forced sellers and the stock tends to weaken, so each unlock is a <b>staged entry point</b>. <b>Aug 6</b> base 20% (earnings confirmed <b>Aug 4</b>); then <b>Aug 21 / Sep 10 / Sep 25 / Oct 10 / Oct 25</b> time tranches (7% each); <b>180-day full unlock ~Dec 9</b>. (Full ladder in SUPPLY.)<br><br>" +
+      "<b>Entry discipline:</b> favor weakness <b>≤ $135 IPO</b> into each wave — live and cheapening (Jul 16 broke the IPO <i>close</i> $131.11; Jul 24 fresh 52-wk low ~$112.69). <b>Flight 13's 3rd attempt today Jul 24 = binary</b> (scrubbed at T-0 Jul 16) — size the first scale small to add into Aug 6 regardless. Don't chase <b>&gt; ~$175</b> (the dead +30% line) unless the thesis re-rates. Stagger — never one entry.",
       "<b>Por qué tenerlo:</b> la única megacap pure-play del espacio — Starship (cohete pesado reutilizable), la rampa de Starlink y la <b>opción de $60B en acciones para comprar Cursor (Anysphere)</b>, cierra en el 3T. <b>Pre-rentable</b> (−$4,3B de pérdida neta en el 1T 2026; $41,3B de déficit acumulado) — tenencia por tesis sobre la rampa y la opcionalidad, no por múltiplo de ganancias.<br><br>" +
-      "<b>Cuándo comprar — el lockup ES el calendario:</b> un <i>lockup</i> = la ventana post-IPO en la que los insiders no pueden vender; al vencer por oleadas se vuelven vendedores forzados y la acción tiende a debilitarse, así que cada unlock es un <b>punto de entrada escalonado</b>. <b>10 ago</b> base 20% (resultados confirmados <b>6 ago</b>); luego los tramos de tiempo del <b>21 ago / 10 sep / 25 sep / 10 oct / 25 oct</b> (7% c/u); <b>vencimiento total a 180 días ~9 dic</b>. (Escalera completa en OFERTA.)<br><br>" +
-      "<b>Disciplina de entrada:</b> favorece la debilidad <b>≤ OPV $135</b> en cada ola — activo y abaratándose (el 16 jul rompió la OPV al <i>cierre</i> $131,11; el 17 jul nuevo mínimo ~$125,80). <b>El vuelo 13 reintenta el 20 jul = binario</b> (abortado en T-0 el 16 jul) — dimensiona el primer tramo pequeño para sumar al 10 ago independientemente. No persigas <b>&gt; ~$175</b> (la línea muerta del +30%) salvo que la tesis se revalore. Escalona — nunca una sola entrada."
+      "<b>Cuándo comprar — el lockup ES el calendario:</b> un <i>lockup</i> = la ventana post-IPO en la que los insiders no pueden vender; al vencer por oleadas se vuelven vendedores forzados y la acción tiende a debilitarse, así que cada unlock es un <b>punto de entrada escalonado</b>. <b>6 ago</b> base 20% (resultados confirmados <b>4 ago</b>); luego los tramos de tiempo del <b>21 ago / 10 sep / 25 sep / 10 oct / 25 oct</b> (7% c/u); <b>vencimiento total a 180 días ~9 dic</b>. (Escalera completa en OFERTA.)<br><br>" +
+      "<b>Disciplina de entrada:</b> favorece la debilidad <b>≤ OPV $135</b> en cada ola — activo y abaratándose (el 16 jul rompió la OPV al <i>cierre</i> $131,11; el 24 jul nuevo mínimo a 52 semanas ~$112,69). <b>El 3er intento del vuelo 13 hoy 24 jul = binario</b> (abortado en T-0 el 16 jul) — dimensiona el primer tramo pequeño para sumar al 6 ago independientemente. No persigas <b>&gt; ~$175</b> (la línea muerta del +30%) salvo que la tesis se revalore. Escalona — nunca una sola entrada."
     ),
   },
 ];

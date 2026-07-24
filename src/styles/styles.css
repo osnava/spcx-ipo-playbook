@@ -179,7 +179,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 .book-table th:nth-child(1),.bt-rank{width:42px}
 .book-table th:nth-child(2),.bt-tick{width:104px}
 .book-table th:nth-child(3),.bt-role{width:22%}
-.book-table th:nth-child(4),.bt-state{width:118px}
+.book-table th:nth-child(4),.bt-state{width:200px}
 .bt-rank{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--txt)}
 .bt-tick{font-weight:700;font-size:15px;color:var(--txt)}
 .bt-role{color:var(--dim);font-size:13px;line-height:1.5}
