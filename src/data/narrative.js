@@ -33,7 +33,7 @@ export const CLASSIFICATION = {
       tone: "watch",
       label: t("Structural / technical signal", "Señal estructural / técnica"),
       names: "SMH · ROBO · URA · BTC",
-      note: t("Trim only; rebuy on a technical correction. BTC: hold above the 200-week average, sell only on a confirmed break.", "Solo trim; recompra en corrección técnica. BTC: mantén sobre la media de 200 semanas, vende solo con ruptura confirmada."),
+      note: t("HOLD base case — the Jul contagion unwound (broad tape at ATH). Trim only re-arms on a fresh broad-market break. ARKQ/EWY: opportunistic sells to fund SPCX adds. BTC: hold above the 200-week average, sell only on a confirmed break.", "Caso base MANTENER — la contagio de julio se deshizo (mercado amplio en máximos). El trim se re-arma solo con una nueva ruptura del mercado amplio. ARKQ/EWY: ventas oportunistas para financiar sumas a SPCX. BTC: mantén sobre la media de 200 semanas, vende solo con ruptura confirmada."),
     },
     {
       tone: "keep",
@@ -43,8 +43,8 @@ export const CLASSIFICATION = {
     },
   ],
   concentration: t(
-    "All eight are <b>risk-on, correlated to tech/AI</b> (SMH + EWY overlap in semiconductors); BTC + URA widen the factor but stay risk-on. <b>The only real counterweight is gold.</b> <b>SPCX is the deliberate exception</b> — a single-name accumulate target whose entry timing (the lockup waves) is uncorrelated with the rest of the book, which trades as one correlated tech/AI bloc.",
-    "Las ocho son <b>risk-on, correlacionadas al tech/IA</b> (SMH + EWY se solapan en semiconductores); BTC + URA amplían el factor pero siguen risk-on. <b>El único contrapeso real es el oro.</b> <b>SPCX es la excepción deliberada</b> — un objetivo de acumulación de un solo nombre cuyo timing de entrada (las olas del lockup) está descorrelacionado del resto de la cartera, que opera como un solo bloque tech/IA correlacionado."
+    "All eight are <b>risk-on, correlated to tech/AI</b> (SMH + EWY overlap in semiconductors); BTC + URA widen the factor but stay risk-on. <b>The only real counterweight is gold.</b> <b>SPCX is now fully decoupled</b> — it falls alone on idiosyncratic lockup supply while the sleeve tracks the recovered broad tape. Its entry timing (the lockup waves to Dec) is uncorrelated with the rest of the book, which trades as one correlated tech/AI bloc.",
+    "Las ocho son <b>risk-on, correlacionadas al tech/IA</b> (SMH + EWY se solapan en semiconductores); BTC + URA amplían el factor pero siguen risk-on. <b>El único contrapeso real es el oro.</b> <b>SPCX ahora está totalmente desacoplado</b> — cae solo por la oferta idiosincrática del lockup mientras el bloque sigue al mercado amplio recuperado. Su timing de entrada (las olas del lockup hasta dic) está descorrelacionado del resto de la cartera, que opera como un solo bloque tech/IA correlacionado."
   ),
 };
 

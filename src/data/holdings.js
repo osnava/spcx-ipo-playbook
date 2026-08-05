@@ -4,23 +4,22 @@
    summary: one-line thesis, always visible in the table
    detail : fuller reasoning + news notes, shown when the row is expanded
 
-   Sell order (Phase 03): ARKQ → EWY (noise, cut for real)
-                          → SMH → ROBO → URA (structural signal, trim only).
-   Holds (not sold): BTC (capitulated at its 200-week average, sell only on a
-                     confirmed weekly break) · ISAC (anchor) · gold (stagger in).
-   Accumulate: SPCX — buy the long-term thesis into the lockup-driven weakness
-               waves, never chase strength. Fresh 52-week low $104.83 Aug 5
-               (~$115.81) DESPITE Flight 13 success Jul 24 + Q2 earnings beat
-               Aug 4 (revenue +92%, AI +250%); the 911.5M-share base-20% unlock
-               lands tomorrow, Aug 6. Style: see AGENTS.md. */
+   THESIS REVISION (Aug 5): the SPCX sell-trim thesis has DECOUPLED. The Jul
+   contagion (SOX bear) that justified trimming the sleeve has unwound — broad
+   tape back at ATH, SPCX now falls ALONE on idiosyncratic lockup supply. So:
+     Sleeve (SMH/ROBO/URA): reverted HOLD (was trim).
+     ARKQ/EWY: OPPORTUNISTIC sells (was forced) — only to fund SPCX adds.
+     Holds: BTC (200-wk) · ISAC (anchor) · gold (stagger in).
+     SPCX: accumulate SLOWLY into the lockup ladder — honest that Morningstar
+           FV is $62 (~1.9× FV at ~$116), so more downside is plausible into
+           the Dec 9 (180-day) exhaustion window. Fresh 52-wk low $104.83 Aug 5
+           DESPITE Flight 13 success Jul 24 + Q2 beat Aug 4. Style: AGENTS.md. */
 import { t } from "./i18n.js";
 
 const hold  = (l) => ({ label: l || t("HOLD", "MANTENER"), tone: "hold" });
 const watch = (l) => ({ label: l, tone: "watch" });
-const sell  = (l) => ({ label: l, tone: "sell" });
 const keep  = (l) => ({ label: l, tone: "keep" });
 const accum = (l) => ({ label: l, tone: "accum" });
-const trim  = (l) => ({ label: l, tone: "watch" });
 
 const FLUSH = t("FLUSH RISK", "RIESGO PURGA");
 const WATCH = t("WATCH", "VIGILAR");
@@ -29,8 +28,8 @@ export const HOLDINGS = [
   {
     rank: "1", ticker: "ARKQ",
     role: t("Noise/story · pre-profit duration", "Ruido/relato · duración pre-rentable"),
-    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: sell(t("SELL 1st", "VENDER 1º")) },
-    summary: t("Pre-profit, all duration, barely holds SpaceX. Cut first.", "Pre-rentable, pura duración, casi no tiene SpaceX. Vende primero."),
+    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: watch(t("OPP. SELL", "VENTA OPORT.")) },
+    summary: t("Pre-profit, all duration, barely holds SpaceX. Opportunistic sell to fund SPCX.", "Pre-rentable, pura duración, casi no tiene SpaceX. Venta oportunística para financiar SPCX."),
     detail: t(
       "ARKQ is <b>story, not signal</b> — cut aggressively if the thesis cracks. (A \"story\" stock bets on a narrative; a \"signal\" stock has cash behind it.) Tell: on Jun 22's crash <b>ARK bought 210,121 SPCX (~$32.5M)</b> across 4 ETFs — a contrarian bet on this very theme.",
       "ARKQ es <b>relato, no señal</b> — recorta agresivo si la tesis se quiebra. (Una acción de \"relato\" apuesta a una narrativa; una de \"señal\" tiene caja detrás.) Señal: en el desplome del 22 jun <b>ARK compró 210.121 SPCX (~$32,5M)</b> en 4 ETFs — apuesta contrarian a este mismo tema."
@@ -39,8 +38,8 @@ export const HOLDINGS = [
   {
     rank: "2", ticker: "EWY",
     role: t("Memory/semis + FX + EM beta", "Memoria/semis + FX + beta EM"),
-    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: sell(t("SELL 2nd", "VENDER 2º")) },
-    summary: t("Korea ETF: memory/semis (Samsung/SK Hynix) + won FX + EM beta. Sell early.", "ETF de Corea: memoria/semis (Samsung/SK Hynix) + FX won + beta EM. Vende temprano."),
+    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: watch(t("OPP. SELL", "VENTA OPORT.")) },
+    summary: t("Korea ETF: memory/semis (Samsung/SK Hynix) + won FX + EM beta. Opportunistic sell to fund SPCX.", "ETF de Corea: memoria/semis (Samsung/SK Hynix) + FX won + beta EM. Venta oportunística para financiar SPCX."),
     detail: t(
       "Essentially the <b>same semi bet as SMH</b>, with extra fragility: a country fund, so EM liquidity flees first. Case in point: <b>Samsung (its top holding) printed a record Q2 Jul 7 and still sold off</b> on AI-spending doubts — good numbers no longer protect the theme.",
       "Esencialmente la <b>misma apuesta en semis que SMH</b>, con fragilidad extra: un fondo país, así que la liquidez EM huye primero. Caso: <b>Samsung (su mayor posición) reportó un 2T récord el 7 jul y aun así cayó</b> por dudas de gasto en IA — los buenos números ya no protegen al tema."
@@ -49,18 +48,18 @@ export const HOLDINGS = [
   {
     rank: "3", ticker: "SMH",
     role: t("AI infrastructure · real revenue", "Infraestructura IA · revenue real"),
-    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: trim(t("TRIM", "RECORTAR")) },
-    summary: t("AI infra with real revenue (NVDA/AVGO/TSM). Trim, don't liquidate.", "Infra IA con revenue real (NVDA/AVGO/TSM). Recorta, no liquides."),
+    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: hold() },
+    summary: t("AI infra with real revenue (NVDA/AVGO/TSM). HOLD — contagion unwound, broad tape at ATH.", "Infra IA con revenue real (NVDA/AVGO/TSM). MANTENER — la contagio se deshizo, mercado amplio en máximos."),
     detail: t(
-      "Structural signal, real revenue — but crowded, and the selling stopped being SPCX-only: <b>SOX entered a BEAR MARKET Jul 17 (−13% / 30d)</b> on Kimi K3 + hyperscaler-capex doubts. <b>The broad market has since rebounded</b> (Iran-oil easing, S&amp;P ~7,747 toward ATH), but <b>SOX still lags</b> — the chip correction is real, just no longer acute. <b>Trim only</b> — BofA still sees capex sustainable into 2027. <b>One SMH put spread hedges SMH + EWY</b> (a put spread = buy a put, sell a cheaper one to cap cost); with SOX lagging the rebound the puts are still worth holding.",
-      "Señal estructural, revenue real — pero crowded, y la venta dejó de ser solo SPCX: <b>el SOX entró en MERCADO BAJISTA el 17 jul (−13% / 30d)</b> por Kimi K3 + dudas de capex de hiperscalers. <b>El mercado amplio desde entonces rebotó</b> (aflojamiento del petróleo-Irán, S&amp;P ~7.747 hacia máximos), pero <b>el SOX aún rezaga</b> — la corrección de chips es real, solo que ya no aguda. <b>Solo trim</b> — BofA aún ve el capex sostenible hacia 2027. <b>Un put spread de SMH cubre SMH + EWY</b> (un put spread = compras un put, vendes uno más barato para topar el costo); con el SOX rezagando el rebote, los puts aún valen la pena."
+      "Structural signal, real revenue — the Jul contagion (SOX bear Jul 17, −13% / 30d) <b>has unwound</b>: the broad tape rebounded to ATH (S&amp;P ~7,747) as Iran-oil cooled, and SPCX now falls <b>alone</b> on lockup supply. <b>That decoupling is the tell</b> — SMH tracks the recovered broad tape, not SPCX idiosyncrasy, so the trim thesis is stale. <b>HOLD</b>; trim only re-arms on a fresh broad-market break. BofA still sees capex sustainable into 2027. <b>One SMH put spread hedges SMH + EWY</b> (a put spread = buy a put, sell a cheaper one to cap cost) — keep it as insurance while SOX still lags the rebound.",
+      "Señal estructural, revenue real — la contagio de julio (SOX bajista 17 jul, −13% / 30d) <b>se deshizo</b>: el mercado amplio rebotó a máximos (S&amp;P ~7.747) al enfriarse el petróleo-Irán, y SPCX ahora cae <b>solo</b> por la oferta del lockup. <b>Esa desconexión es la señal</b> — SMH sigue al mercado amplio recuperado, no a la idiosincrasia de SPCX, así que la tesis de trim es obsoleta. <b>MANTENER</b>; el trim solo se re-arma con una nueva ruptura del mercado amplio. BofA aún ve el capex sostenible hacia 2027. <b>Un put spread de SMH cubre SMH + EWY</b> (un put spread = compras un put, vendes uno más barato para topar el costo) — consérvalo como seguro mientras el SOX aún rezaga el rebote."
     ),
   },
   {
     rank: "4", ticker: "ROBO",
     role: t("Industrial robotics · diversified", "Robótica industrial · diversificado"),
-    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: trim(t("TRIM", "RECORTAR")) },
-    summary: t("Industrial robotics, diversified, lower multiple than ARKQ. Trim after noise.", "Robótica industrial, diversificado, múltiplo más bajo que ARKQ. Recorta tras el ruido."),
+    states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: hold() },
+    summary: t("Industrial robotics, diversified, lower multiple than ARKQ. HOLD — contagion unwound.", "Robótica industrial, diversificado, múltiplo más bajo que ARKQ. MANTENER — la contagio se deshizo."),
     detail: t(
       "Structural signal — more resilient than ARKQ (real industrial revenue, less hype). Trim, don't liquidate.",
       "Señal estructural — más resiliente que ARKQ (revenue industrial real, menos hype). Recorta, no liquides."
@@ -69,8 +68,8 @@ export const HOLDINGS = [
   {
     rank: "5", ticker: "URA",
     role: t("Power for AI · physical backing", "Energía para la IA · respaldo físico"),
-    states: { ph0: hold(t("RESILIENT", "RESISTENTE")), ph1: hold(), ph2: hold(), ph3: trim(t("TRIM", "RECORTAR")) },
-    summary: t("'Power for AI' (datacenters→nuclear), uranium physical backing. Trim, don't liquidate.", "'Energía para IA' (datacenters→nuclear), respaldo físico en uranio. Recorta, no liquides."),
+    states: { ph0: hold(t("RESILIENT", "RESISTENTE")), ph1: hold(), ph2: hold(), ph3: hold() },
+    summary: t("'Power for AI' (datacenters→nuclear), uranium physical backing. HOLD — contagion unwound.", "'Energía para IA' (datacenters→nuclear), respaldo físico en uranio. MANTENER — la contagio se deshizo."),
     detail: t(
       "Structural narrative (uranium supply/demand) but illiquid and high-beta, so it swings hard. Watch it break alongside EWY as cross-confirmation.",
       "Narrativa estructural (oferta/demanda de uranio) pero ilíquida y de beta alta, así que oscila fuerte. Vígala romper junto con EWY como confirmación cruzada."
@@ -122,10 +121,10 @@ export const HOLDINGS = [
     detail: t(
       "<b>Why own it:</b> the only pure-play megacap in space — Starship (reusable heavy-lift), the Starlink revenue ramp, and the <b>$60B all-stock option to buy Cursor (Anysphere)</b>, closing Q3. <b>Pre-profit</b> (−$4.3B net loss Q1 2026; $41.3B accumulated deficit) — a thesis hold on the revenue ramp and optionality, not an earnings multiple.<br><br>" +
       "<b>When to buy — the lockup IS the calendar:</b> a <i>lockup</i> = the post-IPO window when insiders can't sell; as it expires in waves they become forced sellers and the stock tends to weaken, so each unlock is a <b>staged entry point</b>. <b>Aug 6</b> base 20% (earnings confirmed <b>Aug 4</b>); then <b>Aug 21 / Sep 10 / Sep 25 / Oct 10 / Oct 25</b> time tranches (7% each); <b>180-day full unlock ~Dec 9</b>. (Full ladder in SUPPLY.)<br><br>" +
-      "<b>Entry discipline:</b> favor weakness <b>≤ $135 IPO</b> into each wave — live and cheapening (broke the IPO <i>close</i> Jul 16 $131.11; fresh 52-wk low <b>$104.83 Aug 5</b> ~$115.81). <b>Both binaries resolved well</b> — Flight 13 <b>succeeded Jul 24</b> (20 Starlink V3 deployed, ship intact); Q2 <b>beat Aug 4</b> (revenue +92%, AI +250%, CFO targets $100B ARR) — yet the stock fell: proof the slide is pure supply, not a broken thesis. <b>Aug 6 = first scale</b> (911.5M shares, ~140% of the IPO float); the beat collapses the binary-risk discount, so size it. Don't chase <b>&gt; ~$175</b> (the dead +30% line) unless the thesis re-rates. Stagger — never one entry.",
+      "<b>Entry discipline (slow it down):</b> accumulate into lockup weakness, but <b>honest about the anchor</b> — Morningstar fair value is <b>$62/share</b>, so at ~$116 SPCX is still <b>~1.9× FV</b> (down from 3.2× at the $225 peak, but not cheap). The slide is pure supply (both binaries resolved well — Flight 13 succeeded Jul 24; Q2 beat Aug 4 — yet it fell), so it's a <b>correction, not a thesis break</b> → keep buying. But the supply <b>ladder runs to Dec 9</b> (180-day full unlock, float → ~40%): Aug 6 is wave 1, not the climax. <b>Front-load smaller scales into the Aug/Oct waves; weight toward the Dec 9 exhaustion window.</b> Don't chase <b>&gt; ~$135 IPO</b> unless the thesis re-rates; a move toward $62 FV is where sizing gets interesting. Stagger — never one entry.",
       "<b>Por qué tenerlo:</b> la única megacap pure-play del espacio — Starship (cohete pesado reutilizable), la rampa de Starlink y la <b>opción de $60B en acciones para comprar Cursor (Anysphere)</b>, cierra en el 3T. <b>Pre-rentable</b> (−$4,3B de pérdida neta en el 1T 2026; $41,3B de déficit acumulado) — tenencia por tesis sobre la rampa y la opcionalidad, no por múltiplo de ganancias.<br><br>" +
       "<b>Cuándo comprar — el lockup ES el calendario:</b> un <i>lockup</i> = la ventana post-IPO en la que los insiders no pueden vender; al vencer por oleadas se vuelven vendedores forzados y la acción tiende a debilitarse, así que cada unlock es un <b>punto de entrada escalonado</b>. <b>6 ago</b> base 20% (resultados confirmados <b>4 ago</b>); luego los tramos de tiempo del <b>21 ago / 10 sep / 25 sep / 10 oct / 25 oct</b> (7% c/u); <b>vencimiento total a 180 días ~9 dic</b>. (Escalera completa en OFERTA.)<br><br>" +
-      "<b>Disciplina de entrada:</b> favorece la debilidad <b>≤ OPV $135</b> en cada ola — activo y abaratándose (rompió la OPV al <i>cierre</i> el 16 jul $131,11; nuevo mínimo a 52 sem <b>$104,83 el 5 ago</b> ~$115,81). <b>Ambos binarios resolvieron bien</b> — el vuelo 13 <b>triunfó el 24 jul</b> (20 Starlink V3 desplegados, nave intacta); el 2T <b>superó el 4 ago</b> (revenue +92%, IA +250%, CFO apunta a $100B ARR) — y aun así la acción cayó: prueba de que la caída es pura oferta, no una tesis rota. <b>6 ago = primer tramo</b> (911,5M acciones, ~140% del float de la OPV); el beat colapsa el descuento de riesgo binario, así que dimensiónalo. No persigas <b>&gt; ~$175</b> (la línea muerta del +30%) salvo que la tesis se revalore. Escalona — nunca una sola entrada."
+      "<b>Disciplina de entrada (despacio):</b> acumula en la debilidad del lockup, pero <b>honesto con el ancla</b> — el valor razonable de Morningstar es <b>$62/acción</b>, así que a ~$116 SPCX sigue a <b>~1,9× VR</b> (bajó de 3,2× en el pico de $225, pero no es barato). La caída es pura oferta (ambos binarios resolvieron bien — el vuelo 13 triunfó el 24 jul; el 2T superó el 4 ago — y aun así cayó), así que es una <b>corrección, no ruptura de tesis</b> → sigue comprando. Pero la <b>escalera de oferta llega al 9 dic</b> (unlock total a 180 días, float → ~40%): el 6 ago es la ola 1, no el clímax. <b>Carga tramos más pequeños en las olas ago/oct; pondera hacia la ventana de agotamiento del 9 dic.</b> No persigas <b>&gt; ~OPV $135</b> salvo que la tesis se revalore; un movimiento hacia el VR de $62 es donde el dimensionamiento se vuelve interesante. Escalona — nunca una sola entrada."
     ),
   },
 ];
