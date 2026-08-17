@@ -41,35 +41,35 @@ export const LOCKUP = {
     needs: t("Needs", "Necesita"),
     toArm: t("to arm the +10% bonus tranche.", "para armar el tramo bonus del +10%."),
     note: t(
-      "<b>Status (Aug 5): fresh 52-wk low $104.83 (~$115.81)</b>, ~49% off the $225.64 peak — <b>even after Flight 13 succeeded Jul 24 and Q2 earnings beat Aug 4</b> (revenue +92%, AI +250%). <b>Valuation anchor: Morningstar fair value $62/share</b>, so at ~$116 SPCX is still <b>~1.9× FV</b> (down from 3.2× at the peak) — more downside is plausible. The bonus is long dead: the +30% trigger ($175.50) is gone; it never reclaimed the $160.95 debut close, so the 10% <b>rolls into the time tranches</b>. Base 20% (911.5M shares, ~$105B — ~140% of the ~639M IPO float) unlocks <b>TOMORROW, Aug 6</b> (2nd trading day after the Aug-4 beat); +455.8M (~$62B) price-gated and dead. <b>Aug 6 is wave 1, not the climax</b> — the ladder runs to the 180-day full unlock <b>~Dec 9</b> (float → ~40%); that Dec window, nearer fair value, is where accumulation sizing gets interesting. Musk sits to mid-2027.",
-      "<b>Estado (5 ago): nuevo mínimo a 52 sem $104,83 (~$115,81)</b>, ~49% por debajo del pico de $225,64 — <b>incluso tras el éxito del vuelo 13 el 24 jul y el beat del 2T el 4 ago</b> (revenue +92%, IA +250%). <b>Ancla de valoración: valor razonable de Morningstar $62/acción</b>, así que a ~$116 SPCX sigue a <b>~1,9× VR</b> (bajó de 3,2× en el pico) — más caída es plausible. El bonus lleva tiempo muerto: el disparador de +30% ($175,50) se fue; nunca recuperó el cierre de debut de $160,95, así que el 10% <b>pasa a los tramos de tiempo</b>. El 20% base (911,5M acciones, ~$105B — ~140% del float de la OPV de ~639M) se libera <b>MAÑANA, 6 ago</b> (2º día tras el beat del 4 ago); +455,8M (~$62B) condicionado al precio y muerto. <b>El 6 ago es la ola 1, no el clímax</b> — la escalera llega al unlock total a 180 días <b>~9 dic</b> (float → ~40%); esa ventana de dic, más cerca del valor razonable, es donde el dimensionamiento de la acumulación se vuelve interesante. Musk queda hasta mediados de 2027."
+      "<b>Status (Aug 17): wave 1 unlocked Aug 6 — and ABSORBED.</b> +6% on day 1 in heavy volume; the 13Fs show who met it (PIF +154M, Harvard $2.2B, Blackstone, Atreides; Nvidia disclosed $20.97B Aug 17). A squeeze (shorts 34% → 11% of float, S3) then drove SPCX from the record low <b>$104.83 (Aug 3) to ~$148</b> — +41%, back above the $135 IPO, cap ~$1.9T. Still <b>~2.4× Morningstar FV ($62)</b>. The bonus is dead as ever: the +30% trigger ($175.50) was never reached; that 10% <b>rolls into the time tranches</b>. <b>Next rung: up to 319M shares on Aug 20</b> (&gt;3× daily volume), then ~700M Sep / ~700M Oct, the +28% Q3-earnings cliff (~Nov), and the 180-day full unlock <b>~Dec 9</b> (float → ~40%). Insiders can now sell into a squeezed, above-IPO price — the Dec window, nearer fair value, stays where accumulation sizing gets interesting. Musk (48.4%, filed Aug 16) sits to mid-2027.",
+      "<b>Estado (17 ago): la ola 1 se liberó el 6 ago — y fue ABSORBIDA.</b> +6% el día 1 con volumen pesado; los 13F muestran quién la compró (PIF +154M, Harvard $2,2B, Blackstone, Atreides; Nvidia reveló $20,97B el 17 ago). Un squeeze (cortos 34% → 11% del float, S3) llevó luego a SPCX del mínimo récord de <b>$104,83 (3 ago) a ~$148</b> — +41%, de nuevo sobre la OPV de $135, cap ~$1,9B. Aún <b>~2,4× VR de Morningstar ($62)</b>. El bonus sigue muerto: el disparador de +30% ($175,50) nunca se alcanzó; ese 10% <b>pasa a los tramos de tiempo</b>. <b>Próximo peldaño: hasta 319M acciones el 20 ago</b> (&gt;3× el volumen diario), luego ~700M sep / ~700M oct, el abismo de +28% con resultados del 3T (~nov) y el unlock total a 180 días <b>~9 dic</b> (float → ~40%). Los insiders ahora pueden vender a un precio purgado al alza, sobre la OPV — la ventana de dic, más cerca del valor razonable, sigue siendo donde el dimensionamiento se vuelve interesante. Musk (48,4%, presentado 16 ago) queda hasta mediados de 2027."
     ),
   },
 
   /* type drives the row accent: earn (earnings-gated) · price (conditional) · time (clockwork) · full */
   tranches: [
     {
-      when: t("Q2 earnings DONE · unlock TOMORROW Aug 6", "Resultados 2T HECHOS · unlock MAÑANA 6 ago"),
+      when: t("Q2 earnings DONE · unlock DONE Aug 6 — ABSORBED", "Resultados 2T HECHOS · unlock HECHO 6 ago — ABSORBIDO"),
       pct: "20%", type: "earn",
       text: t(
-        "Unconditional — 2nd trading day after Q2 results. <b>Earnings beat printed Aug 4 (revenue +92%, AI +250%) → unlock TOMORROW, Aug 6.</b> 911.5M shares, ~$105B (~140% of the ~639M IPO float). The stock made a fresh low <i>despite</i> the beat — pure supply. <b>Wave 1 of the ladder, not the climax</b> — weight accumulation toward the Dec 9 (180-day) exhaustion window nearer fair value ($62).",
-        "Incondicional — 2º día tras los resultados del 2T. <b>El beat se imprimió el 4 ago (revenue +92%, IA +250%) → unlock MAÑANA, 6 ago.</b> 911,5M acciones, ~$105B (~140% del float de la OPV de ~639M). La acción marcó un nuevo mínimo <i>a pesar del</i> beat — pura oferta. <b>Ola 1 de la escalera, no el clímax</b> — pondera la acumulación hacia la ventana de agotamiento del 9 dic (180 días), más cerca del valor razonable ($62)."
+        "Unconditional — 2nd trading day after Q2 results (beat printed Aug 4). <b>911.5M shares (~7% of shares out, more than the entire 639M IPO float) unlocked Aug 6 — the stock ROSE 6% on day 1 in heavy volume</b>: absorption, not distribution. The 13Fs show the buyers (PIF +154M, Harvard $2.2B, Blackstone, Atreides). Float: ~639M → ~1.55B (~12% of shares out). Wave 1 of the ladder — done, and bought.",
+        "Incondicional — 2º día tras los resultados del 2T (beat impreso el 4 ago). <b>911,5M acciones (~7% de las acciones, más que todo el float de la OPV de 639M) se liberaron el 6 ago — y la acción SUBIÓ 6% el día 1 con volumen pesado</b>: absorción, no distribución. Los 13F muestran a los compradores (PIF +154M, Harvard $2,2B, Blackstone, Atreides). Float: ~639M → ~1.550M (~12% de las acciones). Ola 1 de la escalera — hecha, y comprada."
       ),
     },
     {
       when: t("Q2 earnings · price-gated", "Resultados 2T · por precio"),
       pct: "+10%", type: "price",
       text: t(
-        "Needed ≥$175.50 on 5 of 10 days into Q2 earnings. <b>Dead</b> — SPCX at a fresh 52-wk low Aug 5 ($104.83; ~$115.81), miles below the $135 IPO. 455.8M shares (~$62B) roll into the time tranches below.",
-        "Necesitaba ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>Muerto</b> — SPCX en un nuevo mínimo a 52 semanas el 5 ago ($104,83; ~$115,81), muy por debajo de la OPV de $135. 455,8M acciones (~$62B) pasan a los tramos de tiempo de abajo."
+        "Needed ≥$175.50 on 5 of 10 days into Q2 earnings. <b>Dead</b> — the stock never came close (record low $104.83 Aug 3; ~$148 now, still below the trigger). 455.8M shares (~$62B) roll into the time tranches below.",
+        "Necesitaba ≥$175,50 en 5 de 10 días hacia resultados del 2T. <b>Muerto</b> — la acción nunca se acercó (mínimo récord $104,83 el 3 ago; ~$148 ahora, aún bajo el disparador). 455,8M acciones (~$62B) pasan a los tramos de tiempo de abajo."
       ),
     },
     {
-      when: t("Aug 21 · Sep 10 · Sep 25 · Oct 10 · Oct 25", "21 ago · 10 sep · 25 sep · 10 oct · 25 oct"),
+      when: t("Aug 20 · ~Sep 10 · ~Sep 25 · ~Oct 10 · ~Oct 25", "20 ago · ~10 sep · ~25 sep · ~10 oct · ~25 oct"),
       pct: "7% ×5", type: "time",
       text: t(
-        "Day 70/90/105/120/135, <b>7% each = 35%</b>, regardless of price. Sep 10 / Oct 25 can cluster with the Q3 +28% cliff. <b>Second accumulation scale.</b>",
-        "Día 70/90/105/120/135, <b>7% c/u = 35%</b>, sin importar el precio. El 10 sep / 25 oct pueden agruparse con el abismo de +28% del 3T. <b>Segundo tramo de acumulación.</b>"
+        "Day 70/90/105/120/135, <b>7% each = 35%</b>, regardless of price — ~319M shares per rung (~700M/mo in Sep and Oct per the prospectus). <b>Aug 20 is absorption test #2</b>: &gt;3× daily volume, and insiders can now sell into a squeezed, above-IPO price. Sep / Oct can cluster with the Q3 +28% cliff. <b>Second accumulation scale.</b>",
+        "Día 70/90/105/120/135, <b>7% c/u = 35%</b>, sin importar el precio — ~319M acciones por peldaño (~700M/mes en sep y oct según el prospecto). <b>El 20 ago es la prueba de absorción #2</b>: &gt;3× el volumen diario, y los insiders ya pueden vender a un precio purgado al alza, sobre la OPV. Sep / oct pueden agruparse con el abismo de +28% del 3T. <b>Segundo tramo de acumulación.</b>"
       ),
     },
     {

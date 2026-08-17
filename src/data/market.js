@@ -17,33 +17,28 @@ import { t } from "./i18n.js";
 export const REFRESH_MS = 600_000; // browser re-reads the shared quotes.json every 10 min (see quotes.js)
 
 export const TAPE_LIVE     = t("LIVE", "EN VIVO");
-export const TAPE_SNAPSHOT = t("SNAPSHOT · 5 AGO '26", "INSTANTÁNEA · 5 AGO '26");
+export const TAPE_SNAPSHOT = t("SNAPSHOT · 17 AGO '26", "INSTANTÁNEA · 17 AGO '26");
 
-/* Snapshot = Aug 5 2026 (intraday). Both binary catalysts resolved WELL, yet
-   SPCX made fresh lows — proof supply now dominates fundamentals. Flight 13
-   SUCCEEDED Jul 24 (3rd attempt: 20 Starlink V3 deployed, upper stage intact
-   after splashdown — a first). Q2 earnings Aug 4 BEAT: revenue $7.8B (+92%
-   YoY), net loss narrowed to $541M (from $1B), Starlink +66%, AI +250%
-   (Anthropic/Google compute deals); CFO Johnsen pegged a $100B ARR run-rate
-   by year-end. Stock still fell — +9.4% intraday then −7.5% after-hours,
-   gapping to a fresh 52-week low $104.83 Aug 5 (~$115.81, cap ~$1.5T, ~49%
-   off the $225.64 peak). Cause: the 911.5M-share base-20% unlock lands
-   TOMORROW, Aug 6. Shorts crowded to 219.3M shares / ~$24.6B — 34% of float,
-   > Tesla's dollar short (S3, Jul 29); Morgan Stanley reiterated $300. The
-   broad market RECOVERED as Iran-war oil eased (Trump stood down Aug 3;
-   Brent ~$83.77, rebounding >$80 on a Houthi-Saudi attack) — S&P ~7,747
-   toward ATH, Nasdaq ~26,585 — yet SPCX fell ALONE (chips/SOX still lag):
-   pure idiosyncratic supply, thesis intact. BTC ~$64k (back on its 200-wk
-   ~$62k); gold ~$4,071. Earnings beat = a CORRECTION (buy), not a break
-   (exit) → Aug 6 = first SPCX accumulation scale. The live quotes.json
-   overrides these during market hours, fallback only. */
+/* Snapshot = Aug 17 2026 (intraday). The Aug 6 unlock (911.5M shares) was
+   ABSORBED on day 1 — +6% in heavy volume — then a short squeeze (short
+   interest 34% → ~11% of float, S3 Aug 12) carried SPCX from the $104.83
+   record low (Aug 3) to ~$148: +41%, back ABOVE the $135 IPO, cap ~$1.9T.
+   Who met the wave (13F season): PIF +154M shares, Harvard $2.2B, Blackstone,
+   Atreides; Nvidia disclosed a $20.97B stake Aug 17; Musk filed 48.4%
+   (locked to Jun '27); UBS set $210 on AI/tokenization demand. The supply
+   ladder runs on: up to 319M shares Aug 20, ~700M Sep, ~700M Oct, +28% at
+   Q3 earnings (~Nov), 180-day full Dec 9 — insiders can now sell into a
+   squeezed price. Macro: S&P at records (~7,799 Aug 14) on cool CPI/PPI
+   (Sept hike odds ~33%); Iran ceasefire EXPIRED Aug 16 — Brent back to
+   ~$89–91, gold ~$4,470, VIX ~15. BTC ~$64k, pinned to its 200-wk ~$62k.
+   The live quotes.json overrides these during market hours, fallback only. */
 export const MARKET = [
-  { sym: "SPCX",    q: "SPCX",  price: "115.81", chg: -7.60, tag: t("BELOW IPO", "BAJO OPV") },
-  { sym: "SPY",     q: "SPY",   chg: 1.80 },
-  { sym: "QQQ",     q: "QQQ",   chg: 2.50 },
-  { sym: "VIX",     q: "^VIX",  chg: -5.00, invert: true },
-  { sym: "S&P 500", q: "^GSPC", price: "7,747.47", chg: 1.93 },
-  { sym: "NASDAQ",  q: "^IXIC", price: "26,584.99", chg: 2.59 },
+  { sym: "SPCX",    q: "SPCX",  price: "147.93", chg: 5.66, tag: t("ABOVE IPO", "SOBRE OPV") },
+  { sym: "SPY",     q: "SPY",   chg: -0.36 },
+  { sym: "QQQ",     q: "QQQ",   chg: -0.08 },
+  { sym: "VIX",     q: "^VIX",  chg: 8.07, invert: true },
+  { sym: "S&P 500", q: "^GSPC", price: "7,756.42", chg: -0.38 },
+  { sym: "NASDAQ",  q: "^IXIC", price: "26,664.27", chg: -0.24 },
 ];
 
 /* book tickers → quote symbol, so each holding cell can show a live price
