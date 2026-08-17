@@ -65,17 +65,17 @@ export const HOLDINGS = [
     rank: "4", ticker: "ROBO",
     role: t("Industrial robotics · diversified", "Robótica industrial · diversificado"),
     states: { ph0: watch(FLUSH), ph1: hold(), ph2: watch(WATCH), ph3: hold() },
-    summary: t("Industrial robotics, diversified, lower multiple than ARKQ. HOLD — contagion unwound.", "Robótica industrial, diversificado, múltiplo más bajo que ARKQ. MANTENER — la contagio se deshizo."),
+    summary: t("Industrial robotics, diversified, lower multiple than ARKQ. HOLD — broad tape at records.", "Robótica industrial, diversificado, múltiplo más bajo que ARKQ. MANTENER — mercado amplio en récords."),
     detail: t(
-      "Structural signal — more resilient than ARKQ (real industrial revenue, less hype). Trim, don't liquidate.",
-      "Señal estructural — más resiliente que ARKQ (revenue industrial real, menos hype). Recorta, no liquides."
+      "Structural signal — more resilient than ARKQ (real industrial revenue, less hype). HOLD with the sleeve; trim only on a fresh broad-market break.",
+      "Señal estructural — más resiliente que ARKQ (revenue industrial real, menos hype). MANTENER con el bloque; recorta solo con una nueva ruptura del mercado amplio."
     ),
   },
   {
     rank: "5", ticker: "URA",
     role: t("Power for AI · physical backing", "Energía para la IA · respaldo físico"),
     states: { ph0: hold(t("RESILIENT", "RESISTENTE")), ph1: hold(), ph2: hold(), ph3: hold() },
-    summary: t("'Power for AI' (datacenters→nuclear), uranium physical backing. HOLD — contagion unwound.", "'Energía para IA' (datacenters→nuclear), respaldo físico en uranio. MANTENER — la contagio se deshizo."),
+    summary: t("'Power for AI' (datacenters→nuclear), uranium physical backing. HOLD — broad tape at records.", "'Energía para IA' (datacenters→nuclear), respaldo físico en uranio. MANTENER — mercado amplio en récords."),
     detail: t(
       "Structural narrative (uranium supply/demand) but illiquid and high-beta, so it swings hard. Watch it break alongside EWY as cross-confirmation.",
       "Narrativa estructural (oferta/demanda de uranio) pero ilíquida y de beta alta, así que oscila fuerte. Vígala romper junto con EWY como confirmación cruzada."

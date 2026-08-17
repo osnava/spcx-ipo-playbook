@@ -28,18 +28,18 @@ export const LOCKUP = {
   ),
 
   status: {
-    title: t("Price-conditioned bonus tranche · live", "Tramo bonus condicionado al precio · en vivo"),
-    armed: t("IN THE MONEY", "EN DINERO"),
-    below: t("BELOW TRIGGER", "BAJO EL DISPARADOR"),
+    title: t("Price-conditioned bonus tranche · resolved DEAD", "Tramo bonus condicionado al precio · resuelto MUERTO"),
+    armed: t("TRANCHE DEAD", "TRAMO MUERTO"),
+    below: t("TRANCHE DEAD", "TRAMO MUERTO"),
     threshold: t("Bonus trigger", "Disparador bonus"),
     snapshot: t("snapshot", "instantánea"),
     vsIpo: t("vs IPO", "vs OPV"),
     armedNote: t(
-      "SPCX is above +30%. Bonus needs <b>5 of the 10 days into Q2 earnings</b> ≥$175.50 — necessary, not yet sufficient.",
-      "SPCX sobre +30%. El bonus necesita <b>5 de 10 días hacia resultados del 2T</b> ≥$175,50 — necesario, aún no suficiente."
+      "Above the +30% line — but the 10-day window into Q2 earnings closed Aug 4: the tranche is dead and the +10% rolls into the time tranches.",
+      "Sobre la línea de +30% — pero la ventana de 10 días hacia resultados del 2T cerró el 4 ago: el tramo está muerto y el +10% pasa a los tramos de tiempo."
     ),
-    needs: t("Needs", "Necesita"),
-    toArm: t("to arm the +10% bonus tranche.", "para armar el tramo bonus del +10%."),
+    needs: t("Window closed at Q2 earnings — dead; the +10% rolls into the time tranches. (Would still need", "Ventana cerrada en resultados del 2T — muerto; el +10% pasa a los tramos de tiempo. (Aún requeriría"),
+    toArm: t("to touch the $175.50 line, which now unlocks nothing.)", "para tocar la línea de $175,50, que ya no libera nada.)"),
     note: t(
       "<b>Status (Aug 17): wave 1 unlocked Aug 6 — and ABSORBED.</b> +6% on day 1 in heavy volume; the 13Fs show who met it (PIF +154M, Harvard $2.2B, Blackstone, Atreides; Nvidia disclosed $20.97B Aug 17). A squeeze (shorts 34% → 11% of float, S3) then drove SPCX from the record low <b>$104.83 (Aug 3) to ~$148</b> — +41%, back above the $135 IPO, cap ~$1.9T. Still <b>~2.4× Morningstar FV ($62)</b>. The bonus is dead as ever: the +30% trigger ($175.50) was never reached; that 10% <b>rolls into the time tranches</b>. <b>Next rung: up to 319M shares on Aug 20</b> (&gt;3× daily volume), then ~700M Sep / ~700M Oct, the +28% Q3-earnings cliff (~Nov), and the 180-day full unlock <b>~Dec 9</b> (float → ~40%). Insiders can now sell into a squeezed, above-IPO price — the Dec window, nearer fair value, stays where accumulation sizing gets interesting. Musk (48.4%, filed Aug 16) sits to mid-2027.",
       "<b>Estado (17 ago): la ola 1 se liberó el 6 ago — y fue ABSORBIDA.</b> +6% el día 1 con volumen pesado; los 13F muestran quién la compró (PIF +154M, Harvard $2,2B, Blackstone, Atreides; Nvidia reveló $20,97B el 17 ago). Un squeeze (cortos 34% → 11% del float, S3) llevó luego a SPCX del mínimo récord de <b>$104,83 (3 ago) a ~$148</b> — +41%, de nuevo sobre la OPV de $135, cap ~$1,9B. Aún <b>~2,4× VR de Morningstar ($62)</b>. El bonus sigue muerto: el disparador de +30% ($175,50) nunca se alcanzó; ese 10% <b>pasa a los tramos de tiempo</b>. <b>Próximo peldaño: hasta 319M acciones el 20 ago</b> (&gt;3× el volumen diario), luego ~700M sep / ~700M oct, el abismo de +28% con resultados del 3T (~nov) y el unlock total a 180 días <b>~9 dic</b> (float → ~40%). Los insiders ahora pueden vender a un precio purgado al alza, sobre la OPV — la ventana de dic, más cerca del valor razonable, sigue siendo donde el dimensionamiento se vuelve interesante. Musk (48,4%, presentado 16 ago) queda hasta mediados de 2027."

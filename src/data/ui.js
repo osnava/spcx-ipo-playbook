@@ -18,7 +18,7 @@ export const UI = {
   sectionWatch: t("Watch for", "Vigila"),
   lockupLabel: t("Lockup supply schedule · the other side of the trade", "Calendario de oferta del lockup · el otro lado del trade"),
   frameworkLabel: t("Operating principles", "Principios operativos"),
-  holdingsLabel: t("My real book · SPCX decoupled from the sleeve  (＋ SPCX: accumulate slowly into the lockup ladder)", "Mi cartera real · SPCX desacoplado del bloque  (＋ SPCX: acumular despacio en la escalera del lockup)"),
+  holdingsLabel: t("My real book · SPCX decoupled from the sleeve  (＋ SPCX: buy the lockup waves — never above the $135 IPO)", "Mi cartera real · SPCX desacoplado del bloque  (＋ SPCX: compra las olas del lockup — nunca sobre la OPV de $135)"),
   bookCols: {
     asset: t("Asset", "Activo"),
     role: t("Role", "Rol"),
